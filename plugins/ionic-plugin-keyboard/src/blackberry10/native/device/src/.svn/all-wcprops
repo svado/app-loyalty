@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/Sistemas/!svn/ver/24814/app-loyalty/plugins/ionic-plugin-keyboard/src/blackberry10/native/device/src
+END
+CallKeyboard.o
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/Sistemas/!svn/ver/24814/app-loyalty/plugins/ionic-plugin-keyboard/src/blackberry10/native/device/src/CallKeyboard.o
+END
+keyboard_js.o
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/Sistemas/!svn/ver/24814/app-loyalty/plugins/ionic-plugin-keyboard/src/blackberry10/native/device/src/keyboard_js.o
+END
+keyboard_ndk.o
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/Sistemas/!svn/ver/24814/app-loyalty/plugins/ionic-plugin-keyboard/src/blackberry10/native/device/src/keyboard_ndk.o
+END
+Logger.o
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/Sistemas/!svn/ver/24814/app-loyalty/plugins/ionic-plugin-keyboard/src/blackberry10/native/device/src/Logger.o
+END

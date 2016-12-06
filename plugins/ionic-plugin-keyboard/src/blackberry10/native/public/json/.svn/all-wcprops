@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/Sistemas/!svn/ver/24814/app-loyalty/plugins/ionic-plugin-keyboard/src/blackberry10/native/public/json
+END
+json.h
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/Sistemas/!svn/ver/24814/app-loyalty/plugins/ionic-plugin-keyboard/src/blackberry10/native/public/json/json.h
+END
+value.h
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/Sistemas/!svn/ver/24814/app-loyalty/plugins/ionic-plugin-keyboard/src/blackberry10/native/public/json/value.h
+END
+writer.h
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/Sistemas/!svn/ver/24814/app-loyalty/plugins/ionic-plugin-keyboard/src/blackberry10/native/public/json/writer.h
+END
+features.h
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/Sistemas/!svn/ver/24814/app-loyalty/plugins/ionic-plugin-keyboard/src/blackberry10/native/public/json/features.h
+END
+reader.h
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/Sistemas/!svn/ver/24814/app-loyalty/plugins/ionic-plugin-keyboard/src/blackberry10/native/public/json/reader.h
+END
+config.h
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/Sistemas/!svn/ver/24814/app-loyalty/plugins/ionic-plugin-keyboard/src/blackberry10/native/public/json/config.h
+END
+autolink.h
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/Sistemas/!svn/ver/24814/app-loyalty/plugins/ionic-plugin-keyboard/src/blackberry10/native/public/json/autolink.h
+END
+forwards.h
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/Sistemas/!svn/ver/24814/app-loyalty/plugins/ionic-plugin-keyboard/src/blackberry10/native/public/json/forwards.h
+END

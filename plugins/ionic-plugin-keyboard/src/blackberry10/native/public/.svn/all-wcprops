@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/Sistemas/!svn/ver/24814/app-loyalty/plugins/ionic-plugin-keyboard/src/blackberry10/native/public
+END
+plugin.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/Sistemas/!svn/ver/24814/app-loyalty/plugins/ionic-plugin-keyboard/src/blackberry10/native/public/plugin.cpp
+END
+json_valueiterator.inl
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/Sistemas/!svn/ver/24814/app-loyalty/plugins/ionic-plugin-keyboard/src/blackberry10/native/public/json_valueiterator.inl
+END
+tokenizer.h
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/Sistemas/!svn/ver/24814/app-loyalty/plugins/ionic-plugin-keyboard/src/blackberry10/native/public/tokenizer.h
+END
+json_batchallocator.h
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/Sistemas/!svn/ver/24814/app-loyalty/plugins/ionic-plugin-keyboard/src/blackberry10/native/public/json_batchallocator.h
+END
+json_internalmap.inl
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/Sistemas/!svn/ver/24814/app-loyalty/plugins/ionic-plugin-keyboard/src/blackberry10/native/public/json_internalmap.inl
+END
+plugin.h
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/Sistemas/!svn/ver/24814/app-loyalty/plugins/ionic-plugin-keyboard/src/blackberry10/native/public/plugin.h
+END
+json_internalarray.inl
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/Sistemas/!svn/ver/24814/app-loyalty/plugins/ionic-plugin-keyboard/src/blackberry10/native/public/json_internalarray.inl
+END
+json_value.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/Sistemas/!svn/ver/24814/app-loyalty/plugins/ionic-plugin-keyboard/src/blackberry10/native/public/json_value.cpp
+END
+json_writer.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/Sistemas/!svn/ver/24814/app-loyalty/plugins/ionic-plugin-keyboard/src/blackberry10/native/public/json_writer.cpp
+END
+tokenizer.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/Sistemas/!svn/ver/24814/app-loyalty/plugins/ionic-plugin-keyboard/src/blackberry10/native/public/tokenizer.cpp
+END
+json_reader.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/Sistemas/!svn/ver/24814/app-loyalty/plugins/ionic-plugin-keyboard/src/blackberry10/native/public/json_reader.cpp
+END

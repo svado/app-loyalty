@@ -1,0 +1,13 @@
+{
+  "name": "loyalty",
+  "app_id": "1bc47a91",
+  "gulpStartupTasks": [
+    "sass",
+    "watch"
+  ],
+  "watchPatterns": [
+    "www/**/*",
+    "!www/lib/**/*",
+    "!www/**/*.map"
+  ]
+}
