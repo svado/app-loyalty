@@ -1,0 +1,221 @@
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/Sistemas/!svn/ver/24811/app-loyalty/www/lib/ionic/scss
+END
+_variables.scss
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/Sistemas/!svn/ver/24811/app-loyalty/www/lib/ionic/scss/_variables.scss
+END
+_list.scss
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/Sistemas/!svn/ver/24811/app-loyalty/www/lib/ionic/scss/_list.scss
+END
+_button-bar.scss
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/Sistemas/!svn/ver/24811/app-loyalty/www/lib/ionic/scss/_button-bar.scss
+END
+_loading.scss
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/Sistemas/!svn/ver/24811/app-loyalty/www/lib/ionic/scss/_loading.scss
+END
+_transitions.scss
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/Sistemas/!svn/ver/24811/app-loyalty/www/lib/ionic/scss/_transitions.scss
+END
+_spinner.scss
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/Sistemas/!svn/ver/24811/app-loyalty/www/lib/ionic/scss/_spinner.scss
+END
+_scaffolding.scss
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/Sistemas/!svn/ver/24811/app-loyalty/www/lib/ionic/scss/_scaffolding.scss
+END
+_toggle.scss
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/Sistemas/!svn/ver/24811/app-loyalty/www/lib/ionic/scss/_toggle.scss
+END
+_items.scss
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/Sistemas/!svn/ver/24811/app-loyalty/www/lib/ionic/scss/_items.scss
+END
+_reset.scss
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/Sistemas/!svn/ver/24811/app-loyalty/www/lib/ionic/scss/_reset.scss
+END
+_slides.scss
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/Sistemas/!svn/ver/24811/app-loyalty/www/lib/ionic/scss/_slides.scss
+END
+_platform.scss
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/Sistemas/!svn/ver/24811/app-loyalty/www/lib/ionic/scss/_platform.scss
+END
+_grid.scss
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/Sistemas/!svn/ver/24811/app-loyalty/www/lib/ionic/scss/_grid.scss
+END
+_checkbox.scss
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/Sistemas/!svn/ver/24811/app-loyalty/www/lib/ionic/scss/_checkbox.scss
+END
+_tabs.scss
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/Sistemas/!svn/ver/24811/app-loyalty/www/lib/ionic/scss/_tabs.scss
+END
+_popover.scss
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/Sistemas/!svn/ver/24811/app-loyalty/www/lib/ionic/scss/_popover.scss
+END
+_badge.scss
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/Sistemas/!svn/ver/24811/app-loyalty/www/lib/ionic/scss/_badge.scss
+END
+_form.scss
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/Sistemas/!svn/ver/24811/app-loyalty/www/lib/ionic/scss/_form.scss
+END
+_menu.scss
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/Sistemas/!svn/ver/24811/app-loyalty/www/lib/ionic/scss/_menu.scss
+END
+_mixins.scss
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/Sistemas/!svn/ver/24811/app-loyalty/www/lib/ionic/scss/_mixins.scss
+END
+_button.scss
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/Sistemas/!svn/ver/24811/app-loyalty/www/lib/ionic/scss/_button.scss
+END
+_util.scss
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/Sistemas/!svn/ver/24811/app-loyalty/www/lib/ionic/scss/_util.scss
+END
+_select.scss
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/Sistemas/!svn/ver/24811/app-loyalty/www/lib/ionic/scss/_select.scss
+END
+_type.scss
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/Sistemas/!svn/ver/24811/app-loyalty/www/lib/ionic/scss/_type.scss
+END
+_action-sheet.scss
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/Sistemas/!svn/ver/24811/app-loyalty/www/lib/ionic/scss/_action-sheet.scss
+END
+_refresher.scss
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/Sistemas/!svn/ver/24811/app-loyalty/www/lib/ionic/scss/_refresher.scss
+END
+_backdrop.scss
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/Sistemas/!svn/ver/24811/app-loyalty/www/lib/ionic/scss/_backdrop.scss
+END
+_slide-box.scss
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/Sistemas/!svn/ver/24811/app-loyalty/www/lib/ionic/scss/_slide-box.scss
+END
+_range.scss
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/Sistemas/!svn/ver/24811/app-loyalty/www/lib/ionic/scss/_range.scss
+END
+_modal.scss
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/Sistemas/!svn/ver/24811/app-loyalty/www/lib/ionic/scss/_modal.scss
+END
+_radio.scss
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/Sistemas/!svn/ver/24811/app-loyalty/www/lib/ionic/scss/_radio.scss
+END
+_animations.scss
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/Sistemas/!svn/ver/24811/app-loyalty/www/lib/ionic/scss/_animations.scss
+END
+ionic.scss
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/Sistemas/!svn/ver/24811/app-loyalty/www/lib/ionic/scss/ionic.scss
+END
+_popup.scss
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/Sistemas/!svn/ver/24811/app-loyalty/www/lib/ionic/scss/_popup.scss
+END
+_progress.scss
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/Sistemas/!svn/ver/24811/app-loyalty/www/lib/ionic/scss/_progress.scss
+END
+_bar.scss
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/Sistemas/!svn/ver/24811/app-loyalty/www/lib/ionic/scss/_bar.scss
+END

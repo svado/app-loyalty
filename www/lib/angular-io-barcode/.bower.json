@@ -1,0 +1,45 @@
+{
+  "name": "angular-io-barcode",
+  "description": "Angular module for io-barcode",
+  "main": "build/angular-io-barcode.js",
+  "authors": [
+    "Loic Mahieu <mahieuloic@gmail.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "angularjs",
+    "io-barcode",
+    "barcode"
+  ],
+  "homepage": "https://github.com/LoicMahieu/angular-io-barcode",
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "demo",
+    "lib",
+    "webpack.config.js",
+    "karma.conf.js"
+  ],
+  "dependencies": {
+    "angular": "~1.4.8"
+  },
+  "version": "1.0.4",
+  "_release": "1.0.4",
+  "_resolution": {
+    "type": "version",
+    "tag": "v1.0.4",
+    "commit": "fa2edf4c8f801b6c4bc670eb05c8d1c9c177543e"
+  },
+  "_source": "https://github.com/LoicMahieu/angular-io-barcode.git",
+  "_target": "1.0.4",
+  "_originalSource": "angular-io-barcode",
+  "_direct": true
+}

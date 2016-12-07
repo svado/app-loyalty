@@ -3,9 +3,15 @@ svn:wc:ra_dav:version-url
 V 41
 /Sistemas/!svn/ver/24813/app-loyalty/scss
 END
+loyalty.scss
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/Sistemas/!svn/ver/24835/app-loyalty/scss/loyalty.scss
+END
 ionic.app.scss
 K 25
 svn:wc:ra_dav:version-url
 V 56
-/Sistemas/!svn/ver/24813/app-loyalty/scss/ionic.app.scss
+/Sistemas/!svn/ver/24835/app-loyalty/scss/ionic.app.scss
 END

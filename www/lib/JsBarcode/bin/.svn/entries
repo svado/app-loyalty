@@ -1,0 +1,77 @@
+10
+
+dir
+24833
+http://subversion.grupocafebritt.com:80/Sistemas/app-loyalty/www/lib/JsBarcode/bin
+http://subversion.grupocafebritt.com:80/Sistemas
+
+
+
+2016-12-06T22:22:27.520015Z
+24833
+svado
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+7fbfb38e-5f93-4992-b219-878775e548b1
+
+exceptions
+dir
+
+barcodes
+dir
+
+JsBarcode.js
+file
+
+
+
+
+2016-12-06T18:08:54.848936Z
+dd4d38b506fc66bb269fb591f83f290c
+2016-12-06T22:22:27.520015Z
+24833
+svado
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+6804
+
+help
+dir
+
+renderers
+dir
+
+options
+dir
+
