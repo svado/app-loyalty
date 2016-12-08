@@ -5,6 +5,7 @@ angular.module('starter.controllers', [])
 
     // Inicializador
     $scope.loginData = {};
+    $scope.signData = [];
     $scope.isLoggedIn = isLoggedIn;
     
     // Obtiene los datos locales
@@ -81,11 +82,39 @@ angular.module('starter.controllers', [])
             reload: true
         });
     }
+
+    // Modal sign up
+    $ionicModal.fromTemplateUrl('templates/signup.html', {
+        scope: $scope
+    }).then(function (modal) {
+        $scope.modalSignUp = modal;
+    });
+    $scope.closeSignUp = function () {
+        $scope.modalSignUp.hide();
+    };
+    $scope.signup = function () {
+        $scope.modalSignUp.show();
+    };
+
+    // Modal log in
+    $ionicModal.fromTemplateUrl('templates/login-modal.html', {
+        scope: $scope
+    }).then(function (modal) {
+        $scope.modalLogin = modal;
+    });
+    $scope.closeLogin = function () {
+        $scope.modalLogin.hide();
+    };
+    $scope.login = function () {
+        $scope.modalLogin.show();
+    };
 })
 
 .controller('DashCtrl', function($scope) {
     
-    JsBarcode("#barcode", "12345", {
+    $codigo_cliente = $scope.loginData.codigo_cliente;
+
+    JsBarcode("#barcode", $codigo_cliente, {
       format: "CODE128",
       lineColor: "#000",
       width:3,
@@ -119,14 +148,39 @@ angular.module('starter.controllers', [])
                     $scope.closeLogin();
 
                     // Reenvia a la cuenta o continua con el envio
-                    if (page == 'shipping')
-                        $state.go("app.shipping");
-                    else
-                        $state.go("app.contactinfo");
+                    $state.go("tab.dash");
                 } else
                 if (data.ALERTA.length != 0) $scope.showPopup('Sign In', data.ALERTA);
             } else {
-                $scope.showPopup('Sign In', 'Error connection');
+                $scope.showPopup('Sign In', 'Connection Error');
+            }
+        }).
+        error(function (data, status) {
+            console.log(status);
+        });
+    };
+
+    // Crea el cliente en la web.
+    $scope.doSignUp = function () {
+
+        $scope.error = true;
+        $params = '&first_name=' + $scope.signData.first_name + '&last_name=' + $scope.signData.last_name + '&email=' + $scope.signData.email + '&phone=' + $scope.signData.phone + '&password=' + $scope.signData.password + '&password2=' + $scope.signData.password2;
+        $method = 'createUser';
+        $http.post($rutaAccountWs + $method + $params).
+        success(function (data, status, headers) {
+            if (data.length != 0) {
+                if (data.ERROR == false) {
+                    $cliente = {};
+                    $cliente.email = data.EMAIL;
+                    window.localStorage.setItem('cliente', JSON.stringify($cliente));
+                    $scope.error = false;
+                    if (data.ALERTA.length != 0) $scope.showPopup('Sign Up', data.ALERTA);
+                    $scope.closeSignUp();
+                    $scope.login();
+                } else
+                if (data.ALERTA.length != 0) $scope.showPopup('Sign Up', data.ALERTA);
+            } else {
+                $scope.showPopup('Sign Up', 'Connection Error');
             }
         }).
         error(function (data, status) {
@@ -158,4 +212,9 @@ angular.module('starter.controllers', [])
   $scope.settings = {
     enableFriends: true
   };
+})
+
+// Genericos
+.controller('GenericCtrl', function ($scope, $rootScope, $ionicHistory) {
+
 });
