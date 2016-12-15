@@ -7,7 +7,7 @@ END
 K 25
 svn:wc:ra_dav:version-url
 V 52
-/Sistemas/!svn/ver/24812/app-loyalty/.io-config.json
+/Sistemas/!svn/ver/24936/app-loyalty/.io-config.json
 END
 .bowerrc
 K 25
@@ -31,7 +31,7 @@ config.xml
 K 25
 svn:wc:ra_dav:version-url
 V 47
-/Sistemas/!svn/ver/24834/app-loyalty/config.xml
+/Sistemas/!svn/ver/24936/app-loyalty/config.xml
 END
 .gitignore
 K 25

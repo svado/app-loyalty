@@ -20,22 +20,105 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
+
+    // Variables globales
+    $rutaPagesWs = 'http://www.cafebritt.com/app/loyalty/ws/pages.cfc?returnformat=json&callback=&method=';
+    $rutaAccountWs = 'http://www.cafebritt.com/app/loyalty/ws/account.cfc?returnformat=json&callback=&method=';
+    $rutaBritttWs = 'http://loyalty.britt.com/ws/account.cfc?returnformat=json&callback=&method=';
+    $rutaImagenes = 'http://www.brittespresso.com/siteimg/';
+
+
+
+
+
   });
+
+  // Esta loqueado?
+  isLoggedIn = function () {
+        if (window.localStorage.getItem("cliente") !== null) {
+            $cliente = JSON.parse(window.localStorage.getItem("cliente"));
+            if ($cliente.codigo_cliente !== undefined) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+  };
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.run(function ($rootScope, $ionicLoading, $state) {
 
-  // Ionic uses AngularUI Router which uses the concept of states
-  // Learn more here: https://github.com/angular-ui/ui-router
-  // Set up the various states which the app can be in.
-  // Each state's controller can be found in controllers.js
+    // Muestra un mensaje mientras carga datos en la vista
+    $rootScope.$on('loading:show', function () {
+        $ionicLoading.show({
+            template: 'Loading'
+        })
+    })
+    $rootScope.$on('loading:hide', function () {
+        $ionicLoading.hide()
+    })
+
+    // Manejo de accesos
+    $rootScope.$on('$stateChangeError', function (e, toState, toParams, fromState, fromParams, error) {
+
+        console.log(error);
+
+        if (error === "No logged") {
+            $state.go("tab.login");
+        } else if (error === 'Invalid access') {
+            $state.go("app.invalidaccess");
+        }
+    })
+})
+
+.config(function($stateProvider, $urlRouterProvider, $httpProvider, $ionicConfigProvider) {
+
+  // Intercepta un evento http cuando es invocado
+  $httpProvider.interceptors.push(function ($rootScope) {
+    return {
+        request: function (config) {
+            if (config.url != 'https://push.ionic.io/dev/push/check')
+                $rootScope.$broadcast('loading:show')
+            return config
+        },
+        response: function (response) {
+            $rootScope.$broadcast('loading:hide')
+            return response
+        }
+    }
+  })
+
+  // Seguridad
+  $stateProvider.decorator('data', function (state, parent) {
+        var stateData = parent(state);
+        state.resolve = state.resolve || {};
+
+        state.resolve.security = ['$q', function ($q) {
+
+            if (stateData.needLogged && !isLoggedIn()) {
+
+                // Necesita estar logueado
+                return $q.reject("No logged");
+            }
+           }];
+
+        return stateData;
+  })
+
+  // Manejar de paginas
   $stateProvider
 
   // setup an abstract state for the tabs directive
     .state('tab', {
     url: '/tab',
     abstract: true,
-    templateUrl: 'templates/tabs.html'
+    templateUrl: 'templates/tabs.html',
+    controller: 'AppCtrl',
+    data: {
+        needLogged: false
+    }
   })
 
   // Each tab has its own nav history stack:
@@ -46,28 +129,25 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       'tab-dash': {
         templateUrl: 'templates/tab-dash.html',
         controller: 'DashCtrl'
-      }
+        }
+    },
+    data: {
+        needLogged: true
     }
   })
 
-  .state('tab.chats', {
-      url: '/chats',
-      views: {
-        'tab-chats': {
-          templateUrl: 'templates/tab-chats.html',
-          controller: 'ChatsCtrl'
-        }
-      }
-    })
-    .state('tab.chat-detail', {
+  .state('tab.chat-detail', {
       url: '/chats/:chatId',
       views: {
         'tab-chats': {
           templateUrl: 'templates/chat-detail.html',
           controller: 'ChatDetailCtrl'
         }
+      },
+      data: {
+        needLogged: true
       }
-    })
+  })
 
   .state('tab.account', {
     url: '/account',
@@ -76,8 +156,24 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         templateUrl: 'templates/tab-account.html',
         controller: 'AccountCtrl'
       }
+    },
+    data: {
+        needLogged: true
     }
-  });
+  })
+
+  .state('tab.login', {
+      url: '/login',
+      views: {
+        'tab-login': {
+          templateUrl: 'templates/tab-login.html',
+          controller: 'ContactCtrl'
+        }
+      },
+      data: {
+        needLogged: false
+      }
+  })
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/dash');

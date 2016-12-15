@@ -34,14 +34,14 @@ dir
 
 fetch.json
 file
+24937
 
 
 
-
-2016-12-05T17:00:11.967182Z
-a8599542fbfd7921901e1f739a2f39e9
-2016-12-05T17:57:37.057643Z
-24814
+2016-12-14T17:17:48.698440Z
+40b152557deeded810cd631c526530ad
+2016-12-14T21:04:00.517070Z
+24937
 svado
 
 
@@ -64,7 +64,7 @@ svado
 
 
 
-1228
+1633
 
 cordova-plugin-whitelist
 dir
@@ -72,7 +72,47 @@ dir
 cordova-plugin-device
 dir
 
+android.json
+file
+24937
+
+
+
+2016-12-14T15:34:22.302435Z
+983af2a32f0779bf222be991edabeaff
+2016-12-14T21:04:00.517070Z
+24937
+svado
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1088
+
 cordova-plugin-console
+dir
+
+cordova-plugin-compat
+dir
+
+cordova-plugin-geolocation
 dir
 
 ionic-plugin-keyboard

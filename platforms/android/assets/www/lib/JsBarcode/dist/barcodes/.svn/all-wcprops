@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/Sistemas/!svn/ver/24833/app-loyalty/www/lib/JsBarcode/dist/barcodes
+END
+JsBarcode.ean-upc.min.js
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/Sistemas/!svn/ver/24833/app-loyalty/www/lib/JsBarcode/dist/barcodes/JsBarcode.ean-upc.min.js
+END
+JsBarcode.msi.min.js
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/Sistemas/!svn/ver/24833/app-loyalty/www/lib/JsBarcode/dist/barcodes/JsBarcode.msi.min.js
+END
+JsBarcode.codabar.min.js
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/Sistemas/!svn/ver/24833/app-loyalty/www/lib/JsBarcode/dist/barcodes/JsBarcode.codabar.min.js
+END
+JsBarcode.itf.min.js
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/Sistemas/!svn/ver/24833/app-loyalty/www/lib/JsBarcode/dist/barcodes/JsBarcode.itf.min.js
+END
+JsBarcode.pharmacode.min.js
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/Sistemas/!svn/ver/24833/app-loyalty/www/lib/JsBarcode/dist/barcodes/JsBarcode.pharmacode.min.js
+END
+JsBarcode.itf-14.min.js
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/Sistemas/!svn/ver/24833/app-loyalty/www/lib/JsBarcode/dist/barcodes/JsBarcode.itf-14.min.js
+END
+JsBarcode.code128.min.js
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/Sistemas/!svn/ver/24833/app-loyalty/www/lib/JsBarcode/dist/barcodes/JsBarcode.code128.min.js
+END
+JsBarcode.code39.min.js
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/Sistemas/!svn/ver/24833/app-loyalty/www/lib/JsBarcode/dist/barcodes/JsBarcode.code39.min.js
+END

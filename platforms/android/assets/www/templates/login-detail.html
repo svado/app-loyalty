@@ -1,0 +1,19 @@
+<div class="list">
+    <label class="item item-input">
+        <span class="input-label">Email</span>
+        <div ng-messages="fLogin.email.$error" ng-messages-include="messages.html"></div>
+        <input type="email" ng-model="$parent.loginData.email" name="email" required>
+    </label>
+    <label class="item item-input">
+        <span class="input-label">Password</span>
+        <div ng-messages="fLogin.password.$error" ng-messages-include="messages.html"></div>
+        <input type="password" ng-model="$parent.loginData.password" name="password" required>
+    </label>
+    <div class="item">
+        <button class="button button-block button-positive" type="submit" ng-disabled="fLogin.$invalid">Sign In</button>
+        <a class="button button-block button-assertive" href="#/app/signup" ng-click="signup()">Sign Up</a>
+    </div>
+    <div class="item text-center">
+        <p>Forgot your password? <a class="" href="#/app/reset" ng-click="reset()">please enter here</a></p>
+    </div>
+</div>

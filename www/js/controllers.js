@@ -6,7 +6,7 @@ angular.module('starter.controllers', [])
     // Inicializador
     $scope.loginData = {};
     $scope.signData = [];
-    $scope.isLoggedIn = isLoggedIn;
+    $scope.isLoggedIn = isLoggedIn;  
     
     // Obtiene los datos locales
     $scope.getLocalData = function (elemento) {
@@ -24,8 +24,8 @@ angular.module('starter.controllers', [])
         return $elemento;
     }
 
-    //Obtiene los datos del cliente
-    $scope.loginData = $scope.getLocalData('cliente');
+    //Obtiene los datos del cliente    
+    $scope.loginData = $scope.getLocalData('cliente');    
     
     // Logout
     $scope.logout = function () {
@@ -124,7 +124,10 @@ angular.module('starter.controllers', [])
 })
 
 // Manejo de clientes
-.controller('ContactCtrl', function ($scope, $rootScope, $http, $stateParams, $state, $ionicHistory) {
+.controller('ContactCtrl', function ($scope, $rootScope, $http, $stateParams, $state, $ionicHistory) {    
+            
+    $scope.geoData = $scope.getLocalData('geodata');    
+    console.log(hasGeoData());
     
     // Trata de loguearse en la web.
     $scope.doLogin = function (page) {
@@ -162,7 +165,7 @@ angular.module('starter.controllers', [])
 
     // Crea el cliente en la web.
     $scope.doSignUp = function () {
-
+        
         $scope.error = true;
         $params = '&first_name=' + $scope.signData.first_name + '&last_name=' + $scope.signData.last_name + '&email=' + $scope.signData.email + '&phone=' + $scope.signData.phone + '&password=' + $scope.signData.password + '&password2=' + $scope.signData.password2;
         $method = 'createUser';
@@ -208,10 +211,44 @@ angular.module('starter.controllers', [])
   $scope.chat = Chats.get($stateParams.chatId);
 })
 
-.controller('AccountCtrl', function($scope) {
-  $scope.settings = {
-    enableFriends: true
-  };
+.controller('PointsCtrl', function($scope, $rootScope, $http, $stateParams, $state, $ionicHistory) {
+
+    //Obtiene los datos del cliente    
+    $scope.loginData = $scope.getLocalData('cliente');    
+    
+    // Trata de loguearse en la web.
+    getPoints = function (page) {
+
+        $scope.error = true;
+        $params = '&codigo_cliente=1';
+        $method = 'GetPoints';
+        $http.post($rutaBritttWs + $method + $params).
+        success(function (data, status, headers) {
+            if (data.length != 0) {
+                if (data.ERROR == false) {
+                    $cliente = {};
+                    $cliente.codigo_cliente = $scope.loginData.codigo_cliente;
+                    $cliente.first_name = $scope.loginData.first_name;
+                    $cliente.last_name = $scope.loginData.last_name;
+                    $cliente.email = $scope.loginData.email;
+                    $cliente.puntos_totales = data.PUNTOS_TOTALES;                    
+                    $scope.error = false;
+                    $scope.loginData = $cliente;
+                    window.localStorage.setItem('cliente', JSON.stringify($cliente));                    
+                    if (data.ALERTA.length != 0) $scope.showPopup('Points', data.ALERTA);
+                } else
+                if (data.ALERTA.length != 0) $scope.showPopup('Points', data.ALERTA);
+            } else {
+                $scope.showPopup('Points', 'Connection Error');
+            }
+        }).
+        error(function (data, status) {
+            console.log(status);
+        });
+    };
+    
+    // Obtiene los puntos
+    getPoints();
 })
 
 // Genericos

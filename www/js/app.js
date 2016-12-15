@@ -5,9 +5,10 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','ngCordova'])
 
 .run(function($ionicPlatform) {
+  
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -20,11 +21,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
-      
+          
     // Variables globales
     $rutaPagesWs = 'http://www.cafebritt.com/app/loyalty/ws/pages.cfc?returnformat=json&callback=&method=';
     $rutaAccountWs = 'http://www.cafebritt.com/app/loyalty/ws/account.cfc?returnformat=json&callback=&method=';
+    $rutaBritttWs = 'http://loyalty.britt.com/ws/account.cfc?returnformat=json&callback=&method=';
     $rutaImagenes = 'http://www.brittespresso.com/siteimg/';
+
+    // Geolocalizacion    
+    geoLocalizar();
   });
     
   // Esta loqueado?
@@ -40,9 +45,23 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
             return false;
         }
   };
+    
+  // Esta logueado?
+  hasGeoData = function () {
+        if (window.localStorage.getItem("geodata") !== null) {
+            $geodata = JSON.parse(window.localStorage.getItem("geodata"));
+            if ($geodata.country_code !== undefined) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+  };
 })
 
-.run(function ($rootScope, $ionicLoading, $state) {
+.run(function ($rootScope, $ionicLoading, $state, $cordovaGeolocation) {
 
     // Muestra un mensaje mientras carga datos en la vista
     $rootScope.$on('loading:show', function () {
@@ -64,9 +83,71 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         } else if (error === 'Invalid access') {
             $state.go("app.invalidaccess");
         }
-    })
-})
+    });    
+    
+    // Geocolalizacion
+    geoLocalizar = function () {
+      
+        var posOptions = {timeout: 10000, enableHighAccuracy: false};
+        $cordovaGeolocation
+          .getCurrentPosition(posOptions)
+          .then(function (position) {
+                
+                var lat  = position.coords.latitude;
+                var long = position.coords.longitude;                  
+                var geocoder = new google.maps.Geocoder();
+                var latLng = new google.maps.LatLng(lat,long);
+            
+                geocoder.geocode({'latLng': latLng}, function (results, status) {
+                    
+                    if (status == google.maps.GeocoderStatus.OK) 
+                    {
+                        if (results[0]) 
+                        {
+                            // Formatted address
+                            var currentAdd = results[0].formatted_address;
+                            var address = currentAdd;
+                            //find country name
+                            for (var i=0; i<results[0].address_components.length; i++) 
+                            {
+                                for (var b=0;b<results[0].address_components[i].types.length;b++) 
+                                {                            
+                                    if (results[0].address_components[i].types[b] == "country") {
+                                        
+                                        //this is the object you are looking for
+                                        country = results[0].address_components[i];
+                                        //console.log(country.short_name + ': ' + country.long_name);
+                                        
+                                        // Guarda la ubicacion
+                                        var $geodata = {};
+                                        $geodata.country_name = country.long_name;
+                                        $geodata.country_code = country.short_name;
+                                        window.localStorage.setItem('geodata', JSON.stringify($geodata));
+                                        
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                        else {
+                            console.log('No results found');
 
+                        }
+                    } 
+                    else if (status === google.maps.GeocoderStatus.OVER_QUERY_LIMIT) { 
+                        console.log('Timeout');
+                    } 
+                    else {
+                        console.log('Weak Signals. Try again');
+                    }
+                });
+
+          }, function(err) {
+            console.log(err);
+        });      
+    }          
+        
+})
 
 .config(function($stateProvider, $urlRouterProvider, $httpProvider, $ionicConfigProvider) {
 
@@ -144,12 +225,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
   })
   
-  .state('tab.account', {
-    url: '/account',
+  .state('tab.points', {
+    url: '/points',
     views: {
-      'tab-account': {
-        templateUrl: 'templates/tab-account.html',
-        controller: 'AccountCtrl'
+      'tab-points': {
+        templateUrl: 'templates/tab-points.html',
+        controller: 'PointsCtrl'
       }
     },
     data: {

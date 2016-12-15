@@ -32,6 +32,9 @@ dir
 angular-ui-router
 dir
 
+ngCordova
+dir
+
 angular-animate
 dir
 
