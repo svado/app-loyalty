@@ -48,7 +48,7 @@ module.exports = [
         "runs": true
     }
 ];
-module.exports.metadata =
+module.exports.metadata = 
 // TOP OF METADATA
 {
     "cordova-plugin-console": "1.0.4",

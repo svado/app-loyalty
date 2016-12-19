@@ -6,8 +6,8 @@ angular.module('starter.controllers', [])
     // Inicializador
     $scope.loginData = {};
     $scope.signData = [];
-    $scope.isLoggedIn = isLoggedIn;
-
+    $scope.isLoggedIn = isLoggedIn;  
+    
     // Obtiene los datos locales
     $scope.getLocalData = function (elemento) {
         $elemento = {};
@@ -24,9 +24,9 @@ angular.module('starter.controllers', [])
         return $elemento;
     }
 
-    //Obtiene los datos del cliente
-    $scope.loginData = $scope.getLocalData('cliente');
-
+    //Obtiene los datos del cliente    
+    $scope.loginData = $scope.getLocalData('cliente');    
+    
     // Logout
     $scope.logout = function () {
         window.localStorage.removeItem("cliente");
@@ -111,7 +111,7 @@ angular.module('starter.controllers', [])
 })
 
 .controller('DashCtrl', function($scope) {
-
+    
     $codigo_cliente = $scope.loginData.codigo_cliente;
 
     JsBarcode("#barcode", $codigo_cliente, {
@@ -120,12 +120,15 @@ angular.module('starter.controllers', [])
       width:3,
       displayValue: true
     });
-
+    
 })
 
 // Manejo de clientes
-.controller('ContactCtrl', function ($scope, $rootScope, $http, $stateParams, $state, $ionicHistory) {
-
+.controller('ContactCtrl', function ($scope, $rootScope, $http, $stateParams, $state, $ionicHistory) {    
+            
+    $scope.geoData = $scope.getLocalData('geodata');    
+    console.log(hasGeoData());
+    
     // Trata de loguearse en la web.
     $scope.doLogin = function (page) {
 
@@ -162,7 +165,7 @@ angular.module('starter.controllers', [])
 
     // Crea el cliente en la web.
     $scope.doSignUp = function () {
-
+        
         $scope.error = true;
         $params = '&first_name=' + $scope.signData.first_name + '&last_name=' + $scope.signData.last_name + '&email=' + $scope.signData.email + '&phone=' + $scope.signData.phone + '&password=' + $scope.signData.password + '&password2=' + $scope.signData.password2;
         $method = 'createUser';
@@ -189,49 +192,44 @@ angular.module('starter.controllers', [])
     };
 })
 
-.controller('ChatsCtrl', function($scope, Chats) {
-  // With the new view caching in Ionic, Controllers are only called
-  // when they are recreated or on app start, instead of every page change.
-  // To listen for when this page is active (for example, to refresh data),
-  // listen for the $ionicView.enter event:
-  //
-  //$scope.$on('$ionicView.enter', function(e) {
-  //});
+.controller('PointsCtrl', function($scope, $rootScope, $http, $stateParams, $state, $ionicHistory) {
 
-  $scope.chats = Chats.all();
-  $scope.remove = function(chat) {
-    Chats.remove(chat);
-  };
-})
+    //Obtiene los datos del cliente    
+    $scope.loginData = $scope.getLocalData('cliente');    
+    
+    // Trata de loguearse en la web.
+    getPoints = function (page) {
 
-.controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
-  $scope.chat = Chats.get($stateParams.chatId);
-})
-
-.controller('AccountCtrl', function($scope) {
-
-    var onSuccess = function(position) {
-        /*alert('Latitude: '          + position.coords.latitude          + '\n' +
-              'Longitude: '         + position.coords.longitude         + '\n' +
-              'Altitude: '          + position.coords.altitude          + '\n' +
-              'Accuracy: '          + position.coords.accuracy          + '\n' +
-              'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '\n' +
-              'Heading: '           + position.coords.heading           + '\n' +
-              'Speed: '             + position.coords.speed             + '\n' +
-              'Timestamp: '         + position.timestamp                + '\n');*/
-
-        $scope.showPopup('Sign Up', 'hola');
+        $scope.error = true;
+        $params = '&codigo_cliente=1' + $scope.loginData.codigo_cliente;
+        $method = 'GetPoints';
+        $http.post($rutaBritttWs + $method + $params).
+        success(function (data, status, headers) {
+            if (data.length != 0) {
+                if (data.ERROR == false) {
+                    $cliente = {};
+                    $cliente.codigo_cliente = $scope.loginData.codigo_cliente;
+                    $cliente.first_name = $scope.loginData.first_name;
+                    $cliente.last_name = $scope.loginData.last_name;
+                    $cliente.email = $scope.loginData.email;
+                    $cliente.puntos_totales = data.PUNTOS_TOTALES;                    
+                    $scope.error = false;
+                    $scope.loginData = $cliente;
+                    window.localStorage.setItem('cliente', JSON.stringify($cliente));                    
+                    if (data.ALERTA.length != 0) $scope.showPopup('Points', data.ALERTA);
+                } else
+                if (data.ALERTA.length != 0) $scope.showPopup('Points', data.ALERTA);
+            } else {
+                $scope.showPopup('Points', 'Connection Error');
+            }
+        }).
+        error(function (data, status) {
+            console.log(status);
+        });
     };
-
-    // onError Callback receives a PositionError object
-    //
-    function onError(error) {
-        /*alert('code: '    + error.code    + '\n' +
-              'message: ' + error.message + '\n');*/
-        $scope.showPopup('Sign Up', error);
-    }
-
-    navigator.geolocation.getCurrentPosition(onSuccess, onError);
+    
+    // Obtiene los puntos
+    getPoints();
 })
 
 // Genericos

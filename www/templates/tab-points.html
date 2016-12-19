@@ -1,8 +1,9 @@
 <ion-view view-title="Britt Points">
     <ion-content>
-        <ion-list>
+        <form name="fPoints" ng-submit="getPoints()">
             <p>{{loginData.first_name}} {{loginData.last_name}}</p>
             <h3>Points: {{loginData.puntos_totales}}</h3>
-        </ion-list>
+            <button class="button button-block button-positive" type="submit">Refresh points</button>
+        </form>
     </ion-content>
 </ion-view>
