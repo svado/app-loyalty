@@ -9,6 +9,12 @@ svn:wc:ra_dav:version-url
 V 65
 /Sistemas/!svn/ver/24857/app-loyalty/www/templates/tab-login.html
 END
+tab-content.html
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/Sistemas/!svn/ver/24983/app-loyalty/www/templates/tab-content.html
+END
 chat-detail.html
 K 25
 svn:wc:ra_dav:version-url
@@ -25,7 +31,7 @@ tab-points.html
 K 25
 svn:wc:ra_dav:version-url
 V 66
-/Sistemas/!svn/ver/24946/app-loyalty/www/templates/tab-points.html
+/Sistemas/!svn/ver/24983/app-loyalty/www/templates/tab-points.html
 END
 login-modal.html
 K 25
@@ -61,11 +67,11 @@ login-detail.html
 K 25
 svn:wc:ra_dav:version-url
 V 68
-/Sistemas/!svn/ver/24946/app-loyalty/www/templates/login-detail.html
+/Sistemas/!svn/ver/24983/app-loyalty/www/templates/login-detail.html
 END
 tabs.html
 K 25
 svn:wc:ra_dav:version-url
 V 60
-/Sistemas/!svn/ver/24946/app-loyalty/www/templates/tabs.html
+/Sistemas/!svn/ver/24983/app-loyalty/www/templates/tabs.html
 END

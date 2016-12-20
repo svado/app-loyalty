@@ -2,7 +2,10 @@
     <ion-content>
         <form name="fPoints" ng-submit="getPoints()">
             <p>{{loginData.first_name}} {{loginData.last_name}}</p>
-            <h3>Points: {{loginData.puntos_totales}}</h3>
+            <h3>Puntos totales: {{loginData.puntos_totales}}</h3>
+            <h4>Puntos web: {{loginData.puntos_totales_web}}</h4>
+            <h4>Puntos espresso: {{loginData.puntos_totales_espresso}}</h4>
+            <h4>Puntos brittshop: {{loginData.puntos_totales_brittshop}}</h4>
             <button class="button button-block button-positive" type="submit">Refresh points</button>
         </form>
     </ion-content>

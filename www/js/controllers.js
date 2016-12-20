@@ -6,6 +6,7 @@ angular.module('starter.controllers', [])
     // Inicializador
     $scope.loginData = {};
     $scope.signData = [];
+    $scope.resetData = [];
     $scope.isLoggedIn = isLoggedIn;  
 
     // Obtiene los datos locales
@@ -97,7 +98,7 @@ angular.module('starter.controllers', [])
         $scope.modalSignUp.show();
     };
 
-    // Modal log in
+    // Modal login
     $ionicModal.fromTemplateUrl('templates/login-modal.html', {
         scope: $scope
     }).then(function (modal) {
@@ -108,6 +109,19 @@ angular.module('starter.controllers', [])
     };
     $scope.login = function () {
         $scope.modalLogin.show();
+    };
+    
+    // Modal reset
+    $ionicModal.fromTemplateUrl('templates/reset.html', {
+        scope: $scope
+    }).then(function (modal) {
+        $scope.modalReset = modal;
+    });
+    $scope.closeReset = function () {
+        $scope.modalReset.hide();
+    };
+    $scope.reset = function () {
+        $scope.modalReset.show();
     };
 })
 
@@ -203,6 +217,30 @@ angular.module('starter.controllers', [])
             console.log(status);
         });
     };
+    
+    // Resetea la clave.
+    $scope.doReset = function () {
+        $scope.error = true;
+        $params = '&email=' + $scope.resetData.email;
+        $method = 'resetPassword';
+        $http.post($rutaAccountWs + $method + $params).
+        success(function (data, status, headers) {
+            if (data.length != 0) {
+                if (data.ERROR == false) {
+                    $scope.error = false;
+                    if (data.ALERTA.length != 0) $scope.showPopup('Solicitud enviada', data.ALERTA);
+                    $scope.closeReset();
+                    $scope.login();
+                } else
+                if (data.ALERTA.length != 0) $scope.showPopup('Ingreso', data.ALERTA);
+            } else {
+                $scope.showPopup('Registro', 'Error de conexión');
+            }
+        }).
+        error(function (data, status) {
+            console.log(status);
+        });
+    }
 })
 
 
@@ -216,7 +254,7 @@ angular.module('starter.controllers', [])
     $scope.getPoints = function () {
         
         $scope.error = true;
-        $params = '&codigo_cliente=1' + $scope.loginData.codigo_cliente;
+        $params = '&codigo_cliente=' + $scope.loginData.codigo_cliente + '&email=' + $scope.loginData.email;
         $method = 'GetPoints';
         $http.post($rutaBritttWs + $method + $params).
         success(function (data, status, headers) {
@@ -228,6 +266,9 @@ angular.module('starter.controllers', [])
                     $cliente.last_name = $scope.loginData.last_name;
                     $cliente.email = $scope.loginData.email;
                     $cliente.puntos_totales = data.PUNTOS_TOTALES;                    
+                    $cliente.puntos_totales_web = data.PUNTOS_TOTALES_WEB;
+                    $cliente.puntos_totales_espresso = data.PUNTOS_TOTALES_ESPRESSO;
+                    $cliente.puntos_totales_brittshop = data.PUNTOS_TOTALES_BRITTSHOP;
                     $scope.error = false;
                     $scope.loginData = $cliente;
                     window.localStorage.setItem('cliente', JSON.stringify($cliente));                    

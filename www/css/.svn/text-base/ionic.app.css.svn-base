@@ -15,6 +15,19 @@ $assertive:                       #ef473a !default;
 $royal:                           #886aea !default;
 $dark:                            #444 !default;
 */
+.full-image img {
+  width: 100%; }
+
+.countries .item-content {
+  background-size: contain !important;
+  padding: 25px !important; }
+
+.countries .flag-CR .item-content {
+  background-image: url(/img/flags/CR.png) !important; }
+
+.countries .flag-PE .item-content {
+  background-image: url(/img/flags/PE.png) !important; }
+
 /*!
   Ionicons, v2.0.1
   Created by Ben Sperry for the Ionic Framework, http://ionicons.com/
