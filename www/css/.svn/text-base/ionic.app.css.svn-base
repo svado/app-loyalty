@@ -23,10 +23,10 @@ $dark:                            #444 !default;
   padding: 25px !important; }
 
 .countries .flag-CR .item-content {
-  background-image: url(/img/flags/CR.png) !important; }
+  background-image: url(../img/flags/CR.png) !important; }
 
 .countries .flag-PE .item-content {
-  background-image: url(/img/flags/PE.png) !important; }
+  background-image: url(../img/flags/PE.png) !important; }
 
 /*!
   Ionicons, v2.0.1

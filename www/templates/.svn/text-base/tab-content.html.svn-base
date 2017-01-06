@@ -1,8 +1,12 @@
 <ion-view view-title="{{page_title}}">
-    <ion-content>
-        <div class="item" ng-repeat="content in contents">
-            <h3>{{content.TITLE | uppercase}}</h3>
-            <div class="full-image" ng-bind-html="content.TEXT"></div>
-        </div>
+    <ion-content scroll="false">
+        <ion-slides options="options" slider="data.slider">
+            <ion-slide-page ng-repeat="content in contents">
+                <div class="box text-center">
+                    <h3 ng-if="content.TITLE">{{content.TITLE | uppercase}}</h3>
+                    <div class="full-image" ng-bind-html="content.TEXT"></div>
+                </div>
+            </ion-slide-page>
+        </ion-slides>
     </ion-content>
 </ion-view>

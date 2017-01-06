@@ -1,0 +1,5 @@
+<ion-view view-title="{{page_title}}">
+    <ion-content scroll="false">
+        <div class="full-image" ng-bind-html="content"></div>
+    </ion-content>
+</ion-view>

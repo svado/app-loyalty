@@ -7,7 +7,7 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','ngCordova'])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform, $rootScope) {
   
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -22,16 +22,18 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
       StatusBar.styleDefault();
     }
           
-    // Variables globales
-    $rutaPagesWs = 'http://www.cafebritt.com/app/loyalty/ws/pages.cfc?returnformat=json&callback=&method=';
-    $rutaAccountWs = 'http://www.cafebritt.com/app/loyalty/ws/account.cfc?returnformat=json&callback=&method=';
-    $rutaBritttWs = 'http://loyalty.britt.com/ws/account.cfc?returnformat=json&callback=&method=';
-    $rutaImagenes = 'http://www.brittespresso.com/siteimg/';
-
     // Geolocalizacion    
     geoLocalizar();
   });
     
+  // Variables globales
+  //$rutaPagesWs = 'http://www.cafebritt.com/app/loyalty/ws/pages.cfc?returnformat=json&callback=&method=';
+  //$rutaAccountWs = 'http://www.cafebritt.com/app/loyalty/ws/account.cfc?returnformat=json&callback=&method=';
+  $rutaPagesWs = 'http://prueba.cafebritt.com/app/loyalty/ws/pages.cfc?returnformat=json&callback=&method=';
+  $rutaAccountWs = 'http://prueba.cafebritt.com/app/loyalty/ws/account.cfc?returnformat=json&callback=&method=';
+  $rutaBritttWs = 'http://loyalty.britt.com/ws/account.cfc?returnformat=json&callback=&method=';
+  $rutaImagenes = 'http://www.brittespresso.com/siteimg/';
+
   // Esta loqueado?
   isLoggedIn = function () {
         if (window.localStorage.getItem("cliente") !== null) {
@@ -192,6 +194,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
     abstract: true,
     templateUrl: 'templates/tabs.html',
     controller: 'AppCtrl',
+    cache: false,
     data: {
         needLogged: false
     }
@@ -207,6 +210,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
         controller: 'DashCtrl'
         }
     },
+    cache: false,
     data: {
         needLogged: true
     }
@@ -220,6 +224,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
         controller: 'PointsCtrl'
       }
     },
+    cache: false,
     data: {
         needLogged: true
     }
@@ -233,6 +238,21 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
           controller: 'ContactCtrl'
         }
       },
+      cache: false,
+      data: {
+        needLogged: false
+      }
+  })
+  
+  .state('tab.content', {
+      url: '/content/:country_code',
+      views: {
+        'tab-content': {
+          templateUrl: 'templates/tab-content.html',
+          controller: 'ContentCtrl'
+        }
+      },
+      cache: false,
       data: {
         needLogged: false
       }

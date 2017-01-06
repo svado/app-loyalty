@@ -127,20 +127,10 @@ angular.module('starter.controllers', [])
 
 
 // Manejo del codigo de barras
-.controller('DashCtrl', function($scope) {
+.controller('HomeCtrl', function($scope) {
     
     // Obtiene los datos del cliente
     $scope.loginData = $scope.getLocalData('cliente');
-    $codigo_cliente = $scope.loginData.codigo_cliente;
-
-    // Genera el codigo de barras
-    JsBarcode("#barcode", $codigo_cliente, {
-      format: "CODE128",
-      lineColor: "#000",
-      width:3,
-      displayValue: true
-    });
-    
 })
 
 // Manejo de clientes
@@ -178,7 +168,7 @@ angular.module('starter.controllers', [])
                     $scope.closeLogin();
 
                     // Reenvia a la cuenta o continua con el envio
-                    $state.go("tab.dash");
+                    $state.go("tab.home");
                 } else
                 if (data.ALERTA.length != 0) $scope.showPopup('Sign In', data.ALERTA);
             } else {
@@ -243,12 +233,47 @@ angular.module('starter.controllers', [])
     }
 })
 
-
 // Manejo de los puntos
 .controller('PointsCtrl', function($scope, $rootScope, $http, $stateParams, $state, $ionicHistory) {
 
+    // Variables principales    
+    var template_id = 0;
+    var country_code = '';
+    
     // Obtiene los datos del cliente    
     $scope.loginData = $scope.getLocalData('cliente'); 
+    $codigo_cliente = $scope.loginData.codigo_cliente;
+    
+    // Obtiene los datos de geolocalizacion
+    if ($stateParams.country_code == '') {
+        $scope.geoData = $scope.getLocalData('geodata');
+        country_code = $scope.geoData.country_code;
+    } else {
+        country_code = $stateParams.country_code;
+    }
+    
+    // Cambia de pais
+    if (country_code == 'CR') {
+        template_id = 120; // Costa Rica
+    } else if (country_code== 'PE') {
+        template_id = 121; // Peru
+    }
+    
+    // Obtiene el contenido
+    $params = '&template_id='+template_id+'&article_types=163';
+    $method = 'getPageArticles';
+    $http.post($rutaPagesWs + $method + $params).
+    success(function (data, status, headers) {
+        if (data.length != 0) {
+            $scope.content = data[0].TEXT;
+            $scope.page_title = data[0].PAGE_HEADER;
+            $scope.error = false;
+        }
+    }).
+    error(function (data, status) {
+        $scope.error = true;
+        console.log(status);
+    });
     
     // Trata de loguearse en la web.
     $scope.getPoints = function () {
@@ -286,6 +311,15 @@ angular.module('starter.controllers', [])
     
     // Obtiene los puntos
     $scope.getPoints();
+
+    // Genera el codigo de barras
+    JsBarcode("#barcode", $codigo_cliente, {
+      format: "CODE128",
+      lineColor: "#000",
+      width:3,
+      displayValue: true
+    });
+    
 })
 
 // Manejo del contenido por pais
@@ -332,7 +366,92 @@ angular.module('starter.controllers', [])
     });
 })
 
-// Genericos
-.controller('GenericCtrl', function ($scope, $rootScope, $ionicHistory) {
+// Manejo del contenido del mapa
+.controller('MapCtrl', function ($scope, $rootScope, $ionicHistory, $http, $stateParams) {
 
+    // Inactiva el boton de atras
+    $ionicHistory.nextViewOptions({
+        historyRoot: true,
+        disableBack: true
+    });
+        
+    // Variables principales    
+    var template_id = 0;
+    var country_code = '';
+    
+    // Obtiene los datos de geolocalizacion
+    if ($stateParams.country_code == '') {
+        $scope.geoData = $scope.getLocalData('geodata');
+        country_code = $scope.geoData.country_code;
+    } else {
+        country_code = $stateParams.country_code;
+    }
+    
+    // Cambia de pais
+    if (country_code == 'CR') {
+        template_id = 116; // Costa Rica
+    } else if (country_code== 'PE') {
+        template_id = 117; // Peru
+    }       
+    
+    // Obtiene el contenido
+    $params = '&template_id='+template_id+'&article_types=163';
+    $method = 'getPageArticles';
+    $http.post($rutaPagesWs + $method + $params).
+    success(function (data, status, headers) {
+        if (data.length != 0) {
+            $scope.content = data[0].TEXT;
+            $scope.page_title = data[0].PAGE_HEADER;
+            $scope.error = false;
+        }
+    }).
+    error(function (data, status) {
+        $scope.error = true;
+        console.log(status);
+    });
+})
+
+// Contactenos
+.controller('ContactUsCtrl', function ($scope, $rootScope, $ionicHistory, $http, $stateParams) {
+
+    // Inactiva el boton de atras
+    $ionicHistory.nextViewOptions({
+        historyRoot: true,
+        disableBack: true
+    });
+        
+    // Variables principales    
+    var template_id = 0;
+    var country_code = '';
+    
+    // Obtiene los datos de geolocalizacion
+    if ($stateParams.country_code == '') {
+        $scope.geoData = $scope.getLocalData('geodata');
+        country_code = $scope.geoData.country_code;
+    } else {
+        country_code = $stateParams.country_code;
+    }
+    
+    // Cambia de pais
+    if (country_code == 'CR') {
+        template_id = 118; // Costa Rica
+    } else if (country_code== 'PE') {
+        template_id = 119; // Peru
+    }       
+    
+    // Obtiene el contenido
+    $params = '&template_id='+template_id+'&article_types=163';
+    $method = 'getPageArticles';
+    $http.post($rutaPagesWs + $method + $params).
+    success(function (data, status, headers) {
+        if (data.length != 0) {
+            $scope.content = data[0].TEXT;
+            $scope.page_title = data[0].PAGE_HEADER;
+            $scope.error = false;
+        }
+    }).
+    error(function (data, status) {
+        $scope.error = true;
+        console.log(status);
+    });
 });

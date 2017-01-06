@@ -27,10 +27,10 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
   });
     
   // Variables globales
-  //$rutaPagesWs = 'http://www.cafebritt.com/app/loyalty/ws/pages.cfc?returnformat=json&callback=&method=';
-  //$rutaAccountWs = 'http://www.cafebritt.com/app/loyalty/ws/account.cfc?returnformat=json&callback=&method=';
-  $rutaPagesWs = 'http://prueba.cafebritt.com/app/loyalty/ws/pages.cfc?returnformat=json&callback=&method=';
-  $rutaAccountWs = 'http://prueba.cafebritt.com/app/loyalty/ws/account.cfc?returnformat=json&callback=&method=';
+  $rutaPagesWs = 'http://www.cafebritt.com/app/loyalty/ws/pages.cfc?returnformat=json&callback=&method=';
+  $rutaAccountWs = 'http://www.cafebritt.com/app/loyalty/ws/account.cfc?returnformat=json&callback=&method=';
+  //$rutaPagesWs = 'http://prueba.cafebritt.com/app/loyalty/ws/pages.cfc?returnformat=json&callback=&method=';
+  //$rutaAccountWs = 'http://prueba.cafebritt.com/app/loyalty/ws/account.cfc?returnformat=json&callback=&method=';
   $rutaBritttWs = 'http://loyalty.britt.com/ws/account.cfc?returnformat=json&callback=&method=';
   $rutaImagenes = 'http://www.brittespresso.com/siteimg/';
 
@@ -202,12 +202,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
 
   // Each tab has its own nav history stack:
 
-  .state('tab.dash', {
-    url: '/dash',
+  .state('tab.home', {
+    url: '/home/:country_code',
     views: {
-      'tab-dash': {
-        templateUrl: 'templates/tab-dash.html',
-        controller: 'DashCtrl'
+      'tab-home': {
+        templateUrl: 'templates/tab-home.html',
+        controller: 'HomeCtrl'
         }
     },
     cache: false,
@@ -217,7 +217,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
   })
   
   .state('tab.points', {
-    url: '/points',
+    url: '/points/:country_code',
     views: {
       'tab-points': {
         templateUrl: 'templates/tab-points.html',
@@ -227,6 +227,20 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
     cache: false,
     data: {
         needLogged: true
+    }
+  })
+  
+  .state('tab.map', {
+    url: '/map/:country_code',
+    views: {
+      'tab-map': {
+        templateUrl: 'templates/tab-map.html',
+        controller: 'MapCtrl'
+      }
+    },
+    cache: false,
+    data: {
+        needLogged: false
     }
   })
   
@@ -257,8 +271,22 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
         needLogged: false
       }
   })
+  
+  .state('tab.contact-us', {
+      url: '/contact-us/:country_code',
+      views: {
+        'tab-contact-us': {
+          templateUrl: 'templates/tab-contact-us.html',
+          controller: 'ContactUsCtrl'
+        }
+      },
+      cache: false,
+      data: {
+        needLogged: false
+      }
+  })
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/dash');
+  $urlRouterProvider.otherwise('/tab/home/CR');
 
 });

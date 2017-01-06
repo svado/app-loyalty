@@ -13,7 +13,7 @@ tab-content.html
 K 25
 svn:wc:ra_dav:version-url
 V 67
-/Sistemas/!svn/ver/24983/app-loyalty/www/templates/tab-content.html
+/Sistemas/!svn/ver/25045/app-loyalty/www/templates/tab-content.html
 END
 chat-detail.html
 K 25
@@ -21,23 +21,23 @@ svn:wc:ra_dav:version-url
 V 67
 /Sistemas/!svn/ver/24811/app-loyalty/www/templates/chat-detail.html
 END
-tab-account.html
-K 25
-svn:wc:ra_dav:version-url
-V 67
-/Sistemas/!svn/ver/24936/app-loyalty/www/templates/tab-account.html
-END
 tab-points.html
 K 25
 svn:wc:ra_dav:version-url
 V 66
-/Sistemas/!svn/ver/24983/app-loyalty/www/templates/tab-points.html
+/Sistemas/!svn/ver/25169/app-loyalty/www/templates/tab-points.html
 END
-login-modal.html
+tab-map.html
 K 25
 svn:wc:ra_dav:version-url
-V 67
-/Sistemas/!svn/ver/24869/app-loyalty/www/templates/login-modal.html
+V 63
+/Sistemas/!svn/ver/25169/app-loyalty/www/templates/tab-map.html
+END
+reset.html
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/Sistemas/!svn/ver/25003/app-loyalty/www/templates/reset.html
 END
 tab-dash.html
 K 25
@@ -45,11 +45,41 @@ svn:wc:ra_dav:version-url
 V 64
 /Sistemas/!svn/ver/24857/app-loyalty/www/templates/tab-dash.html
 END
+tab-contact-us.html
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/Sistemas/!svn/ver/25169/app-loyalty/www/templates/tab-contact-us.html
+END
 invalid-access.html
 K 25
 svn:wc:ra_dav:version-url
 V 70
 /Sistemas/!svn/ver/24869/app-loyalty/www/templates/invalid-access.html
+END
+tabs.html
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/Sistemas/!svn/ver/25169/app-loyalty/www/templates/tabs.html
+END
+tab-home.html
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/Sistemas/!svn/ver/25169/app-loyalty/www/templates/tab-home.html
+END
+tab-account.html
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/Sistemas/!svn/ver/24936/app-loyalty/www/templates/tab-account.html
+END
+login-modal.html
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/Sistemas/!svn/ver/24869/app-loyalty/www/templates/login-modal.html
 END
 signup.html
 K 25
@@ -68,10 +98,4 @@ K 25
 svn:wc:ra_dav:version-url
 V 68
 /Sistemas/!svn/ver/24983/app-loyalty/www/templates/login-detail.html
-END
-tabs.html
-K 25
-svn:wc:ra_dav:version-url
-V 60
-/Sistemas/!svn/ver/24983/app-loyalty/www/templates/tabs.html
 END
