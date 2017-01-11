@@ -1,17 +1,27 @@
 <ion-view view-title="Britt Points">
     <ion-content>
-        
-        <div class="full-image" ng-bind-html="content"></div>
+        <!--<div class="full-image" ng-bind-html="content"></div>
         
         <form name="fPoints" ng-submit="getPoints()">
             <p>{{loginData.first_name}} {{loginData.last_name}}</p>
-            <h3>Puntos totales: {{loginData.puntos_totales}}</h3>
-            <h4>Puntos web: {{loginData.puntos_totales_web}}</h4>
-            <h4>Puntos espresso: {{loginData.puntos_totales_espresso}}</h4>
-            <h4>Puntos brittshop: {{loginData.puntos_totales_brittshop}}</h4>
+            <h3>Puntos: {{loginData.puntos_totales_brittshop}}</h3>
             <button class="button button-block button-positive" type="submit">Refresh points</button>
         </form>
         
-        <div class="text-center"><img id="barcode"/></div>       
+        <div class="text-center"><img id="barcode"/></div>-->
+        <div class="full-image" ng-bind-html="content"></div>
+        <form name="fPoints" ng-submit="getPoints()">
+            <div class="list card">
+                <div class="item text-center">
+                    <h2>{{loginData.first_name}} {{loginData.last_name}}</h2>
+                    <p>{{loginData.email}}</p>
+                    <button class="button button-outline button-positive" type="submit"> Britt Points: {{loginData.puntos_totales_brittshop}} </button>
+                </div>
+                <div class="text-center"><img id="barcode" /></div>
+                <div class="item item-body text-right">
+                    <p> <a class="button button-outline icon-right ion-person button-positive" ng-click="profile()">Edit Profile</a> <a class="button button-outline button-stable" ng-click="logout()">Logout</a> </p>
+                </div>
+            </div>
+        </form>
     </ion-content>
 </ion-view>

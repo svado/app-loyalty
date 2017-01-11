@@ -1,0 +1,40 @@
+<ion-modal-view ng-controller="ProfileCtrl">
+    <ion-header-bar class="bar-positive">
+        <h5 class="title">Edit Profile</h5>
+        <div class="buttons">
+            <button class="button button-clear" ng-click="closeProfile()">Close</button>
+        </div>
+    </ion-header-bar>
+    <ion-content>
+        <form name="fProfile" id="fProfile" ng-submit="updContact()">
+            <input type="hidden" ng-model="codigo_cliente" name="codigo_cliente" ng-value="{{codigo_cliente}}">
+            <input type="hidden" ng-model="codigo_email" name="codigo_email" ng-value="{{codigo_email}}">
+            <input type="hidden" ng-model="codigo_phone" name="codigo_phone" ng-value="{{codigo_phone}}">
+            <div class="list">
+                <div class="item item-divider"> Basic profile </div>
+                <label class="item item-input"> <span class="input-label">Name</span>
+                    <div ng-messages="fProfile.first_name.$error" ng-messages-include="messages.html"></div>
+                    <input type="text" ng-model="$parent.first_name" name="first_name" required ng-minlength="3"> </label>
+                <label class="item item-input"> <span class="input-label">Last name</span>
+                    <div ng-messages="fProfile.last_name.$error" ng-messages-include="messages.html"></div>
+                    <input type="text" ng-model="$parent.last_name" name="last_name" required ng-minlength="3"> </label>
+                <label class="item item-input"> <span class="input-label">Email</span>
+                    <div ng-messages="fProfile.email.$error" ng-messages-include="messages.html"></div>
+                    <input type="email" ng-model="$parent.email" name="email" required> </label>
+                <label class="item item-input"> <span class="input-label">Phone</span>
+                    <div ng-messages="fProfile.phone.$error" ng-messages-include="messages.html"></div>
+                    <input type="tel" ng-model="$parent.phone" name="phone" required> </label>
+                <div class="item item-divider"> Change password </div>
+                <label class="item item-input"> <span class="input-label">Password</span>
+                    <div ng-messages="fProfile.password.$error" ng-messages-include="messages.html"></div>
+                    <input type="password" ng-model="$parent.password" name="password" ng-minlength="6"> </label>
+                <label class="item item-input"> <span class="input-label">Retry password</span>
+                    <div ng-messages="fProfile.password2.$error" ng-messages-include="messages.html"></div>
+                    <input type="password" ng-model="$parent.password2" name="password2" ng-minlength="6"> </label>
+                <label class="item">
+                    <button class="button button-block button-outline button-positive" type="submit" ng-disabled="fProfile.$invalid">Update</button>
+                </label>
+            </div>
+        </form>
+    </ion-content>
+</ion-modal-view>

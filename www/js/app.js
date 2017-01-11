@@ -27,10 +27,10 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
   });
     
   // Variables globales
-  $rutaPagesWs = 'http://www.cafebritt.com/app/loyalty/ws/pages.cfc?returnformat=json&callback=&method=';
-  $rutaAccountWs = 'http://www.cafebritt.com/app/loyalty/ws/account.cfc?returnformat=json&callback=&method=';
-  //$rutaPagesWs = 'http://prueba.cafebritt.com/app/loyalty/ws/pages.cfc?returnformat=json&callback=&method=';
-  //$rutaAccountWs = 'http://prueba.cafebritt.com/app/loyalty/ws/account.cfc?returnformat=json&callback=&method=';
+  //$rutaPagesWs = 'http://www.cafebritt.com/app/loyalty/ws/pages.cfc?returnformat=json&callback=&method=';
+  //$rutaAccountWs = 'http://www.cafebritt.com/app/loyalty/ws/account.cfc?returnformat=json&callback=&method=';
+  $rutaPagesWs = 'http://prueba.cafebritt.com/app/loyalty/ws/pages.cfc?returnformat=json&callback=&method=';
+  $rutaAccountWs = 'http://prueba.cafebritt.com/app/loyalty/ws/account.cfc?returnformat=json&callback=&method=';
   $rutaBritttWs = 'http://loyalty.britt.com/ws/account.cfc?returnformat=json&callback=&method=';
   $rutaImagenes = 'http://www.brittespresso.com/siteimg/';
 
@@ -212,7 +212,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
     },
     cache: false,
     data: {
-        needLogged: true
+        needLogged: false
     }
   })
   

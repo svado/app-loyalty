@@ -57,6 +57,17 @@ $dark:                            #444 !default;
   background-image: url(../img/icons/contact-us.png) !important;
   background-size: 25px !important; }
 
+.bar-footer {
+  background-image: none !important;
+  height: 60px !important; }
+  .bar-footer a {
+    width: 100% !important;
+    margin: 0 !important;
+    line-height: 42px !important;
+    font-size: 16px !important; }
+  .bar-footer h1 {
+    line-height: 52px !important; }
+
 /*!
   Ionicons, v2.0.1
   Created by Ben Sperry for the Ionic Framework, http://ionicons.com/

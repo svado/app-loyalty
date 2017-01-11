@@ -28,6 +28,46 @@ $dark:                            #444 !default;
 .countries .flag-PE .item-content {
   background-image: url(../img/flags/PE.png) !important; }
 
+.tab-item .icon {
+  height: 38px !important;
+  margin: 5px auto !important; }
+
+.tab-item i {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 25px; }
+
+.icon-britt-home {
+  background-image: url(../img/icons/home.png) !important;
+  background-size: 25px !important; }
+
+.icon-britt-points {
+  background-image: url(../img/icons/points.png) !important;
+  background-size: 38px !important; }
+
+.icon-britt-products {
+  background-image: url(../img/icons/products.png) !important;
+  background-size: 20px !important; }
+
+.icon-britt-map {
+  background-image: url(../img/icons/map.png) !important;
+  background-size: 20px !important; }
+
+.icon-britt-contact-us {
+  background-image: url(../img/icons/contact-us.png) !important;
+  background-size: 25px !important; }
+
+.bar-footer {
+  background-image: none !important;
+  height: 60px !important; }
+  .bar-footer a {
+    width: 100% !important;
+    margin: 0 !important;
+    line-height: 42px !important;
+    font-size: 16px !important; }
+  .bar-footer h1 {
+    line-height: 52px !important; }
+
 /*!
   Ionicons, v2.0.1
   Created by Ben Sperry for the Ionic Framework, http://ionicons.com/

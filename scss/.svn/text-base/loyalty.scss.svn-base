@@ -1,5 +1,16 @@
+// Mixins
+// -------------------------------------------
+
+// Set a background image
+
+@mixin background-img($name,$size:25px) {
+    background-image: url(#{$icons-path}/#{$name}.png) !important;    
+    background-size: $size !important;
+}
+
+
 // Colors
-// -------------------------------
+// -------------------------------------------
 
 $light:                           #fff !default;
 $stable:                          #f8f8f8 !default;
@@ -11,13 +22,23 @@ $assertive:                       #ef473a !default;
 $royal:                           #886aea !default;
 $dark:                            #444 !default;
 
+
+// Variables
+// -------------------------------------------
+
+$icons-path: '../img/icons';
+
+
 // Images
-// -------------------------------
+// -------------------------------------------
 
 .full-image img {
     width: 100%;    
 }
-    
+
+// Countries
+// -------------------------------------------
+
 .countries .item-content {
    background-size: contain !important; 
     padding: 25px !important;
@@ -30,3 +51,23 @@ $dark:                            #444 !default;
 .countries .flag-PE .item-content {
     background-image: url(../img/flags/PE.png) !important;
 }
+
+// Tab icons
+// -------------------------------------------
+
+.tab-item .icon {
+    height: 38px !important;
+    margin: 5px auto !important;
+}
+
+.tab-item i {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 25px;
+}
+
+.icon-britt-home {@include background-img('home');}
+.icon-britt-points {@include background-img('points',38px);}
+.icon-britt-products {@include background-img('products',20px);}
+.icon-britt-map {@include background-img('map',20px);}
+.icon-britt-contact-us {@include background-img('contact-us');}

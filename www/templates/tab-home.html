@@ -1,5 +1,12 @@
-<ion-view view-title="Home">
-    <ion-content class="padding">
-        <h2>Brittshop Loyalty</h2>         
+<ion-view view-title="{{page_title}}">
+    <ion-content>
+        <h3 ng-if="content.TITLE">{{content.TITLE | uppercase}}</h3>
+        <div class="full-image" ng-bind-html="content"></div>
     </ion-content>
+    <ion-footer-bar align-title="center" class="footer-simple bar-balanced" ng-if="isLoggedIn()">
+        <h1 class="title">Welcome {{loginData.first_name}}</h1>        
+    </ion-footer-bar>
+    <ion-footer-bar align-title="center" class="footer-simple bar-light" ng-if="!isLoggedIn()">
+        <a class="button button-block button-outline button-positive" ng-click="login()">Sign In</a>
+    </ion-footer-bar>    
 </ion-view>

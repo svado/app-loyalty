@@ -32,8 +32,7 @@ angular.module('starter.controllers', [])
     // Logout
     $scope.logout = function () {
         window.localStorage.removeItem("cliente");
-        window.localStorage.removeItem("orden");
-        $state.go("app.home");
+        $state.go("tab.login");
     };
 
     // Alertas
@@ -123,14 +122,67 @@ angular.module('starter.controllers', [])
     $scope.reset = function () {
         $scope.modalReset.show();
     };
+    
+    // Modal profile
+    $ionicModal.fromTemplateUrl('templates/profile.html', {
+        scope: $scope
+    }).then(function (modal) {
+        $scope.modalProfile = modal;
+    });
+    $scope.closeProfile = function () {
+        $scope.modalProfile.hide();
+    };
+    $scope.profile = function () {
+        $scope.modalProfile.show();
+    };
 })
 
-
 // Manejo del codigo de barras
-.controller('HomeCtrl', function($scope) {
+.controller('HomeCtrl', function($scope, $rootScope, $http, $stateParams, $state, $ionicHistory) {
     
-    // Obtiene los datos del cliente
-    $scope.loginData = $scope.getLocalData('cliente');
+    // Inactiva el boton de atras
+    $ionicHistory.nextViewOptions({
+        historyRoot: true,
+        disableBack: true
+    });
+        
+    // Variables principales    
+    var template_id = 0;
+    var country_code = '';
+    
+    // Obtiene los datos del cliente    
+    $scope.loginData = $scope.getLocalData('cliente'); 
+    
+    // Obtiene los datos de geolocalizacion
+    if ($stateParams.country_code == '') {
+        $scope.geoData = $scope.getLocalData('geodata');
+        country_code = $scope.geoData.country_code;
+    } else {
+        country_code = $stateParams.country_code;
+    }
+    
+    // Cambia de pais
+    if (country_code == 'CR') {
+        template_id = 122; // Costa Rica
+    } else if (country_code== 'PE') {
+        template_id = 123; // Peru
+    }       
+    
+    // Obtiene el contenido
+    $params = '&template_id='+template_id+'&article_types=163';
+    $method = 'getPageArticles';
+    $http.post($rutaPagesWs + $method + $params).
+    success(function (data, status, headers) {
+        if (data.length != 0) {
+            $scope.content = data[0].TEXT;
+            $scope.page_title = data[0].PAGE_HEADER;
+            $scope.error = false;
+        }
+    }).
+    error(function (data, status) {
+        $scope.error = true;
+        console.log(status);
+    });
 })
 
 // Manejo de clientes
@@ -167,8 +219,8 @@ angular.module('starter.controllers', [])
                     if (data.ALERTA.length != 0) $scope.showPopup('Sign In', data.ALERTA);
                     $scope.closeLogin();
 
-                    // Reenvia a la cuenta o continua con el envio
-                    $state.go("tab.home");
+                    // Reenvia al home
+                    $state.go("tab.home",{country_code:$scope.geoData.country_code});
                 } else
                 if (data.ALERTA.length != 0) $scope.showPopup('Sign In', data.ALERTA);
             } else {
@@ -409,6 +461,73 @@ angular.module('starter.controllers', [])
         $scope.error = true;
         console.log(status);
     });
+})
+
+// Manejo del profile
+.controller('ProfileCtrl', function($scope, $rootScope, $http, $stateParams, $state, $ionicHistory) {
+
+    // Obtiene los datos del contacto
+    $cliente = $scope.getLocalData('cliente');
+
+    if (isLoggedIn()) {
+        $scope.error = true;
+        $params = '&codigo_cliente=' + $cliente.codigo_cliente;
+        $method = 'getContact';
+        $http.post($rutaAccountWs + $method + $params).
+        success(function (data, status, headers) {
+            if (data.length != 0) {
+                if (data.ERROR == false) {
+                    $scope.codigo_cliente = data.CODIGO_CLIENTE;
+                    $scope.first_name = data.FIRST_NAME;
+                    $scope.last_name = data.LAST_NAME;
+                    $scope.email = data.EMAIL;
+                    $scope.address_1 = data.ADDRESS_1;
+                    $scope.address_2 = data.ADDRESS_2;
+                    $scope.city = data.CITY;
+                    $scope.state = data.STATE;
+                    $scope.pais = data.PAIS;
+                    $scope.phone = data.PHONE;
+                    $scope.codigo_email = data.CODIGO_EMAIL;
+                    $scope.codigo_address = data.CODIGO_ADDRESS;
+                    $scope.codigo_phone = data.CODIGO_PHONE;
+                    $scope.codigo_state = data.CODIGO_STATE;
+                    $scope.password = '';
+                    $scope.password2 = '';
+                    $scope.error = false;
+                    if (data.ALERTA.length != 0) $scope.showPopup('Profile', data.ALERTA);
+                } else
+                if (data.ALERTA.length != 0) $scope.showPopup('Profile', data.ALERTA);
+            } else {
+                $scope.showPopup('Profile', 'Connection Error');
+            }
+        }).
+        error(function (data, status) {
+            console.log(status);
+        }); 
+    }
+    
+    // Actualiza un contacto
+    $scope.updContact = function () {
+
+        $scope.error = true;
+        $params = '&first_name=' + $scope.first_name + '&last_name=' + $scope.last_name + '&email=' + $scope.email + '&phone=' + $scope.phone + '&password=' + $scope.password + '&password2=' + $scope.password2 + '&codigo_cliente=' + $scope.codigo_cliente + '&codigo_email=' + $scope.codigo_email + '&codigo_phone=' + $scope.codigo_phone;
+        $method = 'updContact';
+        $http.post($rutaAccountWs + $method + $params).
+        success(function (data, status, headers) {
+            if (data.length != 0) {
+                if (data.ERROR == false) {
+                    $scope.error = false;
+                    if (data.ALERTA.length != 0) $scope.showPopup('Perfil', data.ALERTA);
+                } else
+                if (data.ALERTA.length != 0) $scope.showPopup('Perfil', data.ALERTA);
+            } else {
+                $scope.showPopup('Perfil', 'Error de conexión');
+            }
+        }).
+        error(function (data, status) {
+            console.log(status);
+        });
+    };
 })
 
 // Contactenos
