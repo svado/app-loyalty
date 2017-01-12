@@ -29,7 +29,7 @@ Geolocation::Geolocation(Cordova *cordova)
                          SIGNAL(positionUpdated(QGeoPositionInfo)),
                          this,
                          SLOT(positionUpdated(QGeoPositionInfo)));
-        
+
         QObject::connect(_geoPositionInfoSource.data(),
                          SIGNAL(updateTimeout()),
                          this,

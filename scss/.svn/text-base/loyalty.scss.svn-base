@@ -9,6 +9,12 @@
 }
 
 
+// Variables
+// -------------------------------------------
+
+$icons-path: '../img/icons';
+
+
 // Colors
 // -------------------------------------------
 
@@ -21,12 +27,6 @@ $energized:                       #ffc900 !default;
 $assertive:                       #ef473a !default;
 $royal:                           #886aea !default;
 $dark:                            #444 !default;
-
-
-// Variables
-// -------------------------------------------
-
-$icons-path: '../img/icons';
 
 
 // Images
@@ -71,3 +71,23 @@ $icons-path: '../img/icons';
 .icon-britt-products {@include background-img('products',20px);}
 .icon-britt-map {@include background-img('map',20px);}
 .icon-britt-contact-us {@include background-img('contact-us');}
+
+// Footer
+// -------------------------------------------
+
+.bar-footer {
+    
+    background-image: none !important;
+    height: 60px !important;
+    
+    a {
+        width: 100% !important;
+        margin: 0 !important;
+        line-height: 42px !important;
+        font-size: 16px !important;
+    }
+    
+    h1 {
+        line-height: 52px !important;
+    }
+}
