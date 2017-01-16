@@ -20,7 +20,8 @@ $dark:                            #444 !default;
 
 .countries .item-content {
   background-size: contain !important;
-  padding: 25px !important; }
+  padding: 25px !important;
+  background-repeat: no-repeat; }
 
 .countries .flag-CR .item-content {
   background-image: url(../img/flags/CR.png) !important; }

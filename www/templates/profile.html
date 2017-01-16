@@ -14,23 +14,23 @@
                 <div class="item item-divider"> Basic profile </div>
                 <label class="item item-input"> <span class="input-label">Name</span>
                     <div ng-messages="fProfile.first_name.$error" ng-messages-include="messages.html"></div>
-                    <input type="text" ng-model="$parent.first_name" name="first_name" required ng-minlength="3"> </label>
+                    <input type="text" ng-model="$parent.first_name" name="first_name" required ng-minlength="3" placeholder="First name"> </label>
                 <label class="item item-input"> <span class="input-label">Last name</span>
                     <div ng-messages="fProfile.last_name.$error" ng-messages-include="messages.html"></div>
-                    <input type="text" ng-model="$parent.last_name" name="last_name" required ng-minlength="3"> </label>
+                    <input type="text" ng-model="$parent.last_name" name="last_name" required ng-minlength="3" placeholder="Last name"> </label>
                 <label class="item item-input"> <span class="input-label">Email</span>
                     <div ng-messages="fProfile.email.$error" ng-messages-include="messages.html"></div>
-                    <input type="email" ng-model="$parent.email" name="email" required> </label>
+                    <input type="email" ng-model="$parent.email" name="email" required placeholder="Email"> </label>
                 <label class="item item-input"> <span class="input-label">Phone</span>
                     <div ng-messages="fProfile.phone.$error" ng-messages-include="messages.html"></div>
-                    <input type="tel" ng-model="$parent.phone" name="phone" required> </label>
+                    <input type="tel" ng-model="$parent.phone" name="phone" required placeholder="Phone number"> </label>
                 <div class="item item-divider"> Change password </div>
                 <label class="item item-input"> <span class="input-label">Password</span>
                     <div ng-messages="fProfile.password.$error" ng-messages-include="messages.html"></div>
-                    <input type="password" ng-model="$parent.password" name="password" ng-minlength="6"> </label>
-                <label class="item item-input"> <span class="input-label">Retry password</span>
+                    <input type="password" ng-model="$parent.password" name="password" ng-minlength="6" placeholder="Password"> </label>
+                <label class="item item-input"> <span class="input-label">Retry</span>
                     <div ng-messages="fProfile.password2.$error" ng-messages-include="messages.html"></div>
-                    <input type="password" ng-model="$parent.password2" name="password2" ng-minlength="6"> </label>
+                    <input type="password" ng-model="$parent.password2" name="password2" ng-minlength="6" placeholder="Retry password"> </label>
                 <label class="item">
                     <button class="button button-block button-outline button-positive" type="submit" ng-disabled="fProfile.$invalid">Update</button>
                 </label>

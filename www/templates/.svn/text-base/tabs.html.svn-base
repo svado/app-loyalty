@@ -26,7 +26,7 @@ navigation history that also transitions its views in and out
   </ion-tab>
 
   <!-- Login Tab -->
-  <ion-tab icon-off="icon-britt-points" icon-on="icon-britt-points" ng-if="!isLoggedIn()" href="#/tab/login">
+  <ion-tab icon-off="ion-person" icon-on="ion-person" ng-if="!isLoggedIn()" href="#/tab/login">
     <ion-nav-view name="tab-login"></ion-nav-view>
   </ion-tab>
     

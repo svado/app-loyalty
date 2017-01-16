@@ -14,7 +14,7 @@
         <ion-radio name="country_code" ng-model="$parent.loginData.country_code" class="flag-PE col col-50" ng-value="'PE'">&nbsp;</ion-radio>
     </div>
     <div class="item">
-        <button class="button button-block button-outline button-positive" type="submit" ng-disabled="fLogin.$invalid">Sign In</button>
+        <button class="button button-block button-outline button-positive" type="submit" ng-disabled="fLogin.$invalid">Already member? Sign In</button>
         <a class="button button-block button-outline button-calm" href="#/app/signup" ng-click="signup()">Sign Up</a>
     </div>
     <div class="item text-center">

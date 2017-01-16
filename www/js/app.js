@@ -153,6 +153,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
 
 .config(function($stateProvider, $urlRouterProvider, $httpProvider, $ionicConfigProvider) {
 
+  // Posiciona siempre los tabs al final
+  $ionicConfigProvider.tabs.position('bottom');
+    
   // Intercepta un evento http cuando es invocado
   $httpProvider.interceptors.push(function ($rootScope) {
     return {
