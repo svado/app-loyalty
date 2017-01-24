@@ -10,9 +10,9 @@
             <h5 class="text-center">Enter your email address below and we will send you instructions for changing your password and logging in</h5>
             <div class="list">
                 <label class="item item-input">
-                    <span class="input-label">Your email</span>
+                    <span class="input-label">Email</span>
                     <div ng-messages="fReset.email.$error" ng-messages-include="messages.html"></div>
-                    <input type="email" ng-model="$parent.resetData.email" name="email" required>
+                    <input type="email" ng-model="$parent.resetData.email" name="email" placeholder="Your email" required>
                 </label>
                 <label class="item">
                     <button class="button button-block button-outline button-positive" type="submit" ng-disabled="fReset.$invalid">Submit</button>

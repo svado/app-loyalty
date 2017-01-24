@@ -12,42 +12,41 @@
                 <label class="item item-input">
                     <span class="input-label">First name</span>
                     <div ng-messages="fSignUp.first_name.$error" ng-messages-include="messages.html"></div>
-                    <input type="text" ng-model="signData.first_name" name="first_name" required ng-minlength="3">
+                    <input type="text" ng-model="signData.first_name" name="first_name" required ng-minlength="3" placeholder="First name">
                 </label>
 
                 <label class="item item-input">
                     <span class="input-label">Last name</span>
                     <div ng-messages="fSignUp.last_name.$error" ng-messages-include="messages.html"></div>
-                    <input type="text" ng-model="signData.last_name" name="last_name" required ng-minlength="3">
+                    <input type="text" ng-model="signData.last_name" name="last_name" required ng-minlength="3" placeholder="Last name">
                 </label>
 
                 <label class="item item-input">
                     <span class="input-label">Email</span>
                     <div ng-messages="fSignUp.email.$error" ng-messages-include="messages.html"></div>
-                    <input type="email" ng-model="signData.email" name="email" required>
+                    <input type="email" ng-model="signData.email" name="email" placeholder="Your email" required>
                 </label>
 
                 <label class="item item-input">
                     <span class="input-label">Phone</span>
                     <div ng-messages="fSignUp.phone.$error" ng-messages-include="messages.html"></div>
-                    <input type="tel" ng-model="signData.phone" name="phone" required>
+                    <input type="tel" ng-model="signData.phone" name="phone" placeholder="Phone number" required>
                 </label>
 
                 <label class="item item-input">
                     <span class="input-label">Password</span>
                     <div ng-messages="fSignUp.password.$error" ng-messages-include="messages.html"></div>
-                    <input type="password" ng-model="signData.password" name="password" required ng-minlength="6">
+                    <input type="password" ng-model="signData.password" name="password" placeholder="Password" required ng-minlength="6">
                 </label>
 
                 <label class="item item-input">
-                    <span class="input-label">Retry password</span>
+                    <span class="input-label">Retry</span>
                     <div ng-messages="fSignUp.password2.$error" ng-messages-include="messages.html"></div>
-                    <input type="password" ng-model="signData.password2" name="password2" required ng-minlength="6">
+                    <input type="password" ng-model="signData.password2" name="password2" placeholder="Retry password" required ng-minlength="6">
                 </label>
 
                 <div class="item">
-                    <button class="button button-block button-positive" type="submit" ng-disabled="fSignUp.$invalid">Sign Up</button>
-                    <a class="button button-block button-assertive" href="#/app/login" ng-click="login()">Already member? Click here</a>
+                    <button class="button button-block button-outline button-positive" type="submit" ng-disabled="fSignUp.$invalid">Sign Up</button>
                 </div>
             </div>
         </form>

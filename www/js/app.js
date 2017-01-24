@@ -87,6 +87,28 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
         }
     });    
     
+    // Guarda un pais por default en caso de que no pudo geolocalizar
+    geoDefault = function() {
+        
+        var refresh = false;
+            
+        // Si no ha geolocalizado o el pais cambio entonces actualiza el homepage
+        if (window.localStorage.getItem('geodata') === null)
+            refresh = true;
+
+        // Guarda la ubicacion
+        var $geodata = {};
+        $geodata.country_name = 'Costa Rica';
+        $geodata.country_code = 'CR';
+        window.localStorage.setItem('geodata', JSON.stringify($geodata));
+
+         // Actualiza el homepage
+        if (refresh)
+            $state.go('tab.home', {}, {
+                reload: true
+            });
+    }
+    
     // Geocolalizacion
     geoLocalizar = function () {
       
@@ -109,6 +131,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
                             // Formatted address
                             var currentAdd = results[0].formatted_address;
                             var address = currentAdd;
+                            var refresh = false;
+                            
                             //find country name
                             for (var i=0; i<results[0].address_components.length; i++) 
                             {
@@ -118,13 +142,34 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
                                         
                                         //this is the object you are looking for
                                         country = results[0].address_components[i];
-                                        //console.log(country.short_name + ': ' + country.long_name);
                                         
-                                        // Guarda la ubicacion
-                                        var $geodata = {};
-                                        $geodata.country_name = country.long_name;
-                                        $geodata.country_code = country.short_name;
-                                        window.localStorage.setItem('geodata', JSON.stringify($geodata));
+                                        // Si no ha geolocalizado o el pais cambio entonces actualiza el homepage
+                                        if (window.localStorage.getItem('geodata') === null)
+                                            refresh = true;
+                                        else if (window.localStorage.getItem('geodata') !== null) {
+                                            var elemento = JSON.parse(window.localStorage.getItem('geodata'));
+                                            if (elemento.country_code != country.short_name)
+                                                refresh = true;
+                                        }
+                                        
+                                        // Si encuentra un pais que no esta registrado entonces guarda el default
+                                        if (country.short_name == 'CR' || country.short_name == 'PE') {
+                                            
+                                            // Guarda la ubicacion
+                                            var $geodata = {};
+                                            $geodata.country_name = country.long_name;
+                                            $geodata.country_code = country.short_name;
+                                            window.localStorage.setItem('geodata', JSON.stringify($geodata));
+
+                                            // Actualiza el homepage
+                                            if (refresh)
+                                                $state.go('tab.home', {}, {
+                                                    reload: true
+                                                });
+                                        } else {
+                                            console.log('El pais encontrado no esta integrado a britt');
+                                            geoDefault();
+                                        }                    
                                         
                                         break;
                                     }
@@ -133,7 +178,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
                         }
                         else {
                             console.log('No results found');
-
+                            geoDefault();     
                         }
                     } 
                     else if (status === google.maps.GeocoderStatus.OVER_QUERY_LIMIT) { 
@@ -145,7 +190,10 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
                 });
 
           }, function(err) {
-            console.log(err);
+            
+            // No pudo geolocalizar, guarda el default (CR)
+            console.log('Geolocalizacion inactiva',err);
+            geoDefault();            
         });      
     }          
         
@@ -206,7 +254,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
   // Each tab has its own nav history stack:
 
   .state('tab.home', {
-    url: '/home/:country_code',
+    url: '/home',
     views: {
       'tab-home': {
         templateUrl: 'templates/tab-home.html',
@@ -220,7 +268,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
   })
   
   .state('tab.points', {
-    url: '/points/:country_code',
+    url: '/points',
     views: {
       'tab-points': {
         templateUrl: 'templates/tab-points.html',
@@ -234,7 +282,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
   })
   
   .state('tab.map', {
-    url: '/map/:country_code',
+    url: '/map',
     views: {
       'tab-map': {
         templateUrl: 'templates/tab-map.html',
@@ -262,7 +310,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
   })
   
   .state('tab.content', {
-      url: '/content/:country_code',
+      url: '/content',
       views: {
         'tab-content': {
           templateUrl: 'templates/tab-content.html',
@@ -276,7 +324,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
   })
   
   .state('tab.contact-us', {
-      url: '/contact-us/:country_code',
+      url: '/contact-us',
       views: {
         'tab-contact-us': {
           templateUrl: 'templates/tab-contact-us.html',
@@ -290,6 +338,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
   })
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/home/CR');
+  $urlRouterProvider.otherwise('/tab/home');
 
 });

@@ -6,22 +6,22 @@ navigation history that also transitions its views in and out
 <ion-tabs class="tabs-icon-top tabs-color-active-positive tabs-calm">
 
   <!-- Home Tab -->
-  <ion-tab icon-off="icon-britt-home" icon-on="icon-britt-home" href="#/tab/home/{{geoData.country_code}}">
+  <ion-tab icon-off="icon-britt-home" icon-on="icon-britt-home" href="#/tab/home">
     <ion-nav-view name="tab-home"></ion-nav-view>
   </ion-tab>
 
   <!-- Contenido Tab -->
-  <ion-tab icon-off="icon-britt-products" icon-on="icon-britt-products" href="#/tab/content/{{geoData.country_code}}">
+  <ion-tab icon-off="icon-britt-products" icon-on="icon-britt-products" href="#/tab/content">
     <ion-nav-view name="tab-content"></ion-nav-view>
   </ion-tab>
 
   <!-- Mapa  Tab -->
-  <ion-tab icon-off="icon-britt-map" icon-on="icon-britt-map" href="#/tab/map/{{geoData.country_code}}">
+  <ion-tab icon-off="icon-britt-map" icon-on="icon-britt-map" href="#/tab/map">
     <ion-nav-view name="tab-map"></ion-nav-view>
   </ion-tab>
     
   <!-- Puntos Tab -->
-  <ion-tab icon-off="icon-britt-points" icon-on="icon-britt-points" ng-if="isLoggedIn()" href="#/tab/points/{{geoData.country_code}}">
+  <ion-tab icon-off="icon-britt-points" icon-on="icon-britt-points" ng-if="isLoggedIn()" href="#/tab/points">
     <ion-nav-view name="tab-points"></ion-nav-view>
   </ion-tab>
 
@@ -31,7 +31,7 @@ navigation history that also transitions its views in and out
   </ion-tab>
     
   <!-- Contact Tab -->
-  <ion-tab icon-off="icon-britt-contact-us" icon-on="icon-britt-contact-us" href="#/tab/contact-us/{{geoData.country_code}}">
+  <ion-tab icon-off="icon-britt-contact-us" icon-on="icon-britt-contact-us" href="#/tab/contact-us">
     <ion-nav-view name="tab-contact-us"></ion-nav-view>
   </ion-tab>
         

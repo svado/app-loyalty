@@ -29,9 +29,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
   // Variables globales
   //$rutaPagesWs = 'http://www.cafebritt.com/app/loyalty/ws/pages.cfc?returnformat=json&callback=&method=';
   //$rutaAccountWs = 'http://www.cafebritt.com/app/loyalty/ws/account.cfc?returnformat=json&callback=&method=';
-  $rutaPagesWs = 'http://prueba.cafebritt.com/app/loyalty/ws/pages.cfc?returnformat=json&callback=&method=';
-  $rutaAccountWs = 'http://prueba.cafebritt.com/app/loyalty/ws/account.cfc?returnformat=json&callback=&method=';
-  $rutaBritttWs = 'http://loyalty.britt.com/ws/account.cfc?returnformat=json&callback=&method=';
+  $rutaPagesWs = 'http://loyalty.britt.com/ws/pages.cfc?returnformat=json&callback=&method=';
+  $rutaAccountWs = 'http://loyalty.britt.com/ws/account.cfc?returnformat=json&callback=&method=';
+  $rutaBritttWs = 'http://loyalty.britt.com/ws/points.cfc?returnformat=json&callback=&method=';
   $rutaImagenes = 'http://www.brittespresso.com/siteimg/';
 
   // Esta loqueado?
@@ -87,6 +87,28 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
         }
     });    
     
+    // Guarda un pais por default en caso de que no pudo geolocalizar
+    geoDefault = function() {
+        
+        var refresh = false;
+            
+        // Si no ha geolocalizado o el pais cambio entonces actualiza el homepage
+        if (window.localStorage.getItem('geodata') === null)
+            refresh = true;
+
+        // Guarda la ubicacion
+        var $geodata = {};
+        $geodata.country_name = 'Costa Rica';
+        $geodata.country_code = 'CR';
+        window.localStorage.setItem('geodata', JSON.stringify($geodata));
+
+         // Actualiza el homepage
+        if (refresh)
+            $state.go('tab.home', {}, {
+                reload: true
+            });
+    }
+    
     // Geocolalizacion
     geoLocalizar = function () {
       
@@ -109,6 +131,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
                             // Formatted address
                             var currentAdd = results[0].formatted_address;
                             var address = currentAdd;
+                            var refresh = false;
+                            
                             //find country name
                             for (var i=0; i<results[0].address_components.length; i++) 
                             {
@@ -118,13 +142,34 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
                                         
                                         //this is the object you are looking for
                                         country = results[0].address_components[i];
-                                        //console.log(country.short_name + ': ' + country.long_name);
                                         
-                                        // Guarda la ubicacion
-                                        var $geodata = {};
-                                        $geodata.country_name = country.long_name;
-                                        $geodata.country_code = country.short_name;
-                                        window.localStorage.setItem('geodata', JSON.stringify($geodata));
+                                        // Si no ha geolocalizado o el pais cambio entonces actualiza el homepage
+                                        if (window.localStorage.getItem('geodata') === null)
+                                            refresh = true;
+                                        else if (window.localStorage.getItem('geodata') !== null) {
+                                            var elemento = JSON.parse(window.localStorage.getItem('geodata'));
+                                            if (elemento.country_code != country.short_name)
+                                                refresh = true;
+                                        }
+                                        
+                                        // Si encuentra un pais que no esta registrado entonces guarda el default
+                                        if (country.short_name == 'CR' || country.short_name == 'PE') {
+                                            
+                                            // Guarda la ubicacion
+                                            var $geodata = {};
+                                            $geodata.country_name = country.long_name;
+                                            $geodata.country_code = country.short_name;
+                                            window.localStorage.setItem('geodata', JSON.stringify($geodata));
+
+                                            // Actualiza el homepage
+                                            if (refresh)
+                                                $state.go('tab.home', {}, {
+                                                    reload: true
+                                                });
+                                        } else {
+                                            console.log('El pais encontrado no esta integrado a britt');
+                                            geoDefault();
+                                        }                    
                                         
                                         break;
                                     }
@@ -133,7 +178,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
                         }
                         else {
                             console.log('No results found');
-
+                            geoDefault();     
                         }
                     } 
                     else if (status === google.maps.GeocoderStatus.OVER_QUERY_LIMIT) { 
@@ -145,7 +190,10 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
                 });
 
           }, function(err) {
-            console.log(err);
+            
+            // No pudo geolocalizar, guarda el default (CR)
+            console.log('Geolocalizacion inactiva',err);
+            geoDefault();            
         });      
     }          
         
@@ -153,6 +201,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
 
 .config(function($stateProvider, $urlRouterProvider, $httpProvider, $ionicConfigProvider) {
 
+  // Posiciona siempre los tabs al final
+  $ionicConfigProvider.tabs.position('bottom');
+    
   // Intercepta un evento http cuando es invocado
   $httpProvider.interceptors.push(function ($rootScope) {
     return {
@@ -202,17 +253,17 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
 
   // Each tab has its own nav history stack:
 
-  .state('tab.dash', {
-    url: '/dash',
+  .state('tab.home', {
+    url: '/home',
     views: {
-      'tab-dash': {
-        templateUrl: 'templates/tab-dash.html',
-        controller: 'DashCtrl'
+      'tab-home': {
+        templateUrl: 'templates/tab-home.html',
+        controller: 'HomeCtrl'
         }
     },
     cache: false,
     data: {
-        needLogged: true
+        needLogged: false
     }
   })
   
@@ -227,6 +278,20 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
     cache: false,
     data: {
         needLogged: true
+    }
+  })
+  
+  .state('tab.map', {
+    url: '/map',
+    views: {
+      'tab-map': {
+        templateUrl: 'templates/tab-map.html',
+        controller: 'MapCtrl'
+      }
+    },
+    cache: false,
+    data: {
+        needLogged: false
     }
   })
   
@@ -245,7 +310,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
   })
   
   .state('tab.content', {
-      url: '/content/:country_code',
+      url: '/content',
       views: {
         'tab-content': {
           templateUrl: 'templates/tab-content.html',
@@ -257,8 +322,22 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
         needLogged: false
       }
   })
+  
+  .state('tab.contact-us', {
+      url: '/contact-us',
+      views: {
+        'tab-contact-us': {
+          templateUrl: 'templates/tab-contact-us.html',
+          controller: 'ContactUsCtrl'
+        }
+      },
+      cache: false,
+      data: {
+        needLogged: false
+      }
+  })
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/dash');
+  $urlRouterProvider.otherwise('/tab/home');
 
 });

@@ -23,7 +23,16 @@
                     <input type="email" ng-model="$parent.email" name="email" required placeholder="Email"> </label>
                 <label class="item item-input"> <span class="input-label">Phone</span>
                     <div ng-messages="fProfile.phone.$error" ng-messages-include="messages.html"></div>
-                    <input type="tel" ng-model="$parent.phone" name="phone" required placeholder="Phone number"> </label>
+                    <input type="tel" ng-model="$parent.phone" name="phone" required placeholder="Phone number"> </label>                
+                <label class="item item-input item-select">
+                    <div class="input-label">Country </div>
+                    <select id="codigo_pais" name="codigo_pais" required>
+                        <option ng-repeat="country in countries" value="{{country.CODIGO_PAIS}}" ng-selected="country.ISO2 == $parent.iso2">{{country.NOMBRE_PAIS_ING | uppercase}}</option>
+                    </select>
+                </label>
+                <label class="item item-input"> <span class="input-label">Birthday</span>
+                    <div ng-messages="fProfile.birth_date.$error" ng-messages-include="messages.html"></div>
+                    <input type="date" ng-model="$parent.birth_date" name="birth_date" placeholder="Birthday"> </label> 
                 <div class="item item-divider"> Change password </div>
                 <label class="item item-input"> <span class="input-label">Password</span>
                     <div ng-messages="fProfile.password.$error" ng-messages-include="messages.html"></div>

@@ -32,7 +32,18 @@
                     <div ng-messages="fSignUp.phone.$error" ng-messages-include="messages.html"></div>
                     <input type="tel" ng-model="signData.phone" name="phone" placeholder="Phone number" required>
                 </label>
-
+                
+                <label class="item item-input item-select">
+                    <div class="input-label">Country </div>
+                    <select id="codigo_pais" name="codigo_pais" required>
+                        <option ng-repeat="country in countries" value="{{country.CODIGO_PAIS}}" ng-selected="country.ISO2 == $parent.country_code">{{country.NOMBRE_PAIS_ING | uppercase}}</option>
+                    </select>
+                </label>
+                
+                <label class="item item-input"> <span class="input-label">Birthday</span>
+                    <div ng-messages="fSignUp.birth_date.$error" ng-messages-include="messages.html"></div>
+                    <input type="date" ng-model="signData.birth_date" name="birth_date" placeholder="Birthday"> </label>
+                
                 <label class="item item-input">
                     <span class="input-label">Password</span>
                     <div ng-messages="fSignUp.password.$error" ng-messages-include="messages.html"></div>

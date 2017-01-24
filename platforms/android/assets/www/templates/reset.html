@@ -1,21 +1,21 @@
 <ion-modal-view ng-controller="ContactCtrl">
     <ion-header-bar class="bar-positive">
-        <h1 class="title">Olvid&oacute; su contrase&ntilde;a</h1>
+        <h1 class="title">Forgotten password</h1>
         <div class="buttons">
-            <button class="button button-clear" ng-click="closeReset()">Cerrar</button>
+            <button class="button button-clear" ng-click="closeReset()">Close</button>
         </div>
     </ion-header-bar>
     <ion-content>
         <form name="fReset" ng-submit="doReset()">
-            <h5 class="text-center">No se preocupe, ingrese su dirección de correo y le enviaremos las instrucciones para ingresar a su cuenta.</h5>
+            <h5 class="text-center">Enter your email address below and we will send you instructions for changing your password and logging in</h5>
             <div class="list">
                 <label class="item item-input">
-                    <span class="input-label">Ingrese su email</span>
+                    <span class="input-label">Email</span>
                     <div ng-messages="fReset.email.$error" ng-messages-include="messages.html"></div>
-                    <input type="email" ng-model="$parent.resetData.email" name="email" required>
+                    <input type="email" ng-model="$parent.resetData.email" name="email" placeholder="Your email" required>
                 </label>
                 <label class="item">
-                    <button class="button button-block button-positive" type="submit" ng-disabled="fReset.$invalid">Aceptar</button>
+                    <button class="button button-block button-outline button-positive" type="submit" ng-disabled="fReset.$invalid">Submit</button>
                 </label>
             </div>
         </form>

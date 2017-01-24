@@ -1,23 +1,31 @@
 <div class="list">
-    <label class="item item-input">
-        <span class="input-label">Email</span>
+    <label class="item item-input item-select">
+        <div class="input-label">Sign in with </div>
+        <select ng-model="$parent.loginData.use_email">
+            <option>ID</option>
+            <option selected>EMAIL</option>
+        </select>
+    </label>
+    <label class="item item-input" ng-if="$parent.loginData.use_email == 'EMAIL'"> <span class="input-label">Email</span>
         <div ng-messages="fLogin.email.$error" ng-messages-include="messages.html"></div>
-        <input type="email" ng-model="$parent.loginData.email" name="email" required>
+        <input type="email" ng-model="$parent.loginData.email" name="email" placeholder="Your email" required>
     </label>
-    <label class="item item-input">
-        <span class="input-label">Password</span>
+    
+    <label class="item item-input" ng-if="$parent.loginData.use_email == 'ID'"> <span class="input-label">ID</span>
+        <div ng-messages="fLogin.codigo_cliente.$error" ng-messages-include="messages.html"></div>
+        <input type="number" ng-model="$parent.loginData.codigo_cliente" name="codigo_cliente" ng-minlength="3" placeholder="Britt ID" required>
+    </label>
+    
+    <label class="item item-input"> <span class="input-label">Password</span>
         <div ng-messages="fLogin.password.$error" ng-messages-include="messages.html"></div>
-        <input type="password" ng-model="$parent.loginData.password" name="password" required>
-    </label>
+        <input type="password" ng-model="$parent.loginData.password" name="password" placeholder="Your password" required> </label>
     <div class="row countries">
         <ion-radio name="country_code" ng-model="$parent.loginData.country_code" class="flag-CR col col-50" ng-value="'CR'">&nbsp;</ion-radio>
         <ion-radio name="country_code" ng-model="$parent.loginData.country_code" class="flag-PE col col-50" ng-value="'PE'">&nbsp;</ion-radio>
     </div>
     <div class="item">
-        <button class="button button-block button-positive" type="submit" ng-disabled="fLogin.$invalid">Sign In</button>
-        <a class="button button-block button-assertive" href="#/app/signup" ng-click="signup()">Sign Up</a>
-    </div>
+        <button class="button button-block button-outline button-positive" type="submit" ng-disabled="fLogin.$invalid">Already member? Sign In</button> <a class="button button-block button-outline button-calm" href="#/app/signup" ng-click="signup()">Sign Up</a> </div>
     <div class="item text-center">
-        <p>Forgot your password? <a class="" href="#/app/reset" ng-click="reset()">please enter here</a></p>
+        <p><a class="button button-outline button-stable" href="#/app/reset" ng-click="reset()">Forgot your password? <small>Create one?</small></a></p>
     </div>
 </div>
