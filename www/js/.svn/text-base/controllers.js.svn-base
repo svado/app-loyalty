@@ -1,15 +1,17 @@
 angular.module('starter.controllers', [])
 
 // Controlador general
-.controller('AppCtrl', function ($scope, $ionicModal, $ionicPlatform, $timeout, $http, $ionicPopup, $state, $parse, $ionicHistory) {
+.controller('AppCtrl', function ($scope, $ionicModal, $ionicPlatform, $timeout, $http, $ionicPopup, $state, $parse, $ionicHistory, $rootScope) {
 
     // Inicializador
     $scope.loginData = {};
     $scope.signData = [];
     $scope.resetData = [];
     $scope.contactData = [];
-    $scope.isLoggedIn = isLoggedIn;  
-    
+    $scope.isLoggedIn = isLoggedIn;
+    $rootScope.countries = $scope.countries;
+    $rootScope.britt_countries = $scope.britt_countries;
+        
     // Geolocalizacion    
     geoLocalizar();
 
@@ -146,8 +148,9 @@ angular.module('starter.controllers', [])
     });
         
     // Variables principales    
-    var country_code = '';
-    
+    var country_code = '';   
+    $rootScope.countries = $scope.countries;
+        
     // Obtiene los datos del cliente    
     $scope.loginData = $scope.getLocalData('cliente'); 
     
@@ -160,7 +163,7 @@ angular.module('starter.controllers', [])
         country_code = $stateParams.country_code;
     }    
         
-    // Obtiene el contenido
+    // Obtiene el contenido    
     $params = '&country_iso2='+country_code+'&menu=INICIO&article_types=163';
     $method = 'getPageArticles';
     $http.post($rutaPagesWs + $method + $params).
@@ -182,7 +185,8 @@ angular.module('starter.controllers', [])
 
     // Variables principales    
     var country_code = '';
-    
+    $rootScope.countries = $scope.countries;    
+        
     // Obtiene los datos de la geolocalizacion
     $scope.geoData = $scope.getLocalData('geodata');        
     $scope.loginData = {};
@@ -203,22 +207,7 @@ angular.module('starter.controllers', [])
     } else {
         country_code = $stateParams.country_code;
     }
-    $scope.country_code = country_code;    
-        
-    // Obtiene los paises
-    $params = '';
-    $method = 'getCountries';
-    $http.post($rutaAccountWs + $method + $params).
-    success(function (data, status, headers) {
-        if (data.length != 0) {
-            $scope.countries = data;
-            $scope.error = false;
-        }
-    }).
-    error(function (data, status) {
-        $scope.error = true;
-        console.log(status);
-    });  
+    $scope.country_code = country_code;                
     
     // Trata de loguearse en la web.
     $scope.doLogin = function (page) {
@@ -317,7 +306,7 @@ angular.module('starter.controllers', [])
 .controller('PointsCtrl', function($scope, $rootScope, $http, $stateParams, $state, $ionicHistory, $ionicModal) {
 
     // Variables principales    
-    var country_code = '';
+    var country_code = '';    
     
     // Obtiene los datos del cliente    
     $scope.loginData = $scope.getLocalData('cliente'); 
@@ -490,7 +479,7 @@ angular.module('starter.controllers', [])
     $cliente = $scope.getLocalData('cliente');
 
     // Variables principales    
-    var country_code = '';
+    var country_code = '';    
     
     // Obtiene los datos de geolocalizacion
     if ($stateParams.country_code == '' || $stateParams.country_code === undefined) {        
