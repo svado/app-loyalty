@@ -7,7 +7,7 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','ngCordova'])
 
-.run(function($ionicPlatform, $rootScope) {
+.run(function($ionicPlatform, $rootScope, $http) {
   
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -21,14 +21,42 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
-          
+
+    // Obtiene los paises
+    $countries = [];
+    $params = '';
+    $method = 'getCountries';
+    $http.post($rutaAccountWs + $method + $params).
+    success(function (data, status, headers) {
+        if (data.length != 0) {
+            $countries = data;
+            $rootScope.countries = data;
+        }
+    }).
+    error(function (data, status) {
+        console.log(status);
+    });  
+      
+    // Obtiene la lista de paises britt
+    $britt_countries = [];
+    $params = '';
+    $method = 'getCountries';
+    $http.post($rutaPagesWs + $method + $params).
+    success(function (data, status, headers) {
+        if (data.length != 0) {
+            $britt_countries = data;
+            $rootScope.britt_countries = data;
+        }
+    }).
+    error(function (data, status) {
+        console.log(status);
+    });
+      
     // Geolocalizacion    
     geoLocalizar();
   });
     
   // Variables globales
-  //$rutaPagesWs = 'http://www.cafebritt.com/app/loyalty/ws/pages.cfc?returnformat=json&callback=&method=';
-  //$rutaAccountWs = 'http://www.cafebritt.com/app/loyalty/ws/account.cfc?returnformat=json&callback=&method=';
   $rutaPagesWs = 'http://loyalty.britt.com/ws/pages.cfc?returnformat=json&callback=&method=';
   $rutaAccountWs = 'http://loyalty.britt.com/ws/account.cfc?returnformat=json&callback=&method=';
   $rutaBritttWs = 'http://loyalty.britt.com/ws/points.cfc?returnformat=json&callback=&method=';
@@ -63,7 +91,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
   };
 })
 
-.run(function ($rootScope, $ionicLoading, $state, $cordovaGeolocation) {
+.run(function ($rootScope, $ionicLoading, $state, $cordovaGeolocation, $http, $filter) {
 
     // Muestra un mensaje mientras carga datos en la vista
     $rootScope.$on('loading:show', function () {
@@ -111,7 +139,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
     
     // Geocolalizacion
     geoLocalizar = function () {
-      
+
         var posOptions = {timeout: 10000, enableHighAccuracy: false};
         $cordovaGeolocation
           .getCurrentPosition(posOptions)
@@ -153,7 +181,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
                                         }
                                         
                                         // Si encuentra un pais que no esta registrado entonces guarda el default
-                                        if (country.short_name == 'CR' || country.short_name == 'PE') {
+                                        var found = $filter('filter')($britt_countries, {APP_COUNTRY_ISO2: country.short_name}, true);
+                                        if (found.length) {
                                             
                                             // Guarda la ubicacion
                                             var $geodata = {};

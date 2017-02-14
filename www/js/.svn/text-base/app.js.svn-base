@@ -60,7 +60,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
   $rutaPagesWs = 'http://loyalty.britt.com/ws/pages.cfc?returnformat=json&callback=&method=';
   $rutaAccountWs = 'http://loyalty.britt.com/ws/account.cfc?returnformat=json&callback=&method=';
   $rutaBritttWs = 'http://loyalty.britt.com/ws/points.cfc?returnformat=json&callback=&method=';
-  $rutaImagenes = 'http://www.brittespresso.com/siteimg/';
+  $rutaImagenes = 'http://loyalty.britt.com/public/img';
 
   // Esta loqueado?
   isLoggedIn = function () {

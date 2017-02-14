@@ -1,15 +1,17 @@
 angular.module('starter.controllers', [])
 
 // Controlador general
-.controller('AppCtrl', function ($scope, $ionicModal, $ionicPlatform, $timeout, $http, $ionicPopup, $state, $parse, $ionicHistory) {
+.controller('AppCtrl', function ($scope, $ionicModal, $ionicPlatform, $timeout, $http, $ionicPopup, $state, $parse, $ionicHistory, $rootScope) {
 
     // Inicializador
     $scope.loginData = {};
     $scope.signData = [];
     $scope.resetData = [];
     $scope.contactData = [];
-    $scope.isLoggedIn = isLoggedIn;  
-    
+    $scope.isLoggedIn = isLoggedIn;
+    $rootScope.countries = $scope.countries;
+    $rootScope.britt_countries = $scope.britt_countries;
+        
     // Geolocalizacion    
     geoLocalizar();
 
@@ -146,9 +148,9 @@ angular.module('starter.controllers', [])
     });
         
     // Variables principales    
-    var template_id = 0;
-    var country_code = '';
-    
+    var country_code = '';   
+    $rootScope.countries = $scope.countries;
+        
     // Obtiene los datos del cliente    
     $scope.loginData = $scope.getLocalData('cliente'); 
     
@@ -159,17 +161,10 @@ angular.module('starter.controllers', [])
         country_code = $scope.geoData.country_code;
     } else {
         country_code = $stateParams.country_code;
-    }
-    
-    // Cambia de pais
-    if (country_code == 'CR') {
-        template_id = 122; // Costa Rica
-    } else if (country_code== 'PE') {
-        template_id = 123; // Peru
-    }       
-    
-    // Obtiene el contenido
-    $params = '&template_id='+template_id+'&article_types=163';
+    }    
+        
+    // Obtiene el contenido    
+    $params = '&country_iso2='+country_code+'&menu=INICIO&article_types=163';
     $method = 'getPageArticles';
     $http.post($rutaPagesWs + $method + $params).
     success(function (data, status, headers) {
@@ -186,13 +181,23 @@ angular.module('starter.controllers', [])
 })
 
 // Manejo de clientes
-.controller('ContactCtrl', function ($scope, $rootScope, $http, $stateParams, $state, $ionicHistory) {                   
-    
+.controller('ContactCtrl', function ($scope, $rootScope, $http, $stateParams, $state, $ionicHistory, $filter) {                   
+
+    // Variables principales    
+    var country_code = '';
+    $rootScope.countries = $scope.countries;    
+        
     // Obtiene los datos de la geolocalizacion
     $scope.geoData = $scope.getLocalData('geodata');        
     $scope.loginData = {};
     $scope.loginData.country_code = $scope.geoData.country_code;
     $scope.loginData.use_email = 'EMAIL';
+    
+    var currentDate = new Date()
+    var day = currentDate.getDate();
+    var month = currentDate.getMonth() + 1;
+    var year = currentDate.getFullYear();
+    $scope.signData.birth_date = new Date(year+'-'+month+'-'+day);
 
     // Obtiene los datos de geolocalizacion
     if ($stateParams.country_code == '' || $stateParams.country_code === undefined) {        
@@ -202,12 +207,12 @@ angular.module('starter.controllers', [])
     } else {
         country_code = $stateParams.country_code;
     }
+    $scope.country_code = country_code;                
     
     // Trata de loguearse en la web.
     $scope.doLogin = function (page) {
 
-        $scope.error = true;
-        
+        $scope.error = true;        
         if ($scope.loginData.use_email == 'EMAIL') {
             $params = '&username=' + $scope.loginData.email + '&password=' + $scope.loginData.password + '&codigo_cliente=0';    
         } else {
@@ -246,8 +251,9 @@ angular.module('starter.controllers', [])
     // Crea el cliente en la web.
     $scope.doSignUp = function () {
         
+        var bday = $filter("date")($scope.signData.birth_date, 'yyyy-MM-dd');
         $scope.error = true;
-        $params = '&first_name=' + $scope.signData.first_name + '&last_name=' + $scope.signData.last_name + '&email=' + $scope.signData.email + '&phone=' + $scope.signData.phone + '&password=' + $scope.signData.password + '&password2=' + $scope.signData.password2;
+        $params = '&first_name=' + $scope.signData.first_name + '&last_name=' + $scope.signData.last_name + '&email=' + $scope.signData.email + '&phone=' + $scope.signData.phone + '&password=' + $scope.signData.password + '&password2=' + $scope.signData.password2 + '&codigo_pais='+fSignUp.codigo_pais.value + '&birth_date='+bday;
         $method = 'createUser';
         $http.post($rutaAccountWs + $method + $params).
         success(function (data, status, headers) {
@@ -300,8 +306,7 @@ angular.module('starter.controllers', [])
 .controller('PointsCtrl', function($scope, $rootScope, $http, $stateParams, $state, $ionicHistory, $ionicModal) {
 
     // Variables principales    
-    var template_id = 0;
-    var country_code = '';
+    var country_code = '';    
     
     // Obtiene los datos del cliente    
     $scope.loginData = $scope.getLocalData('cliente'); 
@@ -316,15 +321,8 @@ angular.module('starter.controllers', [])
         country_code = $stateParams.country_code;
     }
     
-    // Cambia de pais
-    if (country_code == 'CR') {
-        template_id = 120; // Costa Rica
-    } else if (country_code== 'PE') {
-        template_id = 121; // Peru
-    }
-    
     // Obtiene el contenido
-    $params = '&template_id='+template_id+'&article_types=163';
+    $params = '&country_iso2='+country_code+'&menu=PUNTOS&article_types=163';
     $method = 'getPageArticles';
     $http.post($rutaPagesWs + $method + $params).
     success(function (data, status, headers) {
@@ -408,7 +406,6 @@ angular.module('starter.controllers', [])
         disableBack: true
     });
         
-    var template_id = 0;
     var country_code = '';
     
     // Obtiene los datos de geolocalizacion
@@ -419,16 +416,9 @@ angular.module('starter.controllers', [])
     } else {
         country_code = $stateParams.country_code;
     }
-    
-    // Cambia de pais
-    if (country_code == 'CR') {
-        template_id = 114; // Costa Rica
-    } else if (country_code== 'PE') {
-        template_id = 115; // Peru
-    }
-    
+        
     // Obtiene el contenido
-    $params = '&template_id='+template_id+'&article_types=163';
+    $params = '&country_iso2='+country_code+'&menu=PRODUCTOS&article_types=163';
     $method = 'getPageArticles';
     $http.post($rutaPagesWs + $method + $params).
     success(function (data, status, headers) {
@@ -454,7 +444,6 @@ angular.module('starter.controllers', [])
     });
         
     // Variables principales    
-    var template_id = 0;
     var country_code = '';
     
     // Obtiene los datos de geolocalizacion
@@ -465,16 +454,9 @@ angular.module('starter.controllers', [])
     } else {
         country_code = $stateParams.country_code;
     }
-    
-    // Cambia de pais
-    if (country_code == 'CR') {
-        template_id = 116; // Costa Rica
-    } else if (country_code== 'PE') {
-        template_id = 117; // Peru
-    }       
-    
+        
     // Obtiene el contenido
-    $params = '&template_id='+template_id+'&article_types=163';
+    $params = '&country_iso2='+country_code+'&menu=MAPA&article_types=163';
     $method = 'getPageArticles';
     $http.post($rutaPagesWs + $method + $params).
     success(function (data, status, headers) {
@@ -491,11 +473,23 @@ angular.module('starter.controllers', [])
 })
 
 // Manejo del profile
-.controller('ProfileCtrl', function($scope, $rootScope, $http, $stateParams, $state, $ionicHistory) {
+.controller('ProfileCtrl', function($scope, $rootScope, $http, $stateParams, $state, $ionicHistory, $filter) {
     
     // Obtiene los datos del contacto
     $cliente = $scope.getLocalData('cliente');
 
+    // Variables principales    
+    var country_code = '';    
+    
+    // Obtiene los datos de geolocalizacion
+    if ($stateParams.country_code == '' || $stateParams.country_code === undefined) {        
+        geoLocalizar();
+        $scope.geoData = $scope.getLocalData('geodata');        
+        country_code = $scope.geoData.country_code;
+    } else {
+        country_code = $stateParams.country_code;
+    }
+    
     if (isLoggedIn()) {
         $scope.error = true;
         $params = '&codigo_cliente=' + $cliente.codigo_cliente;
@@ -518,9 +512,20 @@ angular.module('starter.controllers', [])
                     $scope.codigo_address = data.CODIGO_ADDRESS;
                     $scope.codigo_phone = data.CODIGO_PHONE;
                     $scope.codigo_state = data.CODIGO_STATE;
+                    $scope.countries = data.COUNTRIES;
+                    $scope.birth_date = new Date(data.BDAY_YEAR+'-'+data.BDAY_MONTH+'-'+data.BDAY_DAY);
+                    
+                    if (data.CODIGO_PAIS == '') {
+                        $scope.codigo_pais = 0;
+                        $scope.iso2 = country_code;    
+                    } else {
+                        $scope.codigo_pais = data.CODIGO_PAIS;                    
+                        $scope.iso2 = data.ISO2;
+                    }        
+                    
                     $scope.password = '';
                     $scope.password2 = '';
-                    $scope.error = false;
+                    $scope.error = false;                    
                     if (data.ALERTA.length != 0) $scope.showPopup('Profile', data.ALERTA);
                 } else
                 if (data.ALERTA.length != 0) $scope.showPopup('Profile', data.ALERTA, true);
@@ -537,7 +542,9 @@ angular.module('starter.controllers', [])
     $scope.updContact = function () {
 
         $scope.error = true;
-        $params = '&first_name=' + $scope.first_name + '&last_name=' + $scope.last_name + '&email=' + $scope.email + '&phone=' + $scope.phone + '&password=' + $scope.password + '&password2=' + $scope.password2 + '&codigo_cliente=' + $scope.codigo_cliente + '&codigo_email=' + $scope.codigo_email + '&codigo_phone=' + $scope.codigo_phone;
+        var bday = $filter("date")($scope.birth_date, 'yyyy-MM-dd');
+        
+        $params = '&first_name=' + $scope.first_name + '&last_name=' + $scope.last_name + '&email=' + $scope.email + '&phone=' + $scope.phone + '&password=' + $scope.password + '&password2=' + $scope.password2 + '&codigo_cliente=' + $scope.codigo_cliente + '&codigo_email=' + $scope.codigo_email + '&codigo_phone=' + $scope.codigo_phone + '&codigo_pais='+fProfile.codigo_pais.value + '&codigo_address='+$scope.codigo_address + '&birth_date='+bday;        
         $method = 'updContact';
         $http.post($rutaAccountWs + $method + $params).
         success(function (data, status, headers) {
@@ -565,7 +572,6 @@ angular.module('starter.controllers', [])
     $scope.email = $cliente.email;
         
     // Variables principales    
-    var template_id = 0;
     var country_code = '';
     
     // Obtiene los datos de geolocalizacion
@@ -576,16 +582,9 @@ angular.module('starter.controllers', [])
     } else {
         country_code = $stateParams.country_code;
     }
-    
-    // Cambia de pais
-    if (country_code == 'CR') {
-        template_id = 118; // Costa Rica
-    } else if (country_code== 'PE') {
-        template_id = 119; // Peru
-    }       
-    
+        
     // Obtiene el contenido
-    $params = '&template_id='+template_id+'&article_types=163';
+    $params = '&country_iso2='+country_code+'&menu=CONTACTO&article_types=163';
     $method = 'getPageArticles';
     $http.post($rutaPagesWs + $method + $params).
     success(function (data, status, headers) {

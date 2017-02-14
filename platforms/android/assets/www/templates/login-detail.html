@@ -19,9 +19,10 @@
     <label class="item item-input"> <span class="input-label">Password</span>
         <div ng-messages="fLogin.password.$error" ng-messages-include="messages.html"></div>
         <input type="password" ng-model="$parent.loginData.password" name="password" placeholder="Your password" required> </label>
-    <div class="row countries">
-        <ion-radio name="country_code" ng-model="$parent.loginData.country_code" class="flag-CR col col-50" ng-value="'CR'">&nbsp;</ion-radio>
-        <ion-radio name="country_code" ng-model="$parent.loginData.country_code" class="flag-PE col col-50" ng-value="'PE'">&nbsp;</ion-radio>
+    <div class="row flags">
+        <div class="countries">
+            <span class="flag-{{country.APP_COUNTRY_ISO2}}" ng-repeat="country in britt_countries" style="background-image: url(../img/flags/{{country.APP_COUNTRY_ISO2}}.png) !important;" ng-class="{'active' : country_code == country.APP_COUNTRY_ISO2}"></span>   
+            </div>
     </div>
     <div class="item">
         <button class="button button-block button-outline button-positive" type="submit" ng-disabled="fLogin.$invalid">Already member? Sign In</button> <a class="button button-block button-outline button-calm" href="#/app/signup" ng-click="signup()">Sign Up</a> </div>

@@ -18,16 +18,20 @@ $dark:                            #444 !default;
 .full-image img {
   width: 100%; }
 
-.countries .item-content {
-  background-size: contain !important;
-  padding: 25px !important;
-  background-repeat: no-repeat; }
-
-.countries .flag-CR .item-content {
-  background-image: url(../img/flags/CR.png) !important; }
-
-.countries .flag-PE .item-content {
-  background-image: url(../img/flags/PE.png) !important; }
+.countries {
+  height: 35px;
+  margin: 0 auto;
+  top: 18px;
+  position: relative; }
+  .countries span {
+    background-size: 40px 25px !important;
+    padding: 13px 20px !important;
+    background-repeat: no-repeat !important;
+    height: 1px !important;
+    filter: grayscale(100%);
+    margin: 0 5px; }
+    .countries span.active {
+      filter: grayscale(0) !important; }
 
 .tab-item .icon {
   height: 38px !important;
