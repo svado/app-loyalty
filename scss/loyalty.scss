@@ -19,9 +19,9 @@ $icons-path: '../img/icons';
 // -------------------------------------------
 
 $light:                           #fff !default;
-$stable:                          #f8f8f8 !default;
-$positive:                        #387ef5 !default;
-$calm:                            #11c1f3 !default;
+$stable:                          #a01e20 !default /* f8f8f8 */
+$positive:                        #a01e20 !default; /* 387ef5 */
+$calm:                            #a01e20 !default; /* 11c1f3 */
 $balanced:                        #33cd5f !default;
 $energized:                       #ffc900 !default;
 $assertive:                       #ef473a !default;
@@ -60,6 +60,14 @@ $dark:                            #444 !default;
 }
 
 
+// Header
+// -------------------------------------------
+
+.bar.bar-stable .title {
+    color: #fff !important;
+}
+.ion-help-buoy:before {color: $light !important;}
+
 // Tab icons
 // -------------------------------------------
 
@@ -74,11 +82,11 @@ $dark:                            #444 !default;
     background-size: 25px;
 }
 
-.icon-britt-home {@include background-img('home');}
-.icon-britt-points {@include background-img('points',38px);}
-.icon-britt-products {@include background-img('products',20px);}
-.icon-britt-map {@include background-img('map',20px);}
-.icon-britt-contact-us {@include background-img('contact-us');}
+.icon-britt-home {@include background-img('home',30px);}
+.icon-britt-points {@include background-img('points',40px);}
+.icon-britt-products {@include background-img('products',35px);}
+.icon-britt-map {@include background-img('map',30px);}
+.icon-britt-contact-us {@include background-img('contact-us',30px);}
 
 // Footer
 // -------------------------------------------

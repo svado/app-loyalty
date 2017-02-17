@@ -11,6 +11,7 @@ angular.module('starter.controllers', [])
     $scope.isLoggedIn = isLoggedIn;
     $rootScope.countries = $scope.countries;
     $rootScope.britt_countries = $scope.britt_countries;
+    $scope.rutaImagenes = $rutaImagenes;
         
     // Geolocalizacion    
     geoLocalizar();
@@ -135,7 +136,9 @@ angular.module('starter.controllers', [])
     };
     $scope.reset = function () {
         $scope.modalReset.show();
-    };    
+    };   
+    
+    
 })
 
 // Manejo del codigo de barras
@@ -186,7 +189,7 @@ angular.module('starter.controllers', [])
     // Variables principales    
     var country_code = '';
     $rootScope.countries = $scope.countries;    
-        
+    
     // Obtiene los datos de la geolocalizacion
     $scope.geoData = $scope.getLocalData('geodata');        
     $scope.loginData = {};
@@ -319,7 +322,7 @@ angular.module('starter.controllers', [])
         country_code = $scope.geoData.country_code;
     } else {
         country_code = $stateParams.country_code;
-    }
+    }    
     
     // Obtiene el contenido
     $params = '&country_iso2='+country_code+'&menu=PUNTOS&article_types=163';
@@ -386,14 +389,15 @@ angular.module('starter.controllers', [])
     };
     
     // Obtiene los puntos
-    $scope.getPoints();
+    //$scope.getPoints();
 
     // Genera el codigo de barras
     JsBarcode("#barcode", $codigo_cliente, {
       format: "CODE128",
       lineColor: "#000",
       width:3,
-      displayValue: true
+      displayValue: true,
+      height:60
     });        
 })
 
@@ -561,6 +565,23 @@ angular.module('starter.controllers', [])
         error(function (data, status) {
             console.log(status);
         });
+    };
+})
+
+// Manejo del profile
+.controller('TermsCtrl', function($scope, $ionicModal) {
+    console.log('123');
+    // Modal terms and conditions
+    $ionicModal.fromTemplateUrl('templates/terms-modal.html', {
+        scope: $scope
+    }).then(function (modal) {
+        $scope.modalTerms = modal;
+    });
+    $scope.closeTerms = function () {
+        $scope.modalTerms.hide();
+    };
+    $scope.terms = function () {
+        $scope.modalTerms.show();
     };
 })
 

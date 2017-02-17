@@ -1,8 +1,8 @@
 <div class="list">
     <label class="item item-input item-select">
-        <div class="input-label">Sign in with </div>
+        <div class="input-label">Ingresar con </div>
         <select ng-model="$parent.loginData.use_email">
-            <option>ID</option>
+            <option>CODIGO CLIENTE</option>
             <option selected>EMAIL</option>
         </select>
     </label>
@@ -11,22 +11,22 @@
         <input type="email" ng-model="$parent.loginData.email" name="email" placeholder="Your email" required>
     </label>
     
-    <label class="item item-input" ng-if="$parent.loginData.use_email == 'ID'"> <span class="input-label">ID</span>
+    <label class="item item-input" ng-if="$parent.loginData.use_email == 'ID'"> <span class="input-label">CODIGO CLIENTE</span>
         <div ng-messages="fLogin.codigo_cliente.$error" ng-messages-include="messages.html"></div>
         <input type="number" ng-model="$parent.loginData.codigo_cliente" name="codigo_cliente" ng-minlength="3" placeholder="Britt ID" required>
     </label>
     
-    <label class="item item-input"> <span class="input-label">Password</span>
+    <label class="item item-input"> <span class="input-label">Contrase&ntilde;a</span>
         <div ng-messages="fLogin.password.$error" ng-messages-include="messages.html"></div>
         <input type="password" ng-model="$parent.loginData.password" name="password" placeholder="Your password" required> </label>
     <div class="row flags">
         <div class="countries">
-            <span class="flag-{{country.APP_COUNTRY_ISO2}}" ng-repeat="country in britt_countries" style="background-image: url(../img/flags/{{country.APP_COUNTRY_ISO2}}.png) !important;" ng-class="{'active' : country_code == country.APP_COUNTRY_ISO2}"></span>   
+            <span class="flag-{{country.APP_COUNTRY_ISO2}}" ng-repeat="country in britt_countries" style="background-image: url({{$parent.rutaImagenes}}/flags/{{country.APP_COUNTRY_ISO2}}.png) !important;" ng-class="{'active' : country_code == country.APP_COUNTRY_ISO2}"></span>   
             </div>
     </div>
     <div class="item">
-        <button class="button button-block button-outline button-positive" type="submit" ng-disabled="fLogin.$invalid">Already member? Sign In</button> <a class="button button-block button-outline button-calm" href="#/app/signup" ng-click="signup()">Sign Up</a> </div>
+        <button class="button button-block button-outline button-positive" type="submit" ng-disabled="fLogin.$invalid">Es miembro? Ingrese aqu&iacute;</button> <a class="button button-block button-outline button-calm" href="#/app/signup" ng-click="signup()">Registrarse</a> </div>
     <div class="item text-center">
-        <p><a class="button button-outline button-stable" href="#/app/reset" ng-click="reset()">Forgot your password? <small>Create one?</small></a></p>
+        <p><a class="button button-outline button-stable" href="#/app/reset" ng-click="reset()">Olvido su contrase&ntilde;a? <small>Crear una?</small></a></p>
     </div>
 </div>
