@@ -22,11 +22,11 @@
     <feature name="Geolocation">
         <param name="android-package" value="org.apache.cordova.geolocation.Geolocation" />
     </feature>
-    <name>loyalty</name>
+    <name>Brittshop Loyalty</name>
     <description>
-        Brittshop Loyalty
+        Brittshop
     </description>
-    <author email="svado@britt.com" href="http://loyalty">
+    <author email="svado@britt.com" href="http://cafebritt.com">
       Steve
     </author>
     <content src="index.html" />

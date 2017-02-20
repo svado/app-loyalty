@@ -3,7 +3,7 @@
         <h3 ng-if="content.TITLE">{{content.TITLE | uppercase}}</h3>
         <div class="full-image" ng-bind-html="content"></div>
     </ion-content>
-    <ion-footer-bar align-title="center" class="footer-simple bar-balanced" ng-if="isLoggedIn()">
+    <ion-footer-bar align-title="center" class="footer-simple bar-calm" ng-if="isLoggedIn()">
         <h1 class="title">Bienvenido {{loginData.first_name}}</h1>             
     </ion-footer-bar>
     <ion-footer-bar align-title="center" class="footer-simple bar-light" ng-if="!isLoggedIn()">        

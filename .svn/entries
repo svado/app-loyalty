@@ -26,6 +26,9 @@ has-prop-mods
 
 7fbfb38e-5f93-4992-b219-878775e548b1
 
+plugins
+dir
+
 .bowerrc
 file
 24812
@@ -59,9 +62,6 @@ svado
 
 
 29
-
-plugins
-dir
 
 gulpfile.js
 file
@@ -207,14 +207,14 @@ svado
 
 package.json
 file
-24834
+25724
 
 
 
-2016-12-06T17:47:54.147179Z
-2699bb7ffd2e3a861240241592f8588c
-2016-12-06T22:25:26.482293Z
-24834
+2017-02-20T14:39:20.263575Z
+a6da6cd5208d2148eb2bc8fd06337ae7
+2017-02-20T16:04:30.326052Z
+25724
 svado
 
 
@@ -237,18 +237,18 @@ svado
 
 
 
-631
+625
 
 config.xml
 file
-24936
+25724
 
 
 
-2016-12-14T17:17:48.723405Z
-9c1f1b1bd4448a65cbafc42122a21ece
-2016-12-14T21:03:42.028584Z
-24936
+2017-02-20T14:39:54.231936Z
+8dbfa4115b99d1b867271896cefaed77
+2017-02-20T16:04:30.326052Z
+25724
 svado
 
 
@@ -271,7 +271,7 @@ svado
 
 
 
-1011
+1019
 
 .gitignore
 file
@@ -310,47 +310,6 @@ svado
 scss
 dir
 
-ionic.config.json
-file
-24834
-
-
-
-2016-12-06T20:35:41.023701Z
-222e9abe9e4c1c26832054207ded2a82
-2016-12-06T22:25:26.482293Z
-24834
-svado
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-184
-
-node_modules
-dir
-
-
-
-add
-
 npm-debug.log.2228516016
 file
 24834
@@ -384,4 +343,45 @@ svado
 
 
 0
+
+node_modules
+dir
+
+
+
+add
+
+ionic.config.json
+file
+25724
+
+
+
+2017-02-20T15:53:14.357836Z
+33f356de3f34e0f378ae2cc2bc3f6524
+2017-02-20T16:04:30.326052Z
+25724
+svado
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+194
 

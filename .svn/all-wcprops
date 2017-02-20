@@ -25,13 +25,13 @@ package.json
 K 25
 svn:wc:ra_dav:version-url
 V 49
-/Sistemas/!svn/ver/24834/app-loyalty/package.json
+/Sistemas/!svn/ver/25724/app-loyalty/package.json
 END
 config.xml
 K 25
 svn:wc:ra_dav:version-url
 V 47
-/Sistemas/!svn/ver/24936/app-loyalty/config.xml
+/Sistemas/!svn/ver/25724/app-loyalty/config.xml
 END
 .gitignore
 K 25
@@ -55,7 +55,7 @@ ionic.config.json
 K 25
 svn:wc:ra_dav:version-url
 V 54
-/Sistemas/!svn/ver/24834/app-loyalty/ionic.config.json
+/Sistemas/!svn/ver/25724/app-loyalty/ionic.config.json
 END
 npm-debug.log.2228516016
 K 25

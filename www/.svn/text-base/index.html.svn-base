@@ -41,7 +41,7 @@
     <ion-nav-bar class="bar-stable">      
       <ion-nav-back-button></ion-nav-back-button>        
       <ion-nav-buttons side="primary">
-         <button class="button icon ion-help-buoy" ng-click="terms()"></button>
+         <button class="button icon ion-help-buoy icon-stable" ng-click="terms()"></button>
       </ion-nav-buttons>
     </ion-nav-bar>
     <!--

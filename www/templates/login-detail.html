@@ -11,7 +11,7 @@
         <input type="email" ng-model="$parent.loginData.email" name="email" placeholder="Your email" required>
     </label>
     
-    <label class="item item-input" ng-if="$parent.loginData.use_email == 'ID'"> <span class="input-label">CODIGO CLIENTE</span>
+    <label class="item item-input" ng-if="$parent.loginData.use_email == 'CODIGO CLIENTE'"> <span class="input-label">Código cliente</span>
         <div ng-messages="fLogin.codigo_cliente.$error" ng-messages-include="messages.html"></div>
         <input type="number" ng-model="$parent.loginData.codigo_cliente" name="codigo_cliente" ng-minlength="3" placeholder="Britt ID" required>
     </label>
@@ -22,7 +22,8 @@
     <div class="row flags">
         <div class="countries">
             <span class="flag-{{country.APP_COUNTRY_ISO2}}" ng-repeat="country in britt_countries" style="background-image: url({{$parent.rutaImagenes}}/flags/{{country.APP_COUNTRY_ISO2}}.png) !important;" ng-class="{'active' : country_code == country.APP_COUNTRY_ISO2}"></span>   
-            </div>
+            <p class="text-center">{{country_name}}</p>
+        </div>        
     </div>
     <div class="item">
         <button class="button button-block button-outline button-positive" type="submit" ng-disabled="fLogin.$invalid">Es miembro? Ingrese aqu&iacute;</button> <a class="button button-block button-outline button-calm" href="#/app/signup" ng-click="signup()">Registrarse</a> </div>

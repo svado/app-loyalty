@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.ionicframework.loyalty629480" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>loyalty</name>
+    <name>Brittshop Loyalty</name>
     <description>
-        Brittshop Loyalty
+        Brittshop
     </description>
-    <author email="svado@britt.com" href="http://loyalty">
+    <author email="svado@britt.com" href="http://cafebritt.com">
       Steve
     </author>
     <content src="index.html" />

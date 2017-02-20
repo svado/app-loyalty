@@ -1,14 +1,14 @@
 <ion-modal-view >
     <ion-header-bar class="bar-positive">
-        <h5 class="title">Protección de datos</h5>
+        <h5 class="title">{{page_title_term}}</h5>
         <div class="buttons">
-            <button class="button button-clear" ng-click="closeTerms()">Close</button>
+            <button class="button button-clear" ng-click="closeTerms()">Cerrar</button>
         </div>
     </ion-header-bar>
-    <ion-content class="padding">
-        <h4 class="title">Pol&iacute;tica de protección de datos</h4>
-        <p>BRITT SHOP LOYALTY PROGRAM solicita a los afiliados información básica y no sensible como Nombre, teléfono, correo y fecha de nacimiento y utilizará los datos para fines únicos del programa para el adecuado desarrollo de sus actividades comerciales, previa autorización del cliente al momento de afiliarse.</p>
-<p>El afiliado podrá revocar su consentimiento para el tratamiento de sus datos personales escribiendo al correo de contacto del programa.
-        </p>
+    <ion-content class="padding">    
+        <h4 ng-if="title_term">{{title_term | uppercase}}</h4>
+        <div ng-bind-html="content_term"></div>
+        <p><small>Brittshop Loyalty v1.0</small></p>
     </ion-content>
+        
 </ion-modal-view>

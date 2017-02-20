@@ -162,6 +162,7 @@ angular.module('starter.controllers', [])
         geoLocalizar();
         $scope.geoData = $scope.getLocalData('geodata');        
         country_code = $scope.geoData.country_code;
+        //country_name = $scope.geoData.country_name;
     } else {
         country_code = $stateParams.country_code;
     }    
@@ -188,6 +189,7 @@ angular.module('starter.controllers', [])
 
     // Variables principales    
     var country_code = '';
+    var country_name = '';
     $rootScope.countries = $scope.countries;    
     
     // Obtiene los datos de la geolocalizacion
@@ -207,10 +209,12 @@ angular.module('starter.controllers', [])
         geoLocalizar();
         $scope.geoData = $scope.getLocalData('geodata');        
         country_code = $scope.geoData.country_code;
+        country_name = $scope.geoData.country_name;
     } else {
         country_code = $stateParams.country_code;
     }
-    $scope.country_code = country_code;                
+    $scope.country_code = country_code;
+    $scope.country_name = country_name;
     
     // Trata de loguearse en la web.
     $scope.doLogin = function (page) {
@@ -235,15 +239,15 @@ angular.module('starter.controllers', [])
                     $cliente.email = data.EMAIL;
                     $scope.error = false;
                     window.localStorage.setItem('cliente', JSON.stringify($cliente));                                        
-                    if (data.ALERTA.length != 0) $scope.showPopup('Sign In', data.ALERTA);
+                    if (data.ALERTA.length != 0) $scope.showPopup('Ingreso', data.ALERTA);
                     $scope.closeLogin();
 
                     // Reenvia al home
                     $state.go("tab.home");
                 } else
-                if (data.ALERTA.length != 0) $scope.showPopup('Sign In', data.ALERTA, true);
+                if (data.ALERTA.length != 0) $scope.showPopup('Ingreso', data.ALERTA, true);
             } else {
-                $scope.showPopup('Sign In', 'Connection Error', false);
+                $scope.showPopup('Ingreso', 'Connection Error', false);
             }
         }).
         error(function (data, status) {
@@ -266,13 +270,13 @@ angular.module('starter.controllers', [])
                     $cliente.email = data.EMAIL;
                     window.localStorage.setItem('cliente', JSON.stringify($cliente));
                     $scope.error = false;
-                    if (data.ALERTA.length != 0) $scope.showPopup('Sign Up', data.ALERTA);
+                    if (data.ALERTA.length != 0) $scope.showPopup('Registro', data.ALERTA);
                     $scope.closeSignUp();
                     $scope.login();
                 } else
-                if (data.ALERTA.length != 0) $scope.showPopup('Sign Up', data.ALERTA, true);
+                if (data.ALERTA.length != 0) $scope.showPopup('Registro', data.ALERTA, true);
             } else {
-                $scope.showPopup('Sign Up', 'Connection Error', true);
+                $scope.showPopup('Registro', 'Connection Error', true);
             }
         }).
         error(function (data, status) {
@@ -362,11 +366,11 @@ angular.module('starter.controllers', [])
                     $scope.error = false;
                     $scope.loginData = $cliente;
                     window.localStorage.setItem('cliente', JSON.stringify($cliente));                    
-                    if (data.ALERTA.length != 0) $scope.showPopup('Points', data.ALERTA);
+                    if (data.ALERTA.length != 0) $scope.showPopup('Perfil', data.ALERTA);
                 } else
-                if (data.ALERTA.length != 0) $scope.showPopup('Points', data.ALERTA, true);
+                if (data.ALERTA.length != 0) $scope.showPopup('Perfil', data.ALERTA, true);
             } else {
-                $scope.showPopup('Points', 'Connection Error', true);
+                $scope.showPopup('Perfil', 'Connection Error', true);
             }
         }).
         error(function (data, status) {
@@ -530,11 +534,11 @@ angular.module('starter.controllers', [])
                     $scope.password = '';
                     $scope.password2 = '';
                     $scope.error = false;                    
-                    if (data.ALERTA.length != 0) $scope.showPopup('Profile', data.ALERTA);
+                    if (data.ALERTA.length != 0) $scope.showPopup('Perfil', data.ALERTA);
                 } else
-                if (data.ALERTA.length != 0) $scope.showPopup('Profile', data.ALERTA, true);
+                if (data.ALERTA.length != 0) $scope.showPopup('Perfil', data.ALERTA, true);
             } else {
-                $scope.showPopup('Profile', 'Connection Error', true);
+                $scope.showPopup('Perfil', 'Connection Error', true);
             }
         }).
         error(function (data, status) {
@@ -569,8 +573,25 @@ angular.module('starter.controllers', [])
 })
 
 // Manejo del profile
-.controller('TermsCtrl', function($scope, $ionicModal) {
-    console.log('123');
+.controller('TermsCtrl', function($scope, $rootScope, $ionicHistory, $http, $stateParams, $ionicModal) {
+  
+    // Obtiene el contenido
+    $params = '&country_iso2=CR&menu=TERMINOS&article_types=163';
+    $method = 'getPageArticles';
+    $http.post($rutaPagesWs + $method + $params).
+    success(function (data, status, headers) {
+        if (data.length != 0) {
+            $scope.content_term = data[0].TEXT;
+            $scope.title_term = data[0].TITLE;
+            $scope.page_title_term = data[0].PAGE_HEADER;
+            $scope.error = false;
+        }
+    }).
+    error(function (data, status) {
+        $scope.error = true;
+        console.log(status);
+    });
+    
     // Modal terms and conditions
     $ionicModal.fromTemplateUrl('templates/terms-modal.html', {
         scope: $scope
@@ -582,7 +603,7 @@ angular.module('starter.controllers', [])
     };
     $scope.terms = function () {
         $scope.modalTerms.show();
-    };
+    };        
 })
 
 // Contactenos
@@ -632,9 +653,9 @@ angular.module('starter.controllers', [])
                     $scope.error = false;
                     if (data.ALERTA.length != 0) $scope.showPopup('Solicitud enviada', data.ALERTA);
                 } else
-                if (data.ALERTA.length != 0) $scope.showPopup('Ingreso', data.ALERTA, true);
+                if (data.ALERTA.length != 0) $scope.showPopup('Contacto', data.ALERTA, true);
             } else {
-                $scope.showPopup('Registro', 'Error de conexión',true);
+                $scope.showPopup('Contacto', 'Error de conexión',true);
             }
         }).
         error(function (data, status) {

@@ -18,8 +18,8 @@ $icons-path: '../img/icons';
 // Colors
 // -------------------------------------------
 
-$light:                           #fff !default;
-$stable:                          #a01e20 !default /* f8f8f8 */
+$light:                           #ffffff !default;
+$stable:                          #a01e20 !default; /* f8f8f8 */
 $positive:                        #a01e20 !default; /* 387ef5 */
 $calm:                            #a01e20 !default; /* 11c1f3 */
 $balanced:                        #33cd5f !default;
@@ -35,12 +35,22 @@ $dark:                            #444 !default;
 .full-image img {
     width: 100%;    
 }
+.full-image.image-content p {
+    height: 0 !important;
+}
+
+// Content
+// -------------------------------------------
+
+.swiper-container {
+    overflow-y: auto !important;
+}
 
 // Countries
 // -------------------------------------------
 
 .countries {
-    height: 35px;
+    height: 60px;
     margin: 0 auto;
     top: 18px;
     position: relative;
@@ -64,16 +74,22 @@ $dark:                            #444 !default;
 // -------------------------------------------
 
 .bar.bar-stable .title {
-    color: #fff !important;
+    color: #c4a8a8 !important;
 }
-.ion-help-buoy:before {color: $light !important;}
+.ion-help-buoy:before {
+    color: $light !important;
+}
 
 // Tab icons
 // -------------------------------------------
 
-.tab-item .icon {
-    height: 38px !important;
-    margin: 5px auto !important;
+.tab-item {
+    opacity: 1 !important;
+
+    .icon {
+        height: 38px !important;
+        margin: 5px auto !important;
+    }
 }
 
 .tab-item i {

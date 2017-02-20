@@ -15,12 +15,13 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
     if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
       cordova.plugins.Keyboard.disableScroll(true);
-
     }
+    ionic.Platform.fullScreen();
     if (window.StatusBar) {
       // org.apache.cordova.statusbar required
-      StatusBar.styleDefault();
-    }
+      //StatusBar.styleDefault();
+        StatusBar.hide();
+    }   
 
     // Obtiene los paises
     $countries = [];
