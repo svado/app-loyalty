@@ -15,6 +15,14 @@ angular.module('starter.controllers', [])
         
     // Geolocalizacion    
     geoLocalizar();
+    
+    // Obtiene los datos de session
+    $scope.getSessionData = function (elemento) {
+        $elemento = '';
+        if (window.sessionStorage.getItem(elemento) !== null)
+            $elemento = window.sessionStorage.getItem(elemento);
+        return $elemento;
+    }
 
     // Obtiene los datos locales
     $scope.getLocalData = function (elemento) {
@@ -307,6 +315,15 @@ angular.module('starter.controllers', [])
             console.log(status);
         });
     }
+    
+    // Cambia el pais de la session
+    $scope.changeCountry = function($country_code) {
+        console.log($country_code);
+        sessionStorage.setItem('country_code', $country_code);
+        $state.go("tab.home", {country_code:$country_code}, {
+            reload: true
+        });
+    }
 })
 
 // Manejo de los puntos
@@ -406,7 +423,7 @@ angular.module('starter.controllers', [])
 })
 
 // Manejo del contenido por pais
-.controller('ContentCtrl', function ($scope, $rootScope, $ionicHistory, $http, $stateParams) {
+.controller('ContentCtrl', function ($scope, $rootScope, $ionicHistory, $http, $stateParams, $ionicSlideBoxDelegate) {
 
     // Inactiva el boton de atras
     $ionicHistory.nextViewOptions({
@@ -439,7 +456,7 @@ angular.module('starter.controllers', [])
     error(function (data, status) {
         $scope.error = true;
         console.log(status);
-    });
+    });    
 })
 
 // Manejo del contenido del mapa

@@ -65,6 +65,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
 
   // Esta loqueado?
   isLoggedIn = function () {
+      
         if (window.localStorage.getItem("cliente") !== null) {
             $cliente = JSON.parse(window.localStorage.getItem("cliente"));
             if ($cliente.codigo_cliente !== undefined) {
@@ -131,6 +132,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
         $geodata.country_code = 'CR';
         window.localStorage.setItem('geodata', JSON.stringify($geodata));
 
+        // Guarda el pais en la session. Se usa para poder cambiar de pais sin geolocalizar
+        /*if (!sessionStorage.getItem('country_code')) {
+           sessionStorage.setItem('country_code', 'CR');   
+        }*/
+
          // Actualiza el homepage
         if (refresh)
             $state.go('tab.home', {}, {
@@ -190,7 +196,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
                                             $geodata.country_name = country.long_name;
                                             $geodata.country_code = country.short_name;
                                             window.localStorage.setItem('geodata', JSON.stringify($geodata));
-
+                                            
+                                            // Guarda el pais en la session. Se usa para poder cambiar de pais sin geolocalizar
+                                            /*if (!sessionStorage.getItem('country_code')) {
+                                               sessionStorage.setItem('country_code', country.short_name);   
+                                            }*/
+                                            
                                             // Actualiza el homepage
                                             if (refresh)
                                                 $state.go('tab.home', {}, {
@@ -284,7 +295,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
   // Each tab has its own nav history stack:
 
   .state('tab.home', {
-    url: '/home',
+    url: '/home?country_code',
     views: {
       'tab-home': {
         templateUrl: 'templates/tab-home.html',
@@ -298,7 +309,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
   })
   
   .state('tab.points', {
-    url: '/points',
+    url: '/points?country_code',
     views: {
       'tab-points': {
         templateUrl: 'templates/tab-points.html',
@@ -312,7 +323,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
   })
   
   .state('tab.map', {
-    url: '/map',
+    url: '/map?country_code',
     views: {
       'tab-map': {
         templateUrl: 'templates/tab-map.html',
@@ -340,7 +351,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
   })
   
   .state('tab.content', {
-      url: '/content',
+      url: '/content?country_code',
       views: {
         'tab-content': {
           templateUrl: 'templates/tab-content.html',
@@ -354,7 +365,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
   })
   
   .state('tab.contact-us', {
-      url: '/contact-us',
+      url: '/contact-us?country_code',
       views: {
         'tab-contact-us': {
           templateUrl: 'templates/tab-contact-us.html',

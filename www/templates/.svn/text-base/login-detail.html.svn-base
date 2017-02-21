@@ -21,7 +21,7 @@
         <input type="password" ng-model="$parent.loginData.password" name="password" placeholder="Your password" required> </label>
     <div class="row flags">
         <div class="countries">
-            <span class="flag-{{country.APP_COUNTRY_ISO2}}" ng-repeat="country in britt_countries" style="background-image: url({{$parent.rutaImagenes}}/flags/{{country.APP_COUNTRY_ISO2}}.png) !important;" ng-class="{'active' : country_code == country.APP_COUNTRY_ISO2}"></span>   
+            <span class="flag-{{country.APP_COUNTRY_ISO2}}" ng-repeat="country in britt_countries" style="background-image: url({{$parent.rutaImagenes}}/flags/{{country.APP_COUNTRY_ISO2}}.png) !important;" ng-class="{'active' : country_code == country.APP_COUNTRY_ISO2}" ng-click="changeCountry('{{country.APP_COUNTRY_ISO2}}')"></span>
             <p class="text-center">{{country_name}}</p>
         </div>        
     </div>

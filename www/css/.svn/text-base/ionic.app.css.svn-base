@@ -27,6 +27,11 @@ $dark:                            #444 !default;
 .swiper-container {
   overflow-y: auto !important; }
 
+.swiper-pagination-bullet {
+  width: 11px !important;
+  height: 11px !important;
+  border: #fff 2px solid !important; }
+
 .countries {
   height: 60px;
   margin: 0 auto;
@@ -37,7 +42,7 @@ $dark:                            #444 !default;
     padding: 13px 20px !important;
     background-repeat: no-repeat !important;
     height: 1px !important;
-    filter: grayscale(100%);
+    filter: grayscale(80%);
     margin: 0 5px; }
     .countries span.active {
       filter: grayscale(0) !important; }

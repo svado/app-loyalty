@@ -65,6 +65,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
 
   // Esta loqueado?
   isLoggedIn = function () {
+      
         if (window.localStorage.getItem("cliente") !== null) {
             $cliente = JSON.parse(window.localStorage.getItem("cliente"));
             if ($cliente.codigo_cliente !== undefined) {

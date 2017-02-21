@@ -320,7 +320,9 @@ angular.module('starter.controllers', [])
     $scope.changeCountry = function($country_code) {
         console.log($country_code);
         sessionStorage.setItem('country_code', $country_code);
-        $scope.refreshPage();
+        $state.go("tab.home", {country_code:$country_code}, {
+            reload: true
+        });
     }
 })
 
