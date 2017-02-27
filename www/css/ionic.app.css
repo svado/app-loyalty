@@ -15,6 +15,15 @@ $assertive:                       #ef473a !default;
 $royal:                           #886aea !default;
 $dark:                            #444 !default;
 */
+@font-face {
+  font-family: 'LibreBaskerville';
+  src: url("../fonts/LibreBaskerville-Regular.ttf") format("truetype"), url("../fonts/LibreBaskerville-Bold.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal; }
+
+* {
+  font-family: 'LibreBaskerville' !important; }
+
 /* f8f8f8 */
 /* 387ef5 */
 /* 11c1f3 */

@@ -1,0 +1,6 @@
+<ion-view view-title="Dashboard">
+    <ion-content class="padding">
+        <h2>Brittshop Loyalty</h2>
+        <div class="text-center"><img id="barcode"/></div>        
+    </ion-content>
+</ion-view>

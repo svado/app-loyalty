@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/Sistemas/!svn/ver/24833/app-loyalty/www/lib/JsBarcode/src/barcodes/EAN_UPC
+END
+EAN2.js
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/Sistemas/!svn/ver/24833/app-loyalty/www/lib/JsBarcode/src/barcodes/EAN_UPC/EAN2.js
+END
+EAN13.js
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/Sistemas/!svn/ver/24833/app-loyalty/www/lib/JsBarcode/src/barcodes/EAN_UPC/EAN13.js
+END
+UPC.js
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/Sistemas/!svn/ver/24833/app-loyalty/www/lib/JsBarcode/src/barcodes/EAN_UPC/UPC.js
+END
+index.js
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/Sistemas/!svn/ver/24833/app-loyalty/www/lib/JsBarcode/src/barcodes/EAN_UPC/index.js
+END
+EAN5.js
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/Sistemas/!svn/ver/24833/app-loyalty/www/lib/JsBarcode/src/barcodes/EAN_UPC/EAN5.js
+END
+EAN8.js
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/Sistemas/!svn/ver/24833/app-loyalty/www/lib/JsBarcode/src/barcodes/EAN_UPC/EAN8.js
+END
+ean_encoder.js
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/Sistemas/!svn/ver/24833/app-loyalty/www/lib/JsBarcode/src/barcodes/EAN_UPC/ean_encoder.js
+END

@@ -1,0 +1,21 @@
+<ion-view view-title="Perfil del afiliado">
+    <ion-content>
+
+        <div class="full-image image-content" ng-bind-html="content"></div>
+        
+        <form name="fPoints" ng-submit="getPoints()">
+            <div class="list card">
+                <div class="item text-center">
+                    <h2>{{loginData.first_name}} {{loginData.last_name}}</h2>
+                    <p>{{loginData.email}}</p>
+                    <p>C&oacute;digo de Cliente: {{loginData.codigo_cliente}}</p>
+                    <!--<button class="button button-outline button-positive" type="submit"> Britt Points: {{loginData.puntos_totales_brittshop}} </button>-->
+                </div>
+                <div class="text-center"><img id="barcode" /></div>
+                <div class="item item-body text-right">
+                    <p> <a class="button button-outline icon-right ion-person button-positive" ng-click="profile()">Editar Perfil</a> <a class="button button-outline button-stable" ng-click="logout()">Salir</a> </p>
+                </div>
+            </div>
+        </form>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/Sistemas/!svn/ver/24833/app-loyalty/www/lib/angular-ui-router/src
+END
+common.js
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/Sistemas/!svn/ver/24833/app-loyalty/www/lib/angular-ui-router/src/common.js
+END
+stateFilters.js
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/Sistemas/!svn/ver/24833/app-loyalty/www/lib/angular-ui-router/src/stateFilters.js
+END
+viewDirective.js
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/Sistemas/!svn/ver/24833/app-loyalty/www/lib/angular-ui-router/src/viewDirective.js
+END
+viewScroll.js
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/Sistemas/!svn/ver/24833/app-loyalty/www/lib/angular-ui-router/src/viewScroll.js
+END
+view.js
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/Sistemas/!svn/ver/24833/app-loyalty/www/lib/angular-ui-router/src/view.js
+END
+urlMatcherFactory.js
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/Sistemas/!svn/ver/24833/app-loyalty/www/lib/angular-ui-router/src/urlMatcherFactory.js
+END
+resolve.js
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/Sistemas/!svn/ver/24833/app-loyalty/www/lib/angular-ui-router/src/resolve.js
+END
+state.js
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/Sistemas/!svn/ver/24833/app-loyalty/www/lib/angular-ui-router/src/state.js
+END
+stateDirectives.js
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/Sistemas/!svn/ver/24833/app-loyalty/www/lib/angular-ui-router/src/stateDirectives.js
+END
+templateFactory.js
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/Sistemas/!svn/ver/24833/app-loyalty/www/lib/angular-ui-router/src/templateFactory.js
+END
+urlRouter.js
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/Sistemas/!svn/ver/24833/app-loyalty/www/lib/angular-ui-router/src/urlRouter.js
+END

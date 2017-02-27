@@ -1,0 +1,65 @@
+<ion-modal-view ng-controller="ContactCtrl">
+    <ion-header-bar class="bar-positive">
+        <h1 class="title">Crear una cuenta</h1>
+        <div class="buttons">
+            <button class="button button-clear" ng-click="closeSignUp()">Cerrar</button>
+        </div>
+    </ion-header-bar>
+    <ion-content>
+        <form name="fSignUp" ng-submit="doSignUp()">
+            <p class="text-center padding">Por favor complete los siguientes campos</p>
+            <div class="list">
+                <label class="item item-input">
+                    <span class="input-label">Nombre</span>
+                    <div ng-messages="fSignUp.first_name.$error" ng-messages-include="messages.html"></div>
+                    <input type="text" ng-model="signData.first_name" name="first_name" required ng-minlength="3" placeholder="Nombre">
+                </label>
+
+                <label class="item item-input">
+                    <span class="input-label">Apellido</span>
+                    <div ng-messages="fSignUp.last_name.$error" ng-messages-include="messages.html"></div>
+                    <input type="text" ng-model="signData.last_name" name="last_name" required ng-minlength="3" placeholder="Apellido">
+                </label>
+
+                <label class="item item-input">
+                    <span class="input-label">Email</span>
+                    <div ng-messages="fSignUp.email.$error" ng-messages-include="messages.html"></div>
+                    <input type="email" ng-model="signData.email" name="email" placeholder="Su email" required>
+                </label>
+
+                <label class="item item-input">
+                    <span class="input-label">Tel&eacute;fono</span>
+                    <div ng-messages="fSignUp.phone.$error" ng-messages-include="messages.html"></div>
+                    <input type="tel" ng-model="signData.phone" name="phone" placeholder="Tel&eacute;fono" required>
+                </label>
+                
+                <label class="item item-input item-select">
+                    <div class="input-label">Pa&iacute;s </div>
+                    <select id="codigo_pais" name="codigo_pais" required>
+                        <option ng-repeat="country in countries" value="{{country.CODIGO_PAIS}}" ng-selected="country.ISO2 == $parent.country_code">{{country.NOMBRE_PAIS_ING | uppercase}}</option>
+                    </select>
+                </label>
+                
+                <label class="item item-input"> <span class="input-label">Fecha de nacimiento</span>
+                    <div ng-messages="fSignUp.birth_date.$error" ng-messages-include="messages.html"></div>
+                    <input type="date" ng-model="signData.birth_date" name="birth_date" placeholder="Fecha de nacimiento"> </label>
+                
+                <label class="item item-input">
+                    <span class="input-label">Contrase&ntilde;a</span>
+                    <div ng-messages="fSignUp.password.$error" ng-messages-include="messages.html"></div>
+                    <input type="password" ng-model="signData.password" name="password" placeholder="Contrase&ntilde;a" required ng-minlength="6">
+                </label>
+
+                <label class="item item-input">
+                    <span class="input-label">Reintentar</span>
+                    <div ng-messages="fSignUp.password2.$error" ng-messages-include="messages.html"></div>
+                    <input type="password" ng-model="signData.password2" name="password2" placeholder="Reintentar contrase&ntilde;a" required ng-minlength="6">
+                </label>
+
+                <div class="item">
+                    <button class="button button-block button-outline button-positive" type="submit" ng-disabled="fSignUp.$invalid">Registrar</button>
+                </div>
+            </div>
+        </form>
+    </ion-content>
+</ion-modal-view>

@@ -1,0 +1,7 @@
+<ion-view view-title="Account">
+    <ion-content>
+        <ion-list>
+            <h3>a-{country}}</h3>
+        </ion-list>
+    </ion-content>
+</ion-view>

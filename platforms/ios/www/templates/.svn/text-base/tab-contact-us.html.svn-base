@@ -1,0 +1,18 @@
+<ion-view view-title="{{page_title}}">
+    <ion-content scroll="false">
+        <div class="full-image image-content" ng-bind-html="content"></div>
+        <form name="fContact" ng-submit="contactUs()">
+            <div class="list">
+                <label class="item item-input item-stacked-label"> <span class="input-label">Email</span>
+                    <div ng-messages="fContact.email.$error" ng-messages-include="messages.html"></div>
+                    <input type="email" ng-model="email" name="email" required>
+                </label>
+                <label class="item item-input item-stacked-label"> <span class="input-label">Comentario</span>
+                    <div ng-messages="fContact.comment.$error" ng-messages-include="messages.html"></div>
+                    <textarea ng-model="comment" name="comment" ng-minlength="10" required></textarea>
+                </label>
+                <button class="button button-block button-outline button-positive" type="submit" ng-disabled="fContact.$invalid">Enviar</button>
+            </div>
+        </form>
+    </ion-content>
+</ion-view>

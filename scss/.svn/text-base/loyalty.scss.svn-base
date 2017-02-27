@@ -50,6 +50,12 @@ $dark:                            #444 !default;
     height: 11px !important;
     border: #fff 2px solid !important;
 }
+.hide-element {
+    display: none !important;
+}
+.float-right {
+    float: right
+}
 
 // Countries
 // -------------------------------------------

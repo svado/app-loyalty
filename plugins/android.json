@@ -7,9 +7,6 @@
         "files": {}
     },
     "installed_plugins": {
-        "cordova-plugin-console": {
-            "PACKAGE_NAME": "com.ionicframework.loyalty629480"
-        },
         "cordova-plugin-device": {
             "PACKAGE_NAME": "com.ionicframework.loyalty629480"
         },
