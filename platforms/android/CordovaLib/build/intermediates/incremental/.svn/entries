@@ -1,0 +1,119 @@
+10
+
+dir
+0
+http://subversion.grupocafebritt.com:80/Sistemas/app-loyalty/platforms/android/CordovaLib/build/intermediates/incremental
+http://subversion.grupocafebritt.com:80/Sistemas
+add
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+7fbfb38e-5f93-4992-b219-878775e548b1
+
+mergeDebugShaders
+dir
+
+
+
+add
+
+processDebugResources
+dir
+
+
+
+add
+
+compileReleaseAidl
+dir
+
+
+
+add
+
+mergeReleaseAssets
+dir
+
+
+
+add
+
+packageDebugAndroidTest
+dir
+
+
+
+add
+
+mergeReleaseJniLibFolders
+dir
+
+
+
+add
+
+packageReleaseResources
+dir
+
+
+
+add
+
+compileDebugAidl
+dir
+
+
+
+add
+
+mergeDebugAssets
+dir
+
+
+
+add
+
+mergeReleaseShaders
+dir
+
+
+
+add
+
+processReleaseResources
+dir
+
+
+
+add
+
+mergeDebugJniLibFolders
+dir
+
+
+
+add
+
+packageDebugResources
+dir
+
+
+
+add
+

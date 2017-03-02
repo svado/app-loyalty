@@ -1,0 +1,252 @@
+10
+
+dir
+0
+http://subversion.grupocafebritt.com:80/Sistemas/app-loyalty/platforms/android/CordovaLib/src/org/apache/cordova
+http://subversion.grupocafebritt.com:80/Sistemas
+add
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+7fbfb38e-5f93-4992-b219-878775e548b1
+
+CordovaResourceApi.java
+file
+
+
+
+add
+
+CallbackContext.java
+file
+
+
+
+add
+
+ConfigXmlParser.java
+file
+
+
+
+add
+
+CordovaWebViewImpl.java
+file
+
+
+
+add
+
+CordovaActivity.java
+file
+
+
+
+add
+
+Whitelist.java
+file
+
+
+
+add
+
+CordovaPlugin.java
+file
+
+
+
+add
+
+CordovaHttpAuthHandler.java
+file
+
+
+
+add
+
+ResumeCallback.java
+file
+
+
+
+add
+
+CordovaPreferences.java
+file
+
+
+
+add
+
+PluginEntry.java
+file
+
+
+
+add
+
+LOG.java
+file
+
+
+
+add
+
+CordovaWebView.java
+file
+
+
+
+add
+
+CallbackMap.java
+file
+
+
+
+add
+
+ICordovaCookieManager.java
+file
+
+
+
+add
+
+ICordovaClientCertRequest.java
+file
+
+
+
+add
+
+PluginResult.java
+file
+
+
+
+add
+
+NativeToJsMessageQueue.java
+file
+
+
+
+add
+
+CordovaInterfaceImpl.java
+file
+
+
+
+add
+
+CordovaDialogsHelper.java
+file
+
+
+
+add
+
+Config.java
+file
+
+
+
+add
+
+CordovaBridge.java
+file
+
+
+
+add
+
+CordovaArgs.java
+file
+
+
+
+add
+
+CordovaWebViewEngine.java
+file
+
+
+
+add
+
+CordovaInterface.java
+file
+
+
+
+add
+
+AuthenticationToken.java
+file
+
+
+
+add
+
+CordovaClientCertRequest.java
+file
+
+
+
+add
+
+engine
+dir
+
+
+
+add
+
+ICordovaHttpAuthHandler.java
+file
+
+
+
+add
+
+CoreAndroid.java
+file
+
+
+
+add
+
+PluginManager.java
+file
+
+
+
+add
+
+ExposedJsApi.java
+file
+
+
+
+add
+

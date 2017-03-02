@@ -26,6 +26,13 @@ svado
 
 7fbfb38e-5f93-4992-b219-878775e548b1
 
+plugins
+dir
+
+
+
+add
+
 service-worker.js
 file
 
@@ -60,11 +67,49 @@ svado
 
 168
 
+css
+dir
+
+fonts
+dir
+
+
+
+add
+
+cordova-js-src
+dir
+
+
+
+add
+
+templates
+dir
+
 lib
 dir
 
-css
-dir
+cordova.js
+file
+0
+
+
+add
+
+cordova_plugins.js
+file
+0
+
+
+add
+
+messages.html
+file
+0
+
+
+add
 
 index.html
 file
@@ -100,10 +145,23 @@ svado
 
 1675
 
-img
-dir
+icon.png
+file
+0
+
+
+add
+
+
+
+
+
+has-props
 
 js
+dir
+
+img
 dir
 
 manifest.json
@@ -139,7 +197,4 @@ svado
 
 
 207
-
-templates
-dir
 

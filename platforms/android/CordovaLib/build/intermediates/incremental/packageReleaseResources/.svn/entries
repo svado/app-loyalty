@@ -1,0 +1,56 @@
+10
+
+dir
+0
+http://subversion.grupocafebritt.com:80/Sistemas/app-loyalty/platforms/android/CordovaLib/build/intermediates/incremental/packageReleaseResources
+http://subversion.grupocafebritt.com:80/Sistemas
+add
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+7fbfb38e-5f93-4992-b219-878775e548b1
+
+merged.dir
+dir
+
+
+
+add
+
+merger.xml
+file
+
+
+
+add
+
+aapt-temp
+dir
+
+
+
+add
+
+compile-file-map.properties
+file
+
+
+
+add
+

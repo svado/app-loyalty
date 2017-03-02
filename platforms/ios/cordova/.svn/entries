@@ -1,0 +1,196 @@
+10
+
+dir
+0
+http://subversion.grupocafebritt.com:80/Sistemas/app-loyalty/platforms/ios/cordova
+http://subversion.grupocafebritt.com:80/Sistemas
+add
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+7fbfb38e-5f93-4992-b219-878775e548b1
+
+apple_ios_version
+file
+
+
+
+add
+
+log
+file
+
+
+
+add
+
+build-debug.xcconfig
+file
+
+
+
+add
+
+clean
+file
+
+
+
+add
+
+Api.js
+file
+
+
+
+add
+
+version
+file
+
+
+
+add
+
+log.bat
+file
+
+
+
+add
+
+clean.bat
+file
+
+
+
+add
+
+apple_xcode_version
+file
+
+
+
+add
+
+version.bat
+file
+
+
+
+add
+
+build.xcconfig
+file
+
+
+
+add
+
+apple_osx_version
+file
+
+
+
+add
+
+build
+file
+
+
+
+add
+
+loggingHelper.js
+file
+
+
+
+add
+
+build-extras.xcconfig
+file
+
+
+
+add
+
+build.bat
+file
+
+
+
+add
+
+run
+file
+
+
+
+add
+
+lib
+dir
+
+
+
+add
+
+defaults.xml
+file
+
+
+
+add
+
+check_reqs
+file
+
+
+
+add
+
+run.bat
+file
+
+
+
+add
+
+build-release.xcconfig
+file
+
+
+
+add
+
+check_reqs.bat
+file
+
+
+
+add
+
+node_modules
+dir
+
+
+
+add
+

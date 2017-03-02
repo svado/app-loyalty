@@ -1,0 +1,63 @@
+10
+
+dir
+0
+http://subversion.grupocafebritt.com:80/Sistemas/app-loyalty/platforms/android/platform_www/plugins
+http://subversion.grupocafebritt.com:80/Sistemas
+add
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+7fbfb38e-5f93-4992-b219-878775e548b1
+
+cordova-plugin-statusbar
+dir
+
+
+
+add
+
+cordova-plugin-splashscreen
+dir
+
+
+
+add
+
+cordova-plugin-device
+dir
+
+
+
+add
+
+cordova-plugin-geolocation
+dir
+
+
+
+add
+
+ionic-plugin-keyboard
+dir
+
+
+
+add
+

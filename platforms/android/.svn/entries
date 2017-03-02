@@ -1,0 +1,147 @@
+10
+
+dir
+0
+http://subversion.grupocafebritt.com:80/Sistemas/app-loyalty/platforms/android
+http://subversion.grupocafebritt.com:80/Sistemas
+add
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+7fbfb38e-5f93-4992-b219-878775e548b1
+
+CordovaLib
+dir
+
+
+
+add
+
+src
+dir
+
+
+
+add
+
+platform_www
+dir
+
+
+
+add
+
+android.json
+file
+
+
+
+add
+
+res
+dir
+
+
+
+add
+
+libs
+dir
+
+
+
+add
+
+gradlew.bat
+file
+
+
+
+add
+
+build.gradle
+file
+
+
+
+add
+
+settings.gradle
+file
+
+
+
+add
+
+cordova
+dir
+
+
+
+add
+
+gradle
+dir
+
+
+
+add
+
+build
+dir
+
+
+
+add
+
+project.properties
+file
+
+
+
+add
+
+assets
+dir
+
+
+
+add
+
+.gitignore
+file
+
+
+
+add
+
+AndroidManifest.xml
+file
+
+
+
+add
+
+.gradle
+dir
+
+
+
+add
+

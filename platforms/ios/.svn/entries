@@ -1,0 +1,84 @@
+10
+
+dir
+0
+http://subversion.grupocafebritt.com:80/Sistemas/app-loyalty/platforms/ios
+http://subversion.grupocafebritt.com:80/Sistemas
+add
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+7fbfb38e-5f93-4992-b219-878775e548b1
+
+ios.json
+file
+
+
+
+add
+
+pods-release.xcconfig
+file
+
+
+
+add
+
+Brittshop Loyalty.xcworkspace
+dir
+
+
+
+add
+
+Brittshop Loyalty.xcodeproj
+dir
+
+
+
+add
+
+platform_www
+dir
+
+
+
+add
+
+pods-debug.xcconfig
+file
+
+
+
+add
+
+Brittshop Loyalty
+dir
+
+
+
+add
+
+cordova
+dir
+
+
+
+add
+

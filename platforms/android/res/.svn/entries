@@ -1,0 +1,126 @@
+10
+
+dir
+0
+http://subversion.grupocafebritt.com:80/Sistemas/app-loyalty/platforms/android/res
+http://subversion.grupocafebritt.com:80/Sistemas
+add
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+7fbfb38e-5f93-4992-b219-878775e548b1
+
+drawable-land-hdpi
+dir
+
+
+
+add
+
+values
+dir
+
+
+
+add
+
+xml
+dir
+
+
+
+add
+
+drawable-land-ldpi
+dir
+
+
+
+add
+
+drawable-land-mdpi
+dir
+
+
+
+add
+
+drawable-port-hdpi
+dir
+
+
+
+add
+
+mipmap-hdpi
+dir
+
+
+
+add
+
+drawable-land-xhdpi
+dir
+
+
+
+add
+
+drawable-port-ldpi
+dir
+
+
+
+add
+
+mipmap-ldpi
+dir
+
+
+
+add
+
+drawable-port-mdpi
+dir
+
+
+
+add
+
+mipmap-mdpi
+dir
+
+
+
+add
+
+drawable-port-xhdpi
+dir
+
+
+
+add
+
+mipmap-xhdpi
+dir
+
+
+
+add
+

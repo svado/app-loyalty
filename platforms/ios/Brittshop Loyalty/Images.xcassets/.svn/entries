@@ -1,0 +1,56 @@
+10
+
+dir
+0
+http://subversion.grupocafebritt.com:80/Sistemas/app-loyalty/platforms/ios/Brittshop%20Loyalty/Images.xcassets
+http://subversion.grupocafebritt.com:80/Sistemas
+add
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+7fbfb38e-5f93-4992-b219-878775e548b1
+
+LaunchStoryboard.imageset
+dir
+
+
+
+add
+
+Contents.json
+file
+
+
+
+add
+
+LaunchImage.launchimage
+dir
+
+
+
+add
+
+AppIcon.appiconset
+dir
+
+
+
+add
+

@@ -1,0 +1,140 @@
+10
+
+dir
+0
+http://subversion.grupocafebritt.com:80/Sistemas/app-loyalty/platforms/ios/cordova/lib
+http://subversion.grupocafebritt.com:80/Sistemas
+add
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+7fbfb38e-5f93-4992-b219-878775e548b1
+
+run.js
+file
+
+
+
+add
+
+projectFile.js
+file
+
+
+
+add
+
+check_reqs.js
+file
+
+
+
+add
+
+start-emulator
+file
+
+
+
+add
+
+versions.js
+file
+
+
+
+add
+
+list-started-emulators
+file
+
+
+
+add
+
+list-devices
+file
+
+
+
+add
+
+Podfile.js
+file
+
+
+
+add
+
+clean.js
+file
+
+
+
+add
+
+plugman
+dir
+
+
+
+add
+
+spawn.js
+file
+
+
+
+add
+
+list-emulator-images
+file
+
+
+
+add
+
+prepare.js
+file
+
+
+
+add
+
+PodsJson.js
+file
+
+
+
+add
+
+build.js
+file
+
+
+
+add
+
+copy-www-build-step.js
+file
+
+
+
+add
+

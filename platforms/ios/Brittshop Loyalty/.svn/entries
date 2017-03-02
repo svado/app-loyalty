@@ -1,0 +1,112 @@
+10
+
+dir
+0
+http://subversion.grupocafebritt.com:80/Sistemas/app-loyalty/platforms/ios/Brittshop%20Loyalty
+http://subversion.grupocafebritt.com:80/Sistemas
+add
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+7fbfb38e-5f93-4992-b219-878775e548b1
+
+Brittshop Loyalty-Info.plist
+file
+
+
+
+add
+
+main.m
+file
+
+
+
+add
+
+Brittshop Loyalty-Prefix.pch
+file
+
+
+
+add
+
+Bridging-Header.h
+file
+
+
+
+add
+
+Images.xcassets
+dir
+
+
+
+add
+
+Plugins
+dir
+
+
+
+add
+
+Entitlements-Release.plist
+file
+
+
+
+add
+
+config.xml
+file
+
+
+
+add
+
+.gitignore
+file
+
+
+
+add
+
+Entitlements-Debug.plist
+file
+
+
+
+add
+
+Classes
+dir
+
+
+
+add
+
+CDVLaunchScreen.storyboard
+file
+
+
+
+add
+

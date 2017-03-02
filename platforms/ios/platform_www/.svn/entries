@@ -1,0 +1,49 @@
+10
+
+dir
+0
+http://subversion.grupocafebritt.com:80/Sistemas/app-loyalty/platforms/ios/platform_www
+http://subversion.grupocafebritt.com:80/Sistemas
+add
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+7fbfb38e-5f93-4992-b219-878775e548b1
+
+cordova.js
+file
+
+
+
+add
+
+cordova_plugins.js
+file
+
+
+
+add
+
+cordova-js-src
+dir
+
+
+
+add
+

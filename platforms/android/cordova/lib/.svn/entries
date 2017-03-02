@@ -1,0 +1,224 @@
+10
+
+dir
+0
+http://subversion.grupocafebritt.com:80/Sistemas/app-loyalty/platforms/android/cordova/lib
+http://subversion.grupocafebritt.com:80/Sistemas
+add
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+7fbfb38e-5f93-4992-b219-878775e548b1
+
+run.js
+file
+
+
+
+add
+
+retry.js
+file
+
+
+
+add
+
+AndroidManifest.js
+file
+
+
+
+add
+
+AndroidProject.js
+file
+
+
+
+add
+
+check_reqs.js
+file
+
+
+
+add
+
+start-emulator
+file
+
+
+
+add
+
+AndroidStudio.js
+file
+
+
+
+add
+
+list-started-emulators
+file
+
+
+
+add
+
+plugin-build.gradle
+file
+
+
+
+add
+
+start-emulator.bat
+file
+
+
+
+add
+
+pluginHandlers.js
+file
+
+
+
+add
+
+list-devices
+file
+
+
+
+add
+
+log.js
+file
+
+
+
+add
+
+install-emulator
+file
+
+
+
+add
+
+list-started-emulators.bat
+file
+
+
+
+add
+
+list-devices.bat
+file
+
+
+
+add
+
+android_sdk_version.js
+file
+
+
+
+add
+
+install-emulator.bat
+file
+
+
+
+add
+
+Adb.js
+file
+
+
+
+add
+
+emulator.js
+file
+
+
+
+add
+
+install-device
+file
+
+
+
+add
+
+list-emulator-images
+file
+
+
+
+add
+
+install-device.bat
+file
+
+
+
+add
+
+builders
+dir
+
+
+
+add
+
+list-emulator-images.bat
+file
+
+
+
+add
+
+prepare.js
+file
+
+
+
+add
+
+build.js
+file
+
+
+
+add
+
+device.js
+file
+
+
+
+add
+

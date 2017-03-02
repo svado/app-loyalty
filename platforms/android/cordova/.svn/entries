@@ -1,0 +1,161 @@
+10
+
+dir
+0
+http://subversion.grupocafebritt.com:80/Sistemas/app-loyalty/platforms/android/cordova
+http://subversion.grupocafebritt.com:80/Sistemas
+add
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+7fbfb38e-5f93-4992-b219-878775e548b1
+
+log
+file
+
+
+
+add
+
+clean
+file
+
+
+
+add
+
+Api.js
+file
+
+
+
+add
+
+version
+file
+
+
+
+add
+
+log.bat
+file
+
+
+
+add
+
+android_sdk_version
+file
+
+
+
+add
+
+clean.bat
+file
+
+
+
+add
+
+version.bat
+file
+
+
+
+add
+
+build
+file
+
+
+
+add
+
+loggingHelper.js
+file
+
+
+
+add
+
+.jshintrc
+file
+
+
+
+add
+
+run
+file
+
+
+
+add
+
+build.bat
+file
+
+
+
+add
+
+lib
+dir
+
+
+
+add
+
+defaults.xml
+file
+
+
+
+add
+
+check_reqs
+file
+
+
+
+add
+
+run.bat
+file
+
+
+
+add
+
+check_reqs.bat
+file
+
+
+
+add
+
+node_modules
+dir
+
+
+
+add
+

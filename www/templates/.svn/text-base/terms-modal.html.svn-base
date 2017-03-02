@@ -8,6 +8,6 @@
     <ion-content class="padding">    
         <h4 ng-if="title_term">{{title_term | uppercase}}</h4>
         <div ng-bind-html="content_term"></div>
-        <p><small>Brittshop Loyalty v1.1</small></p>
+        <p><small>Brittshop Loyalty v1.0</small></p>
     </ion-content>    
 </ion-modal-view>

@@ -66,6 +66,20 @@ dir
 css
 dir
 
+cordova.js
+file
+0
+
+
+add
+
+cordova_plugins.js
+file
+0
+
+
+add
+
 index.html
 file
 25716
@@ -173,6 +187,13 @@ dir
 
 js
 dir
+
+cordova-js-src
+dir
+
+
+
+add
 
 manifest.json
 file

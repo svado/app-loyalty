@@ -1,0 +1,70 @@
+10
+
+dir
+0
+http://subversion.grupocafebritt.com:80/Sistemas/app-loyalty/platforms/android/CordovaLib/src/org/apache/cordova/engine
+http://subversion.grupocafebritt.com:80/Sistemas
+add
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+7fbfb38e-5f93-4992-b219-878775e548b1
+
+SystemWebChromeClient.java
+file
+
+
+
+add
+
+SystemExposedJsApi.java
+file
+
+
+
+add
+
+SystemWebViewEngine.java
+file
+
+
+
+add
+
+SystemCookieManager.java
+file
+
+
+
+add
+
+SystemWebViewClient.java
+file
+
+
+
+add
+
+SystemWebView.java
+file
+
+
+
+add
+
