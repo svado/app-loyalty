@@ -47,20 +47,33 @@ $dark:                            #444 !default;
 .float-right {
   float: right; }
 
+.tiendas .list a, .tiendas .list h1, .tiendas .list h2, .tiendas .list h3, .tiendas .list p {
+  font-size: 0.95em !important;
+  white-space: normal; }
+
 .countries {
-  height: 60px;
-  margin: 0 auto;
-  top: 18px;
-  position: relative; }
+  min-height: 60px;
+  margin: 0 auto 10px auto;
+  top: 8px;
+  position: relative;
+  width: 100%; }
   .countries span {
     background-size: 40px 25px !important;
     padding: 13px 20px !important;
     background-repeat: no-repeat !important;
     height: 1px !important;
     filter: grayscale(80%);
-    margin: 0 5px; }
+    margin: 0 5px 5px 5px;
+    float: left; }
     .countries span.active {
       filter: grayscale(0) !important; }
+
+.terms .flags span:first-child {
+  position: relative;
+  top: 10px !important; }
+
+.terms .flags .item-content {
+  padding-right: 0 !important; }
 
 .bar.bar-stable .title {
   color: #c4a8a8 !important; }

@@ -16,10 +16,10 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
       cordova.plugins.Keyboard.disableScroll(true);
     }
+    
+    // Full screen siempre
     ionic.Platform.fullScreen();
     if (window.StatusBar) {
-      // org.apache.cordova.statusbar required
-      //StatusBar.styleDefault();
         StatusBar.hide();
     }   
 

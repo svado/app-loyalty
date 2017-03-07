@@ -3,3 +3,15 @@ svn:wc:ra_dav:version-url
 V 57
 /Sistemas/!svn/ver/25839/app-loyalty/resources/ios/splash
 END
+Default~iphone.png
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/Sistemas/!svn/ver/25948/app-loyalty/resources/ios/splash/Default~iphone.png
+END
+splash.png
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/Sistemas/!svn/ver/25948/app-loyalty/resources/ios/splash/splash.png
+END

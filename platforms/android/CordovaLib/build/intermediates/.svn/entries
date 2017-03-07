@@ -1,105 +1,0 @@
-10
-
-dir
-0
-http://subversion.grupocafebritt.com:80/Sistemas/app-loyalty/platforms/android/CordovaLib/build/intermediates
-http://subversion.grupocafebritt.com:80/Sistemas
-add
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-7fbfb38e-5f93-4992-b219-878775e548b1
-
-dependency-cache
-dir
-
-
-
-add
-
-incremental-safeguard
-dir
-
-
-
-add
-
-incremental
-dir
-
-
-
-add
-
-rs
-dir
-
-
-
-add
-
-lint
-dir
-
-
-
-add
-
-manifests
-dir
-
-
-
-add
-
-shaders
-dir
-
-
-
-add
-
-jniLibs
-dir
-
-
-
-add
-
-bundles
-dir
-
-
-
-add
-
-classes
-dir
-
-
-
-add
-
-transforms
-dir
-
-
-
-add
-

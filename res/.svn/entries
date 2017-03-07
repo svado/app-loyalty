@@ -1,0 +1,58 @@
+10
+
+dir
+25949
+http://subversion.grupocafebritt.com:80/Sistemas/app-loyalty/res
+http://subversion.grupocafebritt.com:80/Sistemas
+
+
+
+2017-03-06T20:30:31.801617Z
+25949
+svado
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+7fbfb38e-5f93-4992-b219-878775e548b1
+
+drawable-land-ldpi
+dir
+
+drawable-land-mdpi
+dir
+
+mipmap-hdpi
+dir
+
+mipmap-xxhdpi
+dir
+
+drawable-port-ldpi
+dir
+
+mipmap-ldpi
+dir
+
+drawable-port-mdpi
+dir
+
+mipmap-mdpi
+dir
+
+mipmap-xhdpi
+dir
+
+mipmap-xxxhdpi
+dir
+

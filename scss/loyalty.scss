@@ -71,15 +71,23 @@ $dark:                            #444 !default;
 .float-right {
     float: right
 }
+.tiendas .list {
+    a, h1, h2, h3, p {
+        font-size: 0.95em !important; 
+        white-space: normal;
+    }
+}
+
 
 // Countries
 // -------------------------------------------
 
 .countries {
-    height: 60px;
-    margin: 0 auto;
-    top: 18px;
+    min-height: 60px;
+    margin: 0 auto 10px auto;
+    top: 8px;
     position: relative;
+    width: 100%;
     
     span {
         background-size: 40px 25px !important;
@@ -87,7 +95,8 @@ $dark:                            #444 !default;
         background-repeat: no-repeat !important;
         height: 1px !important;
         filter: grayscale(80%);
-        margin: 0 5px;
+        margin: 0 5px 5px 5px;
+        float: left;
     
         &.active {
             filter: grayscale(0) !important;    
@@ -95,6 +104,13 @@ $dark:                            #444 !default;
     }
 }
 
+.terms .flags span:first-child {
+    position: relative;
+    top: 10px !important;
+}
+.terms .flags .item-content {
+    padding-right: 0 !important;
+}
 
 // Header
 // -------------------------------------------

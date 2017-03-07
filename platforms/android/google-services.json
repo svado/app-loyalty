@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "171516973597",
+    "firebase_url": "https://brittshop-loyalty-c157a.firebaseio.com",
+    "project_id": "brittshop-loyalty-c157a",
+    "storage_bucket": "brittshop-loyalty-c157a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:171516973597:android:db24eea37161fbd0",
+        "android_client_info": {
+          "package_name": "com.brittshop.com"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "171516973597-9mj69iv8kj7uj9i2m0nvsu8tsf3ubq4h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.brittshop.com",
+            "certificate_hash": "9d4a44af13c41c7a2f4411bde9d3a344bbee9468"
+          }
+        },
+        {
+          "client_id": "171516973597-p2u3b8ild89q2f2g6j6bft9150hiigbo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyANzKDDaN4BUmEi8kwdBv1rmaMw-aZZfm4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "171516973597-p2u3b8ild89q2f2g6j6bft9150hiigbo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -3,3 +3,33 @@ svn:wc:ra_dav:version-url
 V 61
 /Sistemas/!svn/ver/25839/app-loyalty/resources/android/splash
 END
+drawable-land-ldpi-screen.png
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/Sistemas/!svn/ver/25948/app-loyalty/resources/android/splash/drawable-land-ldpi-screen.png
+END
+drawable-land-mdpi-screen.png
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/Sistemas/!svn/ver/25948/app-loyalty/resources/android/splash/drawable-land-mdpi-screen.png
+END
+drawable-port-ldpi-screen.png
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/Sistemas/!svn/ver/25948/app-loyalty/resources/android/splash/drawable-port-ldpi-screen.png
+END
+drawable-port-mdpi-screen.png
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/Sistemas/!svn/ver/25948/app-loyalty/resources/android/splash/drawable-port-mdpi-screen.png
+END
+splash.png
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/Sistemas/!svn/ver/25948/app-loyalty/resources/android/splash/splash.png
+END

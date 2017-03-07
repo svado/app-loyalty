@@ -26,6 +26,9 @@ has-prop-mods
 
 7fbfb38e-5f93-4992-b219-878775e548b1
 
+plugins
+dir
+
 .bowerrc
 file
 24812
@@ -59,9 +62,6 @@ svado
 
 
 29
-
-plugins
-dir
 
 gulpfile.js
 file
@@ -136,6 +136,9 @@ svado
 
 
 217
+
+res
+dir
 
 .editorconfig
 file
@@ -241,14 +244,14 @@ svado
 
 config.xml
 file
-25837
+25951
 
 
 
-2017-02-27T14:52:49.136624Z
-adcf7811d1a6f79f7c2709121ca95157
-2017-02-27T18:11:40.267470Z
-25837
+2017-03-06T19:54:01.390947Z
+003717e0c38d87af4788b44cc930c65f
+2017-03-06T20:37:02.310928Z
+25951
 svado
 
 
@@ -271,7 +274,7 @@ svado
 
 
 
-3595
+3493
 
 .gitignore
 file
@@ -319,6 +322,40 @@ dir
 
 scss
 dir
+
+icon.png
+file
+25965
+
+
+
+2017-03-02T15:06:40.383887Z
+02bd79123e8cdf9b77472b11807002dc
+2017-03-07T15:25:28.943683Z
+25965
+svado
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+26160
 
 ionic.config.json
 file
@@ -394,4 +431,38 @@ svado
 
 
 0
+
+splash.png
+file
+25965
+
+
+
+2017-03-02T22:06:31.178944Z
+b5d1e1f3520ad9bc0fdd1c1a39957f85
+2017-03-07T15:25:28.943683Z
+25965
+svado
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+21246
 

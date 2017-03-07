@@ -1,13 +1,46 @@
 <ion-modal-view >
     <ion-header-bar class="bar-positive">
-        <h5 class="title">{{page_title_term}}</h5>
+        <h5 class="title">{{page_title_term}} <span class='float-right'><i class='ion-arrow-left-b'></i>&nbsp;&nbsp;<i class='ion-arrow-right-b'></i></span></h5>
         <div class="buttons">
             <button class="button button-clear" ng-click="closeTerms()">Cerrar</button>
         </div>
     </ion-header-bar>
-    <ion-content class="padding">    
-        <h4 ng-if="title_term">{{title_term | uppercase}}</h4>
-        <div ng-bind-html="content_term"></div>
-        <p><small>Brittshop Loyalty v1.0</small></p>
+    
+    <ion-content class="padding terms" scroll="false">   
+        
+        <ion-slides slider="data.slider">
+            
+            <!-- Contenido de terminos -->
+            <ion-slide-page ng-repeat="content in contents_term">
+                <div class="box text-center">
+                    <ion-content scroll="true">
+                        <h4 ng-if="content.TITLE">{{content.TITLE | uppercase}}</h4>
+                        <div ng-bind-html="content.TEXT"></div>
+                    </ion-content>
+                </div>
+            </ion-slide-page>
+            
+            <!-- Paises -->
+            <ion-slide-page>
+                <div class="box text-center">
+                    <ion-content scroll="true">
+                        <h4>CAMBIAR PAIS</h4>
+                        <div class="row flags">
+                            <div class="countries">
+                                <ion-list>
+                              <ion-radio class="text-left" ng-repeat="country in britt_countries" ng-model="iso2" ng-value="{{country.APP_COUNTRY_ISO2}}" ng-checked="false" ng-click="changeCountry('{{country.APP_COUNTRY_ISO2}}')">
+                                  <span class="flag-{{country.APP_COUNTRY_ISO2}} active" style="background-image: url({{$parent.rutaImagenes}}/flags/{{country.APP_COUNTRY_ISO2}}.png) !important;"></span>
+                                  {{country.NOMBRE_PAIS}}
+                                    </ion-radio>
+                                </ion-list>
+                            </div>
+                        </div>
+                    </ion-content>
+                </div>
+            </ion-slide-page>
+        </ion-slides>
+
+        <!--<p><small>Brittshop Loyalty v1.1</small></p>        -->
+        
     </ion-content>    
 </ion-modal-view>

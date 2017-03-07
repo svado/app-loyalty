@@ -10,9 +10,6 @@
         "cordova-plugin-device": {
             "PACKAGE_NAME": "com.ionicframework.loyalty629480"
         },
-        "cordova-plugin-splashscreen": {
-            "PACKAGE_NAME": "com.ionicframework.loyalty629480"
-        },
         "cordova-plugin-statusbar": {
             "PACKAGE_NAME": "com.ionicframework.loyalty629480"
         },
@@ -24,6 +21,9 @@
         },
         "cordova-plugin-geolocation": {
             "PACKAGE_NAME": "com.ionicframework.loyalty629480"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.brittshop.com"
         }
     },
     "dependent_plugins": {

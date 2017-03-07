@@ -459,7 +459,7 @@ angular.module('starter.controllers', [])
     });    
 })
 
-// Manejo del contenido del mapa
+// Manejo del c/ontenido del mapa
 .controller('MapCtrl', function ($scope, $rootScope, $ionicHistory, $http, $stateParams) {
 
     // Inactiva el boton de atras
@@ -481,7 +481,7 @@ angular.module('starter.controllers', [])
     }
         
     // Obtiene el contenido
-    $params = '&country_iso2='+country_code+'&menu=MAPA&article_types=163';
+    /*$params = '&country_iso2='+country_code+'&menu=MAPA&article_types=163';
     $method = 'getPageArticles';
     $http.post($rutaPagesWs + $method + $params).
     success(function (data, status, headers) {
@@ -494,7 +494,23 @@ angular.module('starter.controllers', [])
     error(function (data, status) {
         $scope.error = true;
         console.log(status);
-    });
+    });*/
+    
+    // Obtiene el contenido
+    $params = '&country_iso2='+country_code+'&menu=MAPA&article_types=163';
+    $method = 'getPageArticles';
+    $http.post($rutaPagesWs + $method + $params).
+    success(function (data, status, headers) {
+        if (data.length != 0) {
+            $scope.contents = data;
+            $scope.page_title = data[0].PAGE_HEADER;
+            $scope.error = false;
+        }
+    }).
+    error(function (data, status) {
+        $scope.error = true;
+        console.log(status);
+    });  
 })
 
 // Manejo del profile
@@ -590,18 +606,30 @@ angular.module('starter.controllers', [])
 })
 
 // Manejo del profile
-.controller('TermsCtrl', function($scope, $rootScope, $ionicHistory, $http, $stateParams, $ionicModal) {
+.controller('TermsCtrl', function($scope, $rootScope, $ionicHistory, $http, $stateParams, $ionicModal, $state) {
   
+    // Variables principales    
+    var country_code = '';
+    var country_name = '';
+    $rootScope.countries = $scope.countries;
+    $scope.rutaImagenes = $rutaImagenes;
+    
+    //$scope.geoData = $scope.getLocalData('geodata'); 
+    
     // Obtiene el contenido
     $params = '&country_iso2=CR&menu=TERMINOS&article_types=163';
     $method = 'getPageArticles';
     $http.post($rutaPagesWs + $method + $params).
     success(function (data, status, headers) {
         if (data.length != 0) {
-            $scope.content_term = data[0].TEXT;
+           /* $scope.content_term = data[0].TEXT;
             $scope.title_term = data[0].TITLE;
             $scope.page_title_term = data[0].PAGE_HEADER;
-            $scope.error = false;
+            $scope.error = false;*/
+            $scope.contents_term = data;
+            $scope.title_term = data[0].TITLE;
+            $scope.page_title_term = data[0].PAGE_HEADER;
+            $scope.error = false;         
         }
     }).
     error(function (data, status) {
@@ -621,6 +649,16 @@ angular.module('starter.controllers', [])
     $scope.terms = function () {
         $scope.modalTerms.show();
     };        
+    
+    // Cambia el pais de la session
+    $scope.changeCountry = function($country_code) {
+        console.log($country_code);
+        sessionStorage.setItem('country_code', $country_code);
+        $state.go("tab.home", {country_code:$country_code}, {
+            reload: true
+        });
+        $scope.closeTerms();
+    }
 })
 
 // Contactenos

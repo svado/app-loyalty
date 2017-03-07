@@ -481,7 +481,7 @@ angular.module('starter.controllers', [])
     }
         
     // Obtiene el contenido
-    $params = '&country_iso2='+country_code+'&menu=MAPA&article_types=163';
+    /*$params = '&country_iso2='+country_code+'&menu=MAPA&article_types=163';
     $method = 'getPageArticles';
     $http.post($rutaPagesWs + $method + $params).
     success(function (data, status, headers) {
@@ -494,7 +494,23 @@ angular.module('starter.controllers', [])
     error(function (data, status) {
         $scope.error = true;
         console.log(status);
-    });
+    });*/
+    
+    // Obtiene el contenido
+    $params = '&country_iso2='+country_code+'&menu=MAPA&article_types=163';
+    $method = 'getPageArticles';
+    $http.post($rutaPagesWs + $method + $params).
+    success(function (data, status, headers) {
+        if (data.length != 0) {
+            $scope.contents = data;
+            $scope.page_title = data[0].PAGE_HEADER;
+            $scope.error = false;
+        }
+    }).
+    error(function (data, status) {
+        $scope.error = true;
+        console.log(status);
+    });  
 })
 
 // Manejo del profile

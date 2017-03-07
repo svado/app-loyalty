@@ -18,16 +18,15 @@
     
     <label class="item item-input"> <span class="input-label">Contrase&ntilde;a</span>
         <div ng-messages="fLogin.password.$error" ng-messages-include="messages.html"></div>
-        <input type="password" ng-model="$parent.loginData.password" name="password" placeholder="Your password" required> </label>
-    <div class="row flags">
+        <input type="password" ng-model="$parent.loginData.password" name="password" placeholder="Your password" required> </label>    
+    <div class="row flags">        
         <div class="countries">
-            <span class="flag-{{country.APP_COUNTRY_ISO2}}" ng-repeat="country in britt_countries" style="background-image: url({{$parent.rutaImagenes}}/flags/{{country.APP_COUNTRY_ISO2}}.png) !important;" ng-class="{'active' : country_code == country.APP_COUNTRY_ISO2}" ng-click="changeCountry('{{country.APP_COUNTRY_ISO2}}')"></span>
-            <p class="text-center">{{country_name}}</p>
-        </div>        
+            <span class="flag-{{country.APP_COUNTRY_ISO2}}" ng-repeat="country in britt_countries" style="background-image: url({{$parent.rutaImagenes}}/flags/{{country.APP_COUNTRY_ISO2}}.png) !important;" ng-class="{'active' : country_code == country.APP_COUNTRY_ISO2}"></span>                        
+        </div>                
     </div>
     <div class="item">
-        <button class="button button-block button-outline button-positive" type="submit" ng-disabled="fLogin.$invalid">Es miembro? Ingrese aqu&iacute;</button> <a class="button button-block button-outline button-calm" href="#/app/signup" ng-click="signup()">Registrarse</a> </div>
+        <button class="button button-block button-positive" type="submit" ng-disabled="fLogin.$invalid">Es miembro? Ingrese aqu&iacute;</button> <a class="button button-block button-outline button-calm" href="#/app/signup" ng-click="signup()">Registrarse</a> </div>
     <div class="item text-center">
-        <p><a class="button button-outline button-stable" href="#/app/reset" ng-click="reset()">Olvido su contrase&ntilde;a? <small>Crear una?</small></a></p>
+        <p><a class="button button-outline button-calm" href="#/app/reset" ng-click="reset()">Olvido su contrase&ntilde;a? <small>Crear una?</small></a></p>
     </div>
 </div>
