@@ -1,8 +1,15 @@
-<ion-view view-title="{{page_title}}">
-    <ion-content>
-        <h3 ng-if="content.TITLE">{{content.TITLE | uppercase}}</h3>
-        <div class="full-image" ng-bind-html="content"></div>
+<ion-view view-title="{{page_title}} <span class='float-right'><i class='ion-arrow-left-b'></i>&nbsp;&nbsp;<i class='ion-arrow-right-b'></i></span>">
+    <ion-content scroll="false">
+        <ion-slides options="options" slider="data.slider">
+            <ion-slide-page ng-repeat="content in contents">
+                <div class="box text-center">
+                    <h3 ng-if="content.TITLE">{{content.TITLE | uppercase}}</h3>
+                    <div class="full-image" ng-bind-html="content.TEXT"></div>
+                </div>
+            </ion-slide-page>
+        </ion-slides>
     </ion-content>
+    
     <ion-footer-bar align-title="center" class="footer-simple bar-calm" ng-if="isLoggedIn()">
         <h1 class="title">Bienvenido {{loginData.first_name}}</h1>             
     </ion-footer-bar>

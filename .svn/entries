@@ -26,9 +26,6 @@ has-prop-mods
 
 7fbfb38e-5f93-4992-b219-878775e548b1
 
-plugins
-dir
-
 .bowerrc
 file
 24812
@@ -62,6 +59,9 @@ svado
 
 
 29
+
+plugins
+dir
 
 gulpfile.js
 file
@@ -244,14 +244,14 @@ svado
 
 config.xml
 file
-25951
+25971
 
 
 
-2017-03-06T19:54:01.390947Z
-003717e0c38d87af4788b44cc930c65f
-2017-03-06T20:37:02.310928Z
-25951
+2017-03-07T16:48:34.107838Z
+fa65f4f934fa5c0fb442936bdfbfa2ec
+2017-03-07T16:45:42.462774Z
+25971
 svado
 
 
@@ -274,7 +274,7 @@ svado
 
 
 
-3493
+3622
 
 .gitignore
 file

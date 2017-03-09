@@ -181,7 +181,7 @@ angular.module('starter.controllers', [])
     $http.post($rutaPagesWs + $method + $params).
     success(function (data, status, headers) {
         if (data.length != 0) {
-            $scope.content = data[0].TEXT;
+            $scope.contents = data;
             $scope.page_title = data[0].PAGE_HEADER;
             $scope.error = false;
         }
@@ -622,10 +622,6 @@ angular.module('starter.controllers', [])
     $http.post($rutaPagesWs + $method + $params).
     success(function (data, status, headers) {
         if (data.length != 0) {
-           /* $scope.content_term = data[0].TEXT;
-            $scope.title_term = data[0].TITLE;
-            $scope.page_title_term = data[0].PAGE_HEADER;
-            $scope.error = false;*/
             $scope.contents_term = data;
             $scope.title_term = data[0].TITLE;
             $scope.page_title_term = data[0].PAGE_HEADER;
